@@ -1,0 +1,508 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3CB126821C0D0D51008540DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB126811C0D0D51008540DE /* AppDelegate.swift */; };
+		3CB126841C0D0D51008540DE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB126831C0D0D51008540DE /* ViewController.swift */; };
+		3CB126871C0D0D51008540DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CB126851C0D0D51008540DE /* Main.storyboard */; };
+		3CB126891C0D0D51008540DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CB126881C0D0D51008540DE /* Assets.xcassets */; };
+		3CB1268C1C0D0D51008540DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CB1268A1C0D0D51008540DE /* LaunchScreen.storyboard */; };
+		3CB126971C0D0D51008540DE /* SpinNSpellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB126961C0D0D51008540DE /* SpinNSpellTests.swift */; };
+		3CB126A21C0D0D51008540DE /* SpinNSpellUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB126A11C0D0D51008540DE /* SpinNSpellUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3CB126931C0D0D51008540DE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3CB126761C0D0D51008540DE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3CB1267D1C0D0D51008540DE;
+			remoteInfo = SpinNSpell;
+		};
+		3CB1269E1C0D0D51008540DE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3CB126761C0D0D51008540DE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3CB1267D1C0D0D51008540DE;
+			remoteInfo = SpinNSpell;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3CB1267E1C0D0D51008540DE /* SpinNSpell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpinNSpell.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CB126811C0D0D51008540DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3CB126831C0D0D51008540DE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3CB126861C0D0D51008540DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3CB126881C0D0D51008540DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3CB1268B1C0D0D51008540DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3CB1268D1C0D0D51008540DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3CB126921C0D0D51008540DE /* SpinNSpellTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpinNSpellTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CB126961C0D0D51008540DE /* SpinNSpellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinNSpellTests.swift; sourceTree = "<group>"; };
+		3CB126981C0D0D51008540DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3CB1269D1C0D0D51008540DE /* SpinNSpellUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpinNSpellUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CB126A11C0D0D51008540DE /* SpinNSpellUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinNSpellUITests.swift; sourceTree = "<group>"; };
+		3CB126A31C0D0D51008540DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3CB1267B1C0D0D51008540DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3CB1268F1C0D0D51008540DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3CB1269A1C0D0D51008540DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3CB126751C0D0D51008540DE = {
+			isa = PBXGroup;
+			children = (
+				3CB126801C0D0D51008540DE /* SpinNSpell */,
+				3CB126951C0D0D51008540DE /* SpinNSpellTests */,
+				3CB126A01C0D0D51008540DE /* SpinNSpellUITests */,
+				3CB1267F1C0D0D51008540DE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3CB1267F1C0D0D51008540DE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3CB1267E1C0D0D51008540DE /* SpinNSpell.app */,
+				3CB126921C0D0D51008540DE /* SpinNSpellTests.xctest */,
+				3CB1269D1C0D0D51008540DE /* SpinNSpellUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3CB126801C0D0D51008540DE /* SpinNSpell */ = {
+			isa = PBXGroup;
+			children = (
+				3CB126811C0D0D51008540DE /* AppDelegate.swift */,
+				3CB126831C0D0D51008540DE /* ViewController.swift */,
+				3CB126851C0D0D51008540DE /* Main.storyboard */,
+				3CB126881C0D0D51008540DE /* Assets.xcassets */,
+				3CB1268A1C0D0D51008540DE /* LaunchScreen.storyboard */,
+				3CB1268D1C0D0D51008540DE /* Info.plist */,
+			);
+			path = SpinNSpell;
+			sourceTree = "<group>";
+		};
+		3CB126951C0D0D51008540DE /* SpinNSpellTests */ = {
+			isa = PBXGroup;
+			children = (
+				3CB126961C0D0D51008540DE /* SpinNSpellTests.swift */,
+				3CB126981C0D0D51008540DE /* Info.plist */,
+			);
+			path = SpinNSpellTests;
+			sourceTree = "<group>";
+		};
+		3CB126A01C0D0D51008540DE /* SpinNSpellUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3CB126A11C0D0D51008540DE /* SpinNSpellUITests.swift */,
+				3CB126A31C0D0D51008540DE /* Info.plist */,
+			);
+			path = SpinNSpellUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3CB1267D1C0D0D51008540DE /* SpinNSpell */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3CB126A61C0D0D51008540DE /* Build configuration list for PBXNativeTarget "SpinNSpell" */;
+			buildPhases = (
+				3CB1267A1C0D0D51008540DE /* Sources */,
+				3CB1267B1C0D0D51008540DE /* Frameworks */,
+				3CB1267C1C0D0D51008540DE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SpinNSpell;
+			productName = SpinNSpell;
+			productReference = 3CB1267E1C0D0D51008540DE /* SpinNSpell.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3CB126911C0D0D51008540DE /* SpinNSpellTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3CB126A91C0D0D51008540DE /* Build configuration list for PBXNativeTarget "SpinNSpellTests" */;
+			buildPhases = (
+				3CB1268E1C0D0D51008540DE /* Sources */,
+				3CB1268F1C0D0D51008540DE /* Frameworks */,
+				3CB126901C0D0D51008540DE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3CB126941C0D0D51008540DE /* PBXTargetDependency */,
+			);
+			name = SpinNSpellTests;
+			productName = SpinNSpellTests;
+			productReference = 3CB126921C0D0D51008540DE /* SpinNSpellTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3CB1269C1C0D0D51008540DE /* SpinNSpellUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3CB126AC1C0D0D51008540DE /* Build configuration list for PBXNativeTarget "SpinNSpellUITests" */;
+			buildPhases = (
+				3CB126991C0D0D51008540DE /* Sources */,
+				3CB1269A1C0D0D51008540DE /* Frameworks */,
+				3CB1269B1C0D0D51008540DE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3CB1269F1C0D0D51008540DE /* PBXTargetDependency */,
+			);
+			name = SpinNSpellUITests;
+			productName = SpinNSpellUITests;
+			productReference = 3CB1269D1C0D0D51008540DE /* SpinNSpellUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3CB126761C0D0D51008540DE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = Vivian;
+				TargetAttributes = {
+					3CB1267D1C0D0D51008540DE = {
+						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = KDUVVJAN84;
+					};
+					3CB126911C0D0D51008540DE = {
+						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = KDUVVJAN84;
+						TestTargetID = 3CB1267D1C0D0D51008540DE;
+					};
+					3CB1269C1C0D0D51008540DE = {
+						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = KDUVVJAN84;
+						TestTargetID = 3CB1267D1C0D0D51008540DE;
+					};
+				};
+			};
+			buildConfigurationList = 3CB126791C0D0D51008540DE /* Build configuration list for PBXProject "SpinNSpell" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3CB126751C0D0D51008540DE;
+			productRefGroup = 3CB1267F1C0D0D51008540DE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3CB1267D1C0D0D51008540DE /* SpinNSpell */,
+				3CB126911C0D0D51008540DE /* SpinNSpellTests */,
+				3CB1269C1C0D0D51008540DE /* SpinNSpellUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3CB1267C1C0D0D51008540DE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CB1268C1C0D0D51008540DE /* LaunchScreen.storyboard in Resources */,
+				3CB126891C0D0D51008540DE /* Assets.xcassets in Resources */,
+				3CB126871C0D0D51008540DE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3CB126901C0D0D51008540DE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3CB1269B1C0D0D51008540DE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3CB1267A1C0D0D51008540DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CB126841C0D0D51008540DE /* ViewController.swift in Sources */,
+				3CB126821C0D0D51008540DE /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3CB1268E1C0D0D51008540DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CB126971C0D0D51008540DE /* SpinNSpellTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3CB126991C0D0D51008540DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CB126A21C0D0D51008540DE /* SpinNSpellUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3CB126941C0D0D51008540DE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3CB1267D1C0D0D51008540DE /* SpinNSpell */;
+			targetProxy = 3CB126931C0D0D51008540DE /* PBXContainerItemProxy */;
+		};
+		3CB1269F1C0D0D51008540DE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3CB1267D1C0D0D51008540DE /* SpinNSpell */;
+			targetProxy = 3CB1269E1C0D0D51008540DE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3CB126851C0D0D51008540DE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3CB126861C0D0D51008540DE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3CB1268A1C0D0D51008540DE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3CB1268B1C0D0D51008540DE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3CB126A41C0D0D51008540DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3CB126A51C0D0D51008540DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3CB126A71C0D0D51008540DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SpinNSpell/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.uw.vwteng.SpinNSpell;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3CB126A81C0D0D51008540DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SpinNSpell/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.uw.vwteng.SpinNSpell;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		3CB126AA1C0D0D51008540DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SpinNSpellTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.uw.vwteng.SpinNSpellTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpinNSpell.app/SpinNSpell";
+			};
+			name = Debug;
+		};
+		3CB126AB1C0D0D51008540DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SpinNSpellTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.uw.vwteng.SpinNSpellTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpinNSpell.app/SpinNSpell";
+			};
+			name = Release;
+		};
+		3CB126AD1C0D0D51008540DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SpinNSpellUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.uw.vwteng.SpinNSpellUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = SpinNSpell;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		3CB126AE1C0D0D51008540DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SpinNSpellUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.uw.vwteng.SpinNSpellUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = SpinNSpell;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3CB126791C0D0D51008540DE /* Build configuration list for PBXProject "SpinNSpell" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3CB126A41C0D0D51008540DE /* Debug */,
+				3CB126A51C0D0D51008540DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3CB126A61C0D0D51008540DE /* Build configuration list for PBXNativeTarget "SpinNSpell" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3CB126A71C0D0D51008540DE /* Debug */,
+				3CB126A81C0D0D51008540DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		3CB126A91C0D0D51008540DE /* Build configuration list for PBXNativeTarget "SpinNSpellTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3CB126AA1C0D0D51008540DE /* Debug */,
+				3CB126AB1C0D0D51008540DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		3CB126AC1C0D0D51008540DE /* Build configuration list for PBXNativeTarget "SpinNSpellUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3CB126AD1C0D0D51008540DE /* Debug */,
+				3CB126AE1C0D0D51008540DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3CB126761C0D0D51008540DE /* Project object */;
+}

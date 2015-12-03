@@ -14,6 +14,7 @@
 		3CB1268C1C0D0D51008540DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CB1268A1C0D0D51008540DE /* LaunchScreen.storyboard */; };
 		3CB126971C0D0D51008540DE /* SpinNSpellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB126961C0D0D51008540DE /* SpinNSpellTests.swift */; };
 		3CB126A21C0D0D51008540DE /* SpinNSpellUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB126A11C0D0D51008540DE /* SpinNSpellUITests.swift */; };
+		CE0E6F531C0FC95C0031D7AD /* JSONViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E6F521C0FC95C0031D7AD /* JSONViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		3CB1269D1C0D0D51008540DE /* SpinNSpellUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpinNSpellUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CB126A11C0D0D51008540DE /* SpinNSpellUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinNSpellUITests.swift; sourceTree = "<group>"; };
 		3CB126A31C0D0D51008540DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE0E6F521C0FC95C0031D7AD /* JSONViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				3CB126811C0D0D51008540DE /* AppDelegate.swift */,
 				3CB126831C0D0D51008540DE /* ViewController.swift */,
 				3CB126851C0D0D51008540DE /* Main.storyboard */,
+				CE0E6F521C0FC95C0031D7AD /* JSONViewController.swift */,
 				3CB126881C0D0D51008540DE /* Assets.xcassets */,
 				3CB1268A1C0D0D51008540DE /* LaunchScreen.storyboard */,
 				3CB1268D1C0D0D51008540DE /* Info.plist */,
@@ -261,6 +264,7 @@
 			files = (
 				3CB126841C0D0D51008540DE /* ViewController.swift in Sources */,
 				3CB126821C0D0D51008540DE /* AppDelegate.swift in Sources */,
+				CE0E6F531C0FC95C0031D7AD /* JSONViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,6 +489,7 @@
 				3CB126A81C0D0D51008540DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3CB126A91C0D0D51008540DE /* Build configuration list for PBXNativeTarget "SpinNSpellTests" */ = {
 			isa = XCConfigurationList;
@@ -493,6 +498,7 @@
 				3CB126AB1C0D0D51008540DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3CB126AC1C0D0D51008540DE /* Build configuration list for PBXNativeTarget "SpinNSpellUITests" */ = {
 			isa = XCConfigurationList;
@@ -501,6 +507,7 @@
 				3CB126AE1C0D0D51008540DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -133,6 +133,9 @@
                                 <rect key="frame" x="223" y="332" width="154" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Check For New Topics"/>
+                                <connections>
+                                    <action selector="checkForNewTopics:" destination="zHa-JO-bl0" eventType="touchUpInside" id="pmz-xn-383"/>
+                                </connections>
                             </button>
                         </subviews>
                         <animations/>
@@ -146,6 +149,9 @@
                             <constraint firstItem="wNC-gM-1x0" firstAttribute="top" secondItem="6TI-lS-txc" secondAttribute="bottom" constant="19" id="cMa-U7-brd"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="textBox" destination="wNC-gM-1x0" id="6qv-NT-vWV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cmh-gd-0nQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -186,6 +186,9 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eZZ-FM-iXE">
                                 <rect key="frame" x="501" y="427" width="51" height="31"/>
                                 <animations/>
+                                <connections>
+                                    <action selector="switchPressed:" destination="TrP-OX-0Vx" eventType="valueChanged" id="Rep-at-xb6"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Sound On/Off" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hbf-mT-zeh">
                                 <rect key="frame" x="50" y="432" width="106" height="21"/>
@@ -194,42 +197,44 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="rAt-8s-irM">
-                                <rect key="frame" x="456" y="335" width="94" height="29"/>
-                                <animations/>
-                            </stepper>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Max Word Length" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rhp-7t-iS8">
-                                <rect key="frame" x="50" y="339" width="135" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Max Word Length: 8" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rhp-7t-iS8">
+                                <rect key="frame" x="50" y="321" width="241" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="JSON File" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V4j-Fp-d4X">
-                                <rect key="frame" x="50" y="215" width="75" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="JSON Topic File" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V4j-Fp-d4X">
+                                <rect key="frame" x="50" y="214" width="121" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H6X-2d-QeI">
-                                <rect key="frame" x="433" y="226" width="94" height="30"/>
+                                <rect key="frame" x="456" y="210" width="94" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Load">
+                                <state key="normal" title="Upload New">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="zHa-JO-bl0" kind="show" id="Eu5-4a-pb3"/>
                                 </connections>
                             </button>
+                            <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="8" minValue="1" maxValue="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ei1-g4-Ql7">
+                                <rect key="frame" x="434" y="321" width="118" height="31"/>
+                                <animations/>
+                                <connections>
+                                    <action selector="sliderChanged:" destination="TrP-OX-0Vx" eventType="valueChanged" id="zrP-oY-Xx6"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="rAt-8s-irM" firstAttribute="leading" secondItem="H6X-2d-QeI" secondAttribute="leading" id="2XE-5I-1HK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ei1-g4-Ql7" secondAttribute="trailing" constant="30" id="1lM-ry-jkH"/>
                             <constraint firstItem="Rhp-7t-iS8" firstAttribute="leading" secondItem="IJO-2u-TVp" secondAttribute="leadingMargin" constant="30" id="Cil-H9-C25"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="rAt-8s-irM" secondAttribute="trailing" constant="30" id="MFk-pj-ncl"/>
                             <constraint firstItem="Klp-Zc-bcf" firstAttribute="centerX" secondItem="IJO-2u-TVp" secondAttribute="centerX" id="N6j-Ug-yDK"/>
                             <constraint firstItem="307-G0-uir" firstAttribute="centerX" secondItem="IJO-2u-TVp" secondAttribute="centerX" id="WWY-h7-IWF"/>
                             <constraint firstItem="V4j-Fp-d4X" firstAttribute="leading" secondItem="IJO-2u-TVp" secondAttribute="leadingMargin" constant="30" id="iOJ-ds-Hxh"/>
@@ -238,6 +243,11 @@
                             <constraint firstAttribute="trailingMargin" secondItem="eZZ-FM-iXE" secondAttribute="trailing" constant="30" id="xg4-TI-gpl"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="lengthSlider" destination="Ei1-g4-Ql7" id="7L0-zW-Vwj"/>
+                        <outlet property="maxWordLength" destination="Rhp-7t-iS8" id="ldd-Id-EbV"/>
+                        <outlet property="soundSwitch" destination="eZZ-FM-iXE" id="5gX-GL-zKR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mRv-oN-ZgK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

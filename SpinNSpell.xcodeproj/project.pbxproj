@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0318923A1C1240BA008F443F /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031892391C1240BA008F443F /* PlayViewController.swift */; };
 		3CB126821C0D0D51008540DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB126811C0D0D51008540DE /* AppDelegate.swift */; };
 		3CB126841C0D0D51008540DE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB126831C0D0D51008540DE /* ViewController.swift */; };
 		3CB126871C0D0D51008540DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CB126851C0D0D51008540DE /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		031892391C1240BA008F443F /* PlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
 		3CB1267E1C0D0D51008540DE /* SpinNSpell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpinNSpell.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CB126811C0D0D51008540DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3CB126831C0D0D51008540DE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				3CB126831C0D0D51008540DE /* ViewController.swift */,
 				CEE6CEF81C11259C00B6DE7B /* TopicCell.swift */,
 				3CB126851C0D0D51008540DE /* Main.storyboard */,
+				031892391C1240BA008F443F /* PlayViewController.swift */,
 				CEE6CEFC1C112C5300B6DE7B /* AboutViewController.swift */,
 				CEE6CEFA1C112B9100B6DE7B /* SettingsViewController.swift */,
 				CEE6CEF61C11246900B6DE7B /* ChangeTopicViewController.swift */,
@@ -274,6 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0318923A1C1240BA008F443F /* PlayViewController.swift in Sources */,
 				3CB126841C0D0D51008540DE /* ViewController.swift in Sources */,
 				3CB126821C0D0D51008540DE /* AppDelegate.swift in Sources */,
 				CEE6CEF71C11246900B6DE7B /* ChangeTopicViewController.swift in Sources */,

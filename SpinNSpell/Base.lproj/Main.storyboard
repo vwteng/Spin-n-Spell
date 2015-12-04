@@ -334,7 +334,7 @@
         <!--Play-->
         <scene sceneID="4zU-an-d6l">
             <objects>
-                <viewController title="Play" id="P1v-aV-hmM" sceneMemberID="viewController">
+                <viewController title="Play" id="P1v-aV-hmM" customClass="PlayViewController" customModule="SpinNSpell" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Hgg-Rx-Zx1"/>
                         <viewControllerLayoutGuide type="bottom" id="P22-KX-qxD"/>
@@ -343,23 +343,57 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X96-Mf-Zx2">
-                                <rect key="frame" x="101" y="114" width="399" height="216"/>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X96-Mf-Zx2">
+                                <rect key="frame" x="101" y="75" width="399" height="216"/>
                                 <animations/>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6u6-D7-VHY">
-                                <rect key="frame" x="536" y="207" width="31" height="30"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3TX-Vw-M6l">
+                                <rect key="frame" x="101" y="341" width="399" height="74"/>
+                                <animations/>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6DB-GM-2xq">
+                                <rect key="frame" x="101" y="444" width="399" height="136"/>
+                                <animations/>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6u6-D7-VHY">
+                                <rect key="frame" x="518" y="152" width="62" height="62"/>
                                 <animations/>
                                 <state key="normal" title="Spin"/>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hYC-ea-0KE">
+                                <rect key="frame" x="30" y="163" width="40" height="40"/>
+                                <animations/>
+                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="X96-Mf-Zx2" firstAttribute="centerX" secondItem="WqM-UC-D7c" secondAttribute="centerX" id="vv3-QF-pC4"/>
+                            <constraint firstItem="6DB-GM-2xq" firstAttribute="leading" secondItem="3TX-Vw-M6l" secondAttribute="leading" id="1Y9-pU-3CQ"/>
+                            <constraint firstItem="6u6-D7-VHY" firstAttribute="centerY" secondItem="X96-Mf-Zx2" secondAttribute="centerY" id="9Me-7G-gmY"/>
+                            <constraint firstItem="3TX-Vw-M6l" firstAttribute="top" secondItem="X96-Mf-Zx2" secondAttribute="bottom" constant="50" id="CYT-ZQ-9Lt"/>
+                            <constraint firstItem="6u6-D7-VHY" firstAttribute="leading" secondItem="X96-Mf-Zx2" secondAttribute="trailing" constant="18" id="EP0-eL-Mt6"/>
+                            <constraint firstItem="hYC-ea-0KE" firstAttribute="centerY" secondItem="X96-Mf-Zx2" secondAttribute="centerY" id="Exk-fN-vbp"/>
+                            <constraint firstItem="X96-Mf-Zx2" firstAttribute="leading" secondItem="3TX-Vw-M6l" secondAttribute="leading" id="FwY-Kf-SyP"/>
+                            <constraint firstItem="6DB-GM-2xq" firstAttribute="top" secondItem="3TX-Vw-M6l" secondAttribute="bottom" constant="29" id="HuI-Xx-Srf"/>
+                            <constraint firstItem="X96-Mf-Zx2" firstAttribute="trailing" secondItem="3TX-Vw-M6l" secondAttribute="trailing" id="KOt-uZ-n1H"/>
+                            <constraint firstItem="3TX-Vw-M6l" firstAttribute="leading" secondItem="WqM-UC-D7c" secondAttribute="leadingMargin" constant="81" id="Lz2-fz-Szr"/>
+                            <constraint firstItem="6DB-GM-2xq" firstAttribute="trailing" secondItem="3TX-Vw-M6l" secondAttribute="trailing" id="WqR-jf-ych"/>
+                            <constraint firstItem="6DB-GM-2xq" firstAttribute="centerX" secondItem="WqM-UC-D7c" secondAttribute="centerX" id="Ydc-Mr-rRp"/>
+                            <constraint firstItem="6u6-D7-VHY" firstAttribute="trailing" secondItem="WqM-UC-D7c" secondAttribute="trailingMargin" id="Zzw-YJ-S96"/>
+                            <constraint firstItem="hYC-ea-0KE" firstAttribute="leading" secondItem="WqM-UC-D7c" secondAttribute="leadingMargin" constant="10" id="d0D-wU-KR6"/>
+                            <constraint firstItem="X96-Mf-Zx2" firstAttribute="leading" secondItem="hYC-ea-0KE" secondAttribute="trailing" constant="31" id="gmQ-ha-Nnj"/>
+                            <constraint firstItem="hYC-ea-0KE" firstAttribute="top" secondItem="Hgg-Rx-Zx1" secondAttribute="bottom" constant="143" id="jNT-0d-cpS"/>
+                            <constraint firstItem="X96-Mf-Zx2" firstAttribute="top" secondItem="Hgg-Rx-Zx1" secondAttribute="bottom" constant="55" id="lxq-Gl-Tvz"/>
+                            <constraint firstAttribute="bottom" secondItem="6DB-GM-2xq" secondAttribute="bottom" constant="20" symbolic="YES" id="qPb-64-gJU"/>
+                            <constraint firstItem="6u6-D7-VHY" firstAttribute="top" secondItem="Hgg-Rx-Zx1" secondAttribute="bottom" constant="132" id="s0W-sb-Q7Q"/>
+                            <constraint firstItem="6DB-GM-2xq" firstAttribute="top" secondItem="WqM-UC-D7c" secondAttribute="top" constant="444" id="tlO-pE-aP2"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="arrowUIView" destination="hYC-ea-0KE" id="dvd-hI-QTO"/>
+                        <outlet property="picker" destination="X96-Mf-Zx2" id="1vs-4o-URq"/>
+                        <outlet property="spinUIButton" destination="6u6-D7-VHY" id="Dil-aX-HVz"/>
+                        <outlet property="wordHSLayout" destination="3TX-Vw-M6l" id="zF4-25-h3W"/>
                         <segue destination="Ar4-pi-06G" kind="show" id="a6Q-xU-8Pn"/>
                     </connections>
                 </viewController>
@@ -506,7 +540,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="6SR-3u-h66"/>
         <segue reference="p9y-mn-flr"/>
-        <segue reference="kSS-fO-J7e"/>
     </inferredMetricsTieBreakers>
 </document>

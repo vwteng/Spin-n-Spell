@@ -14,7 +14,7 @@ class ChangeTopicViewController: UIViewController, UITableViewDataSource, UITabl
     let cellTableIdentifier = "CellTableIdentifier"
     @IBOutlet weak var tableView: UITableView!
     
-    let topics = [NSDictionary]()
+    var topics = [NSDictionary]()
     
     override func viewDidLoad() {
         super.viewDidLoad()

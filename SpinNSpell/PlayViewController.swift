@@ -24,6 +24,9 @@ class PlayViewController: UIViewController {
         spinUIButton.layer.cornerRadius = 30
         spinUIButton.layer.borderWidth = 1
         spinUIButton.layer.borderColor = UIColor.blackColor().CGColor
-        // End: UI Setup
+        let button = UIButton()
+        button.backgroundColor = UIColor.lightGrayColor()
+        button.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
+        wordHSLayout.addArrangedSubview(button)
     }
 }

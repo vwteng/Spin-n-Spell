@@ -10,6 +10,8 @@ import UIKit
 
 class PlayViewController: UIViewController {
 
+    var topic : NSDictionary = NSDictionary()
+    
     @IBOutlet weak var arrowUIView: UIImageView!
     @IBOutlet weak var spinUIButton: UIButton!
     @IBOutlet weak var picker: UIPickerView!

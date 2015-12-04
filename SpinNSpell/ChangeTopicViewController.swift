@@ -8,19 +8,27 @@
 
 import UIKit
 
+protocol ChangeTopicViewControllerDelegate {
+    func updateData(data: [NSDictionary])
+}
+
 class ChangeTopicViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var selectedTopic = ""
     let cellTableIdentifier = "CellTableIdentifier"
     @IBOutlet weak var tableView: UITableView!
+    var delegate : ChangeTopicViewControllerDelegate?
     
     var topics = [NSDictionary]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        //tableView.registerClass(TopicCell.self, forCellReuseIdentifier: cellTableIdentifier)
         tableView.registerClass(TopicCell.self, forCellReuseIdentifier : cellTableIdentifier)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        self.delegate?.updateData(self.topics)
+        print("\(topics)")
     }
     
     override func didReceiveMemoryWarning() {
@@ -43,19 +51,20 @@ class ChangeTopicViewController: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellTableIdentifier, forIndexPath: indexPath) as! TopicCell
+        /*
         let imageView = UIImageView(frame: CGRectMake(10, 10, 5, 5))
-        //let image = UIImage(named: "<DYNAMICALLY LOAD STARTED IMAGE HERE>")
-        //imageView.image = image
-        //cell.imageView?.image = image
-        
+        let image = UIImage(named: "<DYNAMICALLY LOAD STARTED IMAGE HERE>")
+        imageView.image = image
+        cell.imageView?.image = image
+        */
+        print("Hello?")
         let rowData = topics[indexPath.row]
-        cell.topic = rowData["topic"]! as! String
-        
+        cell.topic = (rowData["topic"]! as? String)!
         return cell
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 150
+        return 50
     }
     
 }

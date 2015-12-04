@@ -8,13 +8,20 @@
 
 import UIKit
 
+protocol JSONViewControllerDelegate {
+    func updateData(data: [NSDictionary])
+}
+
 class JSONViewController: UIViewController {
     
     var topics : [NSDictionary] = [NSDictionary]()
+    
+    var delegate : JSONViewControllerDelegate?
 
     @IBOutlet weak var textBox: UITextField!
     
     @IBAction func checkForNewTopics(sender: AnyObject) {
+        print("\(topics)")
         let sessionConfig = NSURLSessionConfiguration.defaultSessionConfiguration()
         let session = NSURLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
         let URL = NSURL(string: self.textBox.text!)
@@ -25,6 +32,7 @@ class JSONViewController: UIViewController {
             print("URL Task Worked: \(statusCode)")
             do {
                 self.topics = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments) as! [NSDictionary]
+                self.delegate?.updateData(self.topics)
             } catch {
                 print("\(error)")
             }
@@ -42,6 +50,22 @@ class JSONViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        print("\(topics)")
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let vc = segue.destinationViewController as? ChangeTopicViewController {
+            // will need to pass settings around?
+            /*
+            let navController = segue.destinationViewController as! UINavigationController
+            let detailController = navController.topViewController as! SettingsViewController
+            navController.unwindForSegue(segue, towardsViewController: <#T##UIViewController#>)
+            detailController.topics = self.topics
+            */
+        }
     }
     
 }

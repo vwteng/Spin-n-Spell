@@ -51,7 +51,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="TrP-OX-0Vx" kind="show" id="uMt-QD-bS8"/>
+                                    <segue destination="TrP-OX-0Vx" kind="show" identifier="GoToSettingsSegue" id="uMt-QD-bS8"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nuy-3A-lF2">
@@ -219,7 +219,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="zHa-JO-bl0" kind="show" id="Eu5-4a-pb3"/>
+                                    <segue destination="zHa-JO-bl0" kind="show" identifier="GoToJSONSegue" id="Eu5-4a-pb3"/>
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="8" minValue="1" maxValue="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ei1-g4-Ql7">

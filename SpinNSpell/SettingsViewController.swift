@@ -8,10 +8,16 @@
 
 import UIKit
 
+protocol SettingsViewControllerDelegate {
+    func updateData(data: [NSDictionary])
+}
+
 class SettingsViewController: UIViewController {
     
     var maxLength = 8
     var sound = true
+    var topics = [NSDictionary]()
+    var delegate : SettingsViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,12 +52,25 @@ class SettingsViewController: UIViewController {
         }
     }
     
-    
+    override func viewDidAppear(animated: Bool) {
+        self.delegate?.updateData(self.topics)
+        print("\(topics)")
+    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let vc = segue.destinationViewController as? ViewController {
-            // will need to pass settings around?
+        if segue.identifier == "GoToJSONSegue" {
+            if let vc = segue.destinationViewController as? JSONViewController {
+                // will need to pass settings around?
+                (segue.destinationViewController as! JSONViewController).delegate = self
+                vc.topics = self.topics
+            }
         }
     }
     
+}
+
+extension SettingsViewController: JSONViewControllerDelegate {
+    func updateData(data: [NSDictionary]) {
+        self.topics = data
+    }
 }

@@ -160,7 +160,7 @@
         <!--Settings-->
         <scene sceneID="mFV-hg-i7C">
             <objects>
-                <viewController title="Settings" id="TrP-OX-0Vx" sceneMemberID="viewController">
+                <viewController title="Settings" id="TrP-OX-0Vx" customClass="SettingsViewController" customModule="SpinNSpell" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wha-nK-gOL"/>
                         <viewControllerLayoutGuide type="bottom" id="iev-D4-yTN"/>
@@ -246,7 +246,7 @@
         <!--About-->
         <scene sceneID="xjF-cp-UhG">
             <objects>
-                <viewController title="About" id="3he-Sy-CYo" sceneMemberID="viewController">
+                <viewController title="About" id="3he-Sy-CYo" customClass="AboutViewController" customModule="SpinNSpell" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hg2-QP-fSe"/>
                         <viewControllerLayoutGuide type="bottom" id="Qkx-HQ-hyp"/>

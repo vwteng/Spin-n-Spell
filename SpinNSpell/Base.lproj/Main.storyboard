@@ -291,7 +291,7 @@
         <!--Change Topic-->
         <scene sceneID="EYH-Nw-5Mo">
             <objects>
-                <viewController title="Change Topic" id="jgi-Ib-LdI" sceneMemberID="viewController">
+                <viewController title="Change Topic" id="jgi-Ib-LdI" customClass="ChangeTopicViewController" customModule="SpinNSpell" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9Y5-0n-x8E"/>
                         <viewControllerLayoutGuide type="bottom" id="4LP-mR-aVT"/>
@@ -300,17 +300,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Change topic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PEB-l8-XWD">
-                                <rect key="frame" x="243" y="140" width="102" height="21"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hBm-9p-R1r">
+                                <rect key="frame" x="20" y="31" width="560" height="537"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hBm-9p-R1r" firstAttribute="centerX" secondItem="qfT-Yl-qUb" secondAttribute="centerX" id="WVi-hO-FIb"/>
+                            <constraint firstItem="hBm-9p-R1r" firstAttribute="centerY" secondItem="qfT-Yl-qUb" secondAttribute="centerY" id="sER-Vr-kWC"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="hBm-9p-R1r" id="qST-xe-7g7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4w5-qx-8ew" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

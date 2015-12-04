@@ -15,6 +15,8 @@
 		3CB126971C0D0D51008540DE /* SpinNSpellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB126961C0D0D51008540DE /* SpinNSpellTests.swift */; };
 		3CB126A21C0D0D51008540DE /* SpinNSpellUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB126A11C0D0D51008540DE /* SpinNSpellUITests.swift */; };
 		CE0E6F531C0FC95C0031D7AD /* JSONViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E6F521C0FC95C0031D7AD /* JSONViewController.swift */; };
+		CEE6CEF71C11246900B6DE7B /* ChangeTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE6CEF61C11246900B6DE7B /* ChangeTopicViewController.swift */; };
+		CEE6CEF91C11259C00B6DE7B /* TopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE6CEF81C11259C00B6DE7B /* TopicCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		3CB126A11C0D0D51008540DE /* SpinNSpellUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinNSpellUITests.swift; sourceTree = "<group>"; };
 		3CB126A31C0D0D51008540DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE0E6F521C0FC95C0031D7AD /* JSONViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONViewController.swift; sourceTree = "<group>"; };
+		CEE6CEF61C11246900B6DE7B /* ChangeTopicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeTopicViewController.swift; sourceTree = "<group>"; };
+		CEE6CEF81C11259C00B6DE7B /* TopicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,8 @@
 				3CB126811C0D0D51008540DE /* AppDelegate.swift */,
 				3CB126831C0D0D51008540DE /* ViewController.swift */,
 				3CB126851C0D0D51008540DE /* Main.storyboard */,
+				CEE6CEF81C11259C00B6DE7B /* TopicCell.swift */,
+				CEE6CEF61C11246900B6DE7B /* ChangeTopicViewController.swift */,
 				CE0E6F521C0FC95C0031D7AD /* JSONViewController.swift */,
 				3CB126881C0D0D51008540DE /* Assets.xcassets */,
 				3CB1268A1C0D0D51008540DE /* LaunchScreen.storyboard */,
@@ -264,6 +270,8 @@
 			files = (
 				3CB126841C0D0D51008540DE /* ViewController.swift in Sources */,
 				3CB126821C0D0D51008540DE /* AppDelegate.swift in Sources */,
+				CEE6CEF71C11246900B6DE7B /* ChangeTopicViewController.swift in Sources */,
+				CEE6CEF91C11259C00B6DE7B /* TopicCell.swift in Sources */,
 				CE0E6F531C0FC95C0031D7AD /* JSONViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -16,14 +16,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var currentTopicLabel: UILabel!
     
     override func viewDidAppear(animated: Bool) {
-        //currentTopicLabel.text = "Current Topic: \(currentTopic["topic"])"
+        currentTopicLabel.text = "Current Topic: \(currentTopic["topic"])"
         print("\(topics)")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //currentTopicLabel.text = "Current Topic: \(currentTopic["topic"])"
-        //print("\(topics)")
+        currentTopicLabel.text = "Current Topic: \(currentTopic["topic"])"
+        print("\(topics)")
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,6 +58,9 @@ class ViewController: UIViewController {
 extension ViewController: SettingsViewControllerDelegate, ChangeTopicViewControllerDelegate {
     func updateData(data: [NSDictionary]) {
         self.topics = data
+    }
+    func updateCurrentTopic(topic: NSDictionary) {
+        self.currentTopic = topic
     }
 }
 

@@ -36,7 +36,7 @@
                                     <segue destination="P1v-aV-hmM" kind="show" id="jxJ-dg-W8q"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Current Topic: __________________" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pra-HP-6cn">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Current Topic: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pra-HP-6cn">
                                 <rect key="frame" x="162" y="250" width="277" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -73,7 +73,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="jgi-Ib-LdI" kind="show" id="YCo-pg-ChX"/>
+                                    <segue destination="jgi-Ib-LdI" kind="show" identifier="GoToChangeSegue" id="YCo-pg-ChX"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sci-QQ-LEi">
@@ -99,6 +99,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Fyf-fV-Nma"/>
+                    <connections>
+                        <outlet property="currentTopicLabel" destination="pra-HP-6cn" id="3Bu-Pj-ZYA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -314,6 +317,10 @@
                                 <rect key="frame" x="20" y="31" width="560" height="537"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="jgi-Ib-LdI" id="yZi-gY-E9a"/>
+                                    <outlet property="delegate" destination="jgi-Ib-LdI" id="v95-ll-nJf"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <animations/>

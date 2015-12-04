@@ -21,7 +21,7 @@ class JSONViewController: UIViewController {
     @IBOutlet weak var textBox: UITextField!
     
     @IBAction func checkForNewTopics(sender: AnyObject) {
-        print("\(topics)")
+        //print("\(topics)")
         let sessionConfig = NSURLSessionConfiguration.defaultSessionConfiguration()
         let session = NSURLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
         let URL = NSURL(string: self.textBox.text!)
@@ -53,7 +53,7 @@ class JSONViewController: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-        print("\(topics)")
+        //print("\(topics)")
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

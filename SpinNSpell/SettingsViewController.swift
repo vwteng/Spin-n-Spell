@@ -54,7 +54,7 @@ class SettingsViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         self.delegate?.updateData(self.topics)
-        print("\(topics)")
+        //print("\(topics)")
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

@@ -11,20 +11,23 @@ import UIKit
 class ViewController: UIViewController {
 
     var topics : [NSDictionary] = [NSDictionary]()
+    var currentTopic : NSDictionary = NSDictionary()
+    
+    @IBOutlet weak var currentTopicLabel: UILabel!
     
     override func viewDidAppear(animated: Bool) {
+        //currentTopicLabel.text = "Current Topic: \(currentTopic["topic"])"
         print("\(topics)")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("\(topics)")
-        // Do any additional setup after loading the view, typically from a nib.
+        //currentTopicLabel.text = "Current Topic: \(currentTopic["topic"])"
+        //print("\(topics)")
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -34,13 +37,29 @@ class ViewController: UIViewController {
                 vc.topics = self.topics
             }
         }
+        if segue.identifier == "GoToPlaySegue" {
+            if let vc = segue.destinationViewController as? PlayViewController {
+                vc.topic = self.currentTopic
+            }
+        }
+        if segue.identifier == "GoToChangeSegue" {
+            if let vc = segue.destinationViewController as? ChangeTopicViewController {
+                (segue.destinationViewController as! ChangeTopicViewController).delegate = self
+                vc.topics = self.topics
+            }
+        }
+        
     }
+    
+    
     
 }
 
-extension ViewController: SettingsViewControllerDelegate {
+extension ViewController: SettingsViewControllerDelegate, ChangeTopicViewControllerDelegate {
     func updateData(data: [NSDictionary]) {
         self.topics = data
     }
 }
+
+
 

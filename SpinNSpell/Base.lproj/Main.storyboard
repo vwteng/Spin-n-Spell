@@ -76,7 +76,7 @@
                                     <segue destination="jgi-Ib-LdI" kind="show" id="YCo-pg-ChX"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sci-QQ-LEi">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sci-QQ-LEi">
                                 <rect key="frame" x="20" y="28" width="30" height="30"/>
                                 <animations/>
                                 <state key="normal" title="?"/>
@@ -343,11 +343,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X96-Mf-Zx2">
+                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X96-Mf-Zx2">
                                 <rect key="frame" x="101" y="75" width="399" height="216"/>
                                 <animations/>
                             </pickerView>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3TX-Vw-M6l">
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3TX-Vw-M6l">
                                 <rect key="frame" x="101" y="341" width="399" height="74"/>
                                 <animations/>
                             </stackView>
@@ -355,12 +355,12 @@
                                 <rect key="frame" x="101" y="444" width="399" height="136"/>
                                 <animations/>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6u6-D7-VHY">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6u6-D7-VHY">
                                 <rect key="frame" x="518" y="152" width="62" height="62"/>
                                 <animations/>
                                 <state key="normal" title="Spin"/>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hYC-ea-0KE">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hYC-ea-0KE">
                                 <rect key="frame" x="30" y="163" width="40" height="40"/>
                                 <animations/>
                             </imageView>

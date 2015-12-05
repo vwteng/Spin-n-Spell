@@ -9,7 +9,7 @@
 import UIKit
 
 class PlayViewController: UIViewController {
-
+    
     var topic : NSDictionary = NSDictionary()
     
     @IBOutlet weak var arrowUIView: UIImageView!
@@ -26,9 +26,14 @@ class PlayViewController: UIViewController {
         spinUIButton.layer.cornerRadius = 30
         spinUIButton.layer.borderWidth = 1
         spinUIButton.layer.borderColor = UIColor.blackColor().CGColor
-        let button = UIButton()
-        button.backgroundColor = UIColor.lightGrayColor()
-        button.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
-        wordHSLayout.addArrangedSubview(button)
+        // Load Topic
+        for element in topic {
+            let word = element.key as! String
+            let imageURL = element.value as! String
+            print("Word: \(word)")
+            print("URL: \(imageURL)")
+            print("")
+        }
+        // End: UI Setup
     }
 }

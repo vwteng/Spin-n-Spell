@@ -353,6 +353,10 @@
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X96-Mf-Zx2">
                                 <rect key="frame" x="101" y="75" width="399" height="216"/>
                                 <animations/>
+                                <connections>
+                                    <outlet property="dataSource" destination="P1v-aV-hmM" id="mU1-mz-NJU"/>
+                                    <outlet property="delegate" destination="P1v-aV-hmM" id="YJZ-cu-vAy"/>
+                                </connections>
                             </pickerView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6DB-GM-2xq">
                                 <rect key="frame" x="30" y="412" width="550" height="180"/>

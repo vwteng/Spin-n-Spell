@@ -11,6 +11,8 @@ import UIKit
 class PlayViewController: UIViewController {
     
     var topic : NSDictionary = NSDictionary()
+    var words: [String] = [String]()
+    var images: [UIImage] = [UIImage]()
     
     @IBOutlet weak var arrowUIView: UIImageView!
     @IBOutlet weak var spinUIButton: UIButton!
@@ -27,13 +29,39 @@ class PlayViewController: UIViewController {
         spinUIButton.layer.borderWidth = 1
         spinUIButton.layer.borderColor = UIColor.blackColor().CGColor
         // Load Topic
-        for element in topic {
-            let word = element.key as! String
-            let imageURL = element.value as! String
-            print("Word: \(word)")
-            print("URL: \(imageURL)")
-            print("")
+        for item in topic["words"] as! NSDictionary {
+            let word = item.key as! String
+            let imageURL = NSURL(string: item.value as! String)
+            let data = NSData(contentsOfURL: imageURL!)
+            let image = UIImage(data: data!)
+            
+            images.append(image!)
+            words.append(word)
         }
         // End: UI Setup
     }
+    
+    // How many selectors we want
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    // How many options we need
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return topic["words"]!.count
+    }
+    
+    // What each row will show
+    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
+        let image = images[row]
+        let imageView = UIImageView(image: image)
+        
+        return imageView
+    }
+    
+    // Size of each Row
+    func pickerView(pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return picker.frame.height
+    }
 }
+

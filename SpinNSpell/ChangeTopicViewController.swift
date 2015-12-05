@@ -10,11 +10,12 @@ import UIKit
 
 protocol ChangeTopicViewControllerDelegate {
     func updateData(data: [NSDictionary])
+    func updateCurrentTopic(topic: NSDictionary)
 }
 
 class ChangeTopicViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    var selectedTopic = ""
+    var selectedTopic = NSDictionary()
     let cellTableIdentifier = "CellTableIdentifier"
     @IBOutlet weak var tableView: UITableView!
     var delegate : ChangeTopicViewControllerDelegate?
@@ -41,7 +42,8 @@ class ChangeTopicViewController: UIViewController, UITableViewDataSource, UITabl
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let indexPath = tableView.indexPathForSelectedRow
         let currentCell = tableView.cellForRowAtIndexPath(indexPath!)! as! TopicCell
-        selectedTopic = currentCell.topic
+        selectedTopic = topics[indexPath!.row]
+        self.delegate?.updateCurrentTopic(selectedTopic)
     }
     
     func tableView(tableView: UITableView,

@@ -22,18 +22,9 @@ class TopicCell: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        let topicLabelRect = CGRectMake(50, 5, 70, 15)
-        let topicMarker = UILabel(frame: topicLabelRect)
-        topicMarker.textAlignment = NSTextAlignment.Right
-        topicMarker.text = "Topic:"
-        topicMarker.font = UIFont.boldSystemFontOfSize(12)
-        contentView.addSubview(topicMarker)
-        
-        let topicValueRect = CGRectMake(130, 5, 200, 15)
+        let topicValueRect = CGRectMake(130, 10, 200, 30)
         topicLabel = UILabel(frame: topicValueRect)
         contentView.addSubview(topicLabel)
-        
     }
     
     required init?(coder aDecoder: NSCoder) {

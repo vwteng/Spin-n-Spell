@@ -313,8 +313,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hBm-9p-R1r">
-                                <rect key="frame" x="20" y="31" width="560" height="537"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hBm-9p-R1r">
+                                <rect key="frame" x="39" y="31" width="541" height="537"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -326,8 +326,10 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="hBm-9p-R1r" firstAttribute="centerX" secondItem="qfT-Yl-qUb" secondAttribute="centerX" id="WVi-hO-FIb"/>
-                            <constraint firstItem="hBm-9p-R1r" firstAttribute="centerY" secondItem="qfT-Yl-qUb" secondAttribute="centerY" id="sER-Vr-kWC"/>
+                            <constraint firstItem="4LP-mR-aVT" firstAttribute="top" secondItem="hBm-9p-R1r" secondAttribute="bottom" constant="32" id="0aP-ou-ZO1"/>
+                            <constraint firstItem="hBm-9p-R1r" firstAttribute="trailing" secondItem="qfT-Yl-qUb" secondAttribute="trailingMargin" id="HQr-He-AIF"/>
+                            <constraint firstItem="hBm-9p-R1r" firstAttribute="leading" secondItem="qfT-Yl-qUb" secondAttribute="leadingMargin" constant="19" id="clt-mF-lR6"/>
+                            <constraint firstItem="hBm-9p-R1r" firstAttribute="centerY" secondItem="qfT-Yl-qUb" secondAttribute="centerY" id="wbN-q9-Qwr"/>
                         </constraints>
                     </view>
                     <connections>

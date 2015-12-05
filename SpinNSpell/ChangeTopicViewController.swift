@@ -34,7 +34,6 @@ class ChangeTopicViewController: UIViewController, UITableViewDataSource, UITabl
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // Table View Functions //
@@ -53,20 +52,20 @@ class ChangeTopicViewController: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellTableIdentifier, forIndexPath: indexPath) as! TopicCell
-        /*
-        let imageView = UIImageView(frame: CGRectMake(10, 10, 5, 5))
-        let image = UIImage(named: "<DYNAMICALLY LOAD STARTED IMAGE HERE>")
-        imageView.image = image
-        cell.imageView?.image = image
-        */
-        print("Hello?")
+        let imageView = UIImageView(frame: CGRectMake(50, 10, 5, 5))
         let rowData = topics[indexPath.row]
+        // Code for loading an image from the web
+        let url = NSURL(string: (rowData["startingImage"] as? String)!)
+        let data = NSData(contentsOfURL: url!)
+        imageView.image = UIImage(data: data!)
+        // End loading image code
+        cell.imageView?.image = imageView.image
         cell.topic = (rowData["topic"]! as? String)!
         return cell
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 50
+        return 60
     }
     
 }

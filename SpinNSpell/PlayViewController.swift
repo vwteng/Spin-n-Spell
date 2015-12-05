@@ -11,8 +11,9 @@ import UIKit
 class PlayViewController: UIViewController {
     
     var topic : NSDictionary = NSDictionary()
-    var words: [String] = [String]()
-    var images: [UIImage] = [UIImage]()
+    private var words: [String] = [String]()
+    private var images: [UIImage] = [UIImage]()
+    private var currentRow:Int = 0
     
     @IBOutlet weak var arrowUIView: UIImageView!
     @IBOutlet weak var spinUIButton: UIButton!
@@ -55,6 +56,8 @@ class PlayViewController: UIViewController {
     func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
         let image = images[row]
         let imageView = UIImageView(image: image)
+        imageView.frame = CGRect(x: 0, y: 0, width: picker.frame.width, height: picker.frame.height)
+        imageView.contentMode = .ScaleAspectFit
         
         return imageView
     }

@@ -119,21 +119,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wNC-gM-1x0">
-                                <rect key="frame" x="57" y="285" width="488" height="30"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="URL For New JSON File" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6TI-lS-txc">
-                                <rect key="frame" x="210" y="245" width="180" height="21"/>
+                                <rect key="frame" x="210" y="228" width="180" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="F4P-cm-2hy">
+                                <rect key="frame" x="82" y="257" width="399" height="128"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="ZvP-Rn-cd6"/>
+                                </constraints>
+                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ci8-wB-PdD">
-                                <rect key="frame" x="223" y="332" width="154" height="30"/>
+                                <rect key="frame" x="223" y="393" width="154" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Check For New Topics"/>
                                 <connections>
@@ -144,16 +150,17 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Ci8-wB-PdD" firstAttribute="top" secondItem="wNC-gM-1x0" secondAttribute="bottom" constant="17" id="5LN-Fz-cAZ"/>
-                            <constraint firstItem="wNC-gM-1x0" firstAttribute="centerY" secondItem="pgw-tC-OMq" secondAttribute="centerY" id="95v-nD-Vf0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="F4P-cm-2hy" secondAttribute="trailing" constant="99" id="3UH-wO-reZ"/>
+                            <constraint firstItem="F4P-cm-2hy" firstAttribute="top" secondItem="pgw-tC-OMq" secondAttribute="top" constant="257" id="7DJ-k2-g9y"/>
+                            <constraint firstItem="F4P-cm-2hy" firstAttribute="top" secondItem="6TI-lS-txc" secondAttribute="bottom" constant="8" symbolic="YES" id="Bg6-xF-aiL"/>
                             <constraint firstItem="6TI-lS-txc" firstAttribute="centerX" secondItem="pgw-tC-OMq" secondAttribute="centerX" id="HWU-hG-Wyg"/>
-                            <constraint firstItem="wNC-gM-1x0" firstAttribute="centerX" secondItem="pgw-tC-OMq" secondAttribute="centerX" id="TjH-B0-bX5"/>
+                            <constraint firstItem="F4P-cm-2hy" firstAttribute="leading" secondItem="pgw-tC-OMq" secondAttribute="leadingMargin" constant="62" id="JHK-4e-FIW"/>
                             <constraint firstItem="Ci8-wB-PdD" firstAttribute="centerX" secondItem="pgw-tC-OMq" secondAttribute="centerX" id="Y8w-5J-1TK"/>
-                            <constraint firstItem="wNC-gM-1x0" firstAttribute="top" secondItem="6TI-lS-txc" secondAttribute="bottom" constant="19" id="cMa-U7-brd"/>
+                            <constraint firstItem="Ci8-wB-PdD" firstAttribute="top" secondItem="F4P-cm-2hy" secondAttribute="bottom" constant="8" symbolic="YES" id="nxd-5i-HxG"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="textBox" destination="wNC-gM-1x0" id="6qv-NT-vWV"/>
+                        <outlet property="textBox" destination="F4P-cm-2hy" id="eUH-Zo-3tO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cmh-gd-0nQ" userLabel="First Responder" sceneMemberID="firstResponder"/>

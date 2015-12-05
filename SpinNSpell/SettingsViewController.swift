@@ -10,6 +10,7 @@ import UIKit
 
 protocol SettingsViewControllerDelegate {
     func updateData(data: [NSDictionary])
+    func updateSettings(sound: Bool, maxLength: Int)
 }
 
 class SettingsViewController: UIViewController {
@@ -36,6 +37,7 @@ class SettingsViewController: UIViewController {
         var currValue = Int(sender.value)
         maxLength = currValue
         maxWordLength.text = "Max Word Length: \(currValue)"
+        self.delegate?.updateSettings(sound, maxLength: maxLength)
     }
     
     
@@ -48,6 +50,7 @@ class SettingsViewController: UIViewController {
         } else {
             sound = false
         }
+        self.delegate?.updateSettings(sound, maxLength: maxLength)
     }
     
     override func viewDidAppear(animated: Bool) {

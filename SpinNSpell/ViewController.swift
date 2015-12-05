@@ -11,6 +11,10 @@ import UIKit
 class ViewController: UIViewController {
 
     var topics : [NSDictionary] = [NSDictionary]()
+    
+    var maxLength = 8
+    var sound = false
+    // Default Topic to Farm Animals:
     var currentTopic : NSDictionary = [
         "topic": "Farm Animals",
         "startingImage": "http://donate.worldvision.org/media/catalog/product/cache/1/image/310x/9df78eab33525d08d6e5fb8d27136e95/D/4/D4041711_13_Farm_Animals.jpg",
@@ -28,7 +32,9 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         currentTopicLabel.text = "Current Topic: \(currentTopic["topic"]!)"
-        print("\(topics)")
+        //print("\(topics)")
+        print(sound)
+        print(maxLength)
     }
     
     override func viewDidLoad() {
@@ -72,6 +78,10 @@ extension ViewController: SettingsViewControllerDelegate, ChangeTopicViewControl
     }
     func updateCurrentTopic(topic: NSDictionary) {
         self.currentTopic = topic
+    }
+    func updateSettings(sound: Bool, maxLength: Int) {
+        self.sound = sound
+        self.maxLength = maxLength
     }
 }
 

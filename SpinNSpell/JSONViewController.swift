@@ -17,8 +17,8 @@ class JSONViewController: UIViewController {
     var topics : [NSDictionary] = [NSDictionary]()
     
     var delegate : JSONViewControllerDelegate?
-
-    @IBOutlet weak var textBox: UITextField!
+    
+    @IBOutlet weak var textBox: UITextView!
     
     @IBAction func checkForNewTopics(sender: AnyObject) {
         //print("\(topics)")

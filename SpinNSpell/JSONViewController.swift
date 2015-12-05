@@ -43,13 +43,11 @@ class JSONViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         self.textBox.text = "https://students.washington.edu/conrad16/ios/spelling-json-files/Animals.json"
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -59,12 +57,7 @@ class JSONViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let vc = segue.destinationViewController as? ChangeTopicViewController {
             // will need to pass settings around?
-            /*
-            let navController = segue.destinationViewController as! UINavigationController
-            let detailController = navController.topViewController as! SettingsViewController
-            navController.unwindForSegue(segue, towardsViewController: <#T##UIViewController#>)
-            detailController.topics = self.topics
-            */
+            // Might not even need to pass data here since it is handled through the extensions and protocols
         }
     }
     

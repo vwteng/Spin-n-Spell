@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -367,21 +368,6 @@
                                     <outlet property="delegate" destination="P1v-aV-hmM" id="YJZ-cu-vAy"/>
                                 </connections>
                             </pickerView>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6DB-GM-2xq">
-                                <rect key="frame" x="30" y="412" width="550" height="180"/>
-                                <animations/>
-                            </stackView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hYC-ea-0KE">
-                                <rect key="frame" x="30" y="163" width="40" height="40"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="DvK-R1-bdm"/>
-                                </constraints>
-                            </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="3TX-Vw-M6l">
-                                <rect key="frame" x="30" y="299" width="550" height="93"/>
-                                <animations/>
-                            </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6u6-D7-VHY">
                                 <rect key="frame" x="518" y="152" width="62" height="62"/>
                                 <animations/>
@@ -390,34 +376,67 @@
                                     <action selector="spin:" destination="P1v-aV-hmM" eventType="touchUpInside" id="gYN-da-uLK"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hYC-ea-0KE">
+                                <rect key="frame" x="30" y="163" width="40" height="40"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="k1y-IZ-Ybm"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="3TX-Vw-M6l">
+                                <rect key="frame" x="30" y="299" width="550" height="93"/>
+                                <animations/>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="42c-FV-Roa">
+                                <rect key="frame" x="30" y="411" width="550" height="76"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="42c-FV-Roa" secondAttribute="height" multiplier="275:38" id="MbD-UF-8h4"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="J2Q-Xh-3h0">
+                                <rect key="frame" x="30" y="504" width="550" height="76"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="J2Q-Xh-3h0" secondAttribute="height" multiplier="275:38" id="eQi-13-l0z"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="6u6-D7-VHY" firstAttribute="centerY" secondItem="X96-Mf-Zx2" secondAttribute="centerY" id="3C0-MV-mUj"/>
-                            <constraint firstItem="3TX-Vw-M6l" firstAttribute="top" secondItem="X96-Mf-Zx2" secondAttribute="bottom" constant="8" symbolic="YES" id="4vN-v0-LoW"/>
-                            <constraint firstItem="hYC-ea-0KE" firstAttribute="leading" secondItem="3TX-Vw-M6l" secondAttribute="leading" id="6Xs-vm-0ou"/>
-                            <constraint firstItem="P22-KX-qxD" firstAttribute="top" secondItem="6DB-GM-2xq" secondAttribute="bottom" constant="8" symbolic="YES" id="BnL-E3-9bH"/>
-                            <constraint firstItem="X96-Mf-Zx2" firstAttribute="centerX" secondItem="WqM-UC-D7c" secondAttribute="centerX" id="Cpc-be-MRI"/>
-                            <constraint firstItem="3TX-Vw-M6l" firstAttribute="top" secondItem="6u6-D7-VHY" secondAttribute="bottom" constant="85" id="DLV-gN-Dfp"/>
-                            <constraint firstItem="3TX-Vw-M6l" firstAttribute="top" secondItem="hYC-ea-0KE" secondAttribute="bottom" constant="96" id="LXA-H8-WyT"/>
-                            <constraint firstItem="hYC-ea-0KE" firstAttribute="leading" secondItem="WqM-UC-D7c" secondAttribute="leadingMargin" constant="10" id="Mv8-V5-piW"/>
-                            <constraint firstItem="3TX-Vw-M6l" firstAttribute="leading" secondItem="6DB-GM-2xq" secondAttribute="leading" id="NQE-zC-RHb"/>
-                            <constraint firstItem="3TX-Vw-M6l" firstAttribute="trailing" secondItem="WqM-UC-D7c" secondAttribute="trailingMargin" id="RaA-ZG-f53"/>
-                            <constraint firstItem="6u6-D7-VHY" firstAttribute="leading" secondItem="X96-Mf-Zx2" secondAttribute="trailing" constant="18" id="VF8-VE-zdy"/>
-                            <constraint firstItem="3TX-Vw-M6l" firstAttribute="trailing" secondItem="6DB-GM-2xq" secondAttribute="trailing" id="gQg-dJ-PIE"/>
-                            <constraint firstItem="6DB-GM-2xq" firstAttribute="top" secondItem="WqM-UC-D7c" secondAttribute="top" constant="412" id="iAm-Li-VWe"/>
-                            <constraint firstItem="hYC-ea-0KE" firstAttribute="centerY" secondItem="X96-Mf-Zx2" secondAttribute="centerY" id="qnq-E8-5bp"/>
-                            <constraint firstItem="6u6-D7-VHY" firstAttribute="trailing" secondItem="3TX-Vw-M6l" secondAttribute="trailing" id="sfj-bi-sl0"/>
-                            <constraint firstItem="6DB-GM-2xq" firstAttribute="top" secondItem="3TX-Vw-M6l" secondAttribute="bottom" constant="20" id="siv-CE-JnU"/>
-                            <constraint firstItem="X96-Mf-Zx2" firstAttribute="top" secondItem="Hgg-Rx-Zx1" secondAttribute="bottom" constant="11" id="vjY-x1-bGt"/>
-                            <constraint firstItem="X96-Mf-Zx2" firstAttribute="leading" secondItem="hYC-ea-0KE" secondAttribute="trailing" constant="31" id="z9H-Ao-ghK"/>
+                            <constraint firstItem="42c-FV-Roa" firstAttribute="trailing" secondItem="3TX-Vw-M6l" secondAttribute="trailing" id="02C-4t-mHo"/>
+                            <constraint firstItem="X96-Mf-Zx2" firstAttribute="leading" secondItem="hYC-ea-0KE" secondAttribute="trailing" constant="31" id="11Y-MX-EPP"/>
+                            <constraint firstItem="J2Q-Xh-3h0" firstAttribute="height" secondItem="42c-FV-Roa" secondAttribute="height" id="2QK-o2-ZZH"/>
+                            <constraint firstItem="6u6-D7-VHY" firstAttribute="leading" secondItem="X96-Mf-Zx2" secondAttribute="trailing" constant="18" id="8MI-za-grx"/>
+                            <constraint firstAttribute="bottom" secondItem="J2Q-Xh-3h0" secondAttribute="bottom" constant="20" symbolic="YES" id="DWp-d0-Fvz"/>
+                            <constraint firstItem="3TX-Vw-M6l" firstAttribute="trailing" secondItem="6u6-D7-VHY" secondAttribute="trailing" id="GRA-7L-oqj"/>
+                            <constraint firstItem="J2Q-Xh-3h0" firstAttribute="leading" secondItem="42c-FV-Roa" secondAttribute="leading" id="IIc-hI-puS"/>
+                            <constraint firstItem="3TX-Vw-M6l" firstAttribute="top" secondItem="hYC-ea-0KE" secondAttribute="bottom" constant="96" id="Rxy-gg-Lee"/>
+                            <constraint firstItem="3TX-Vw-M6l" firstAttribute="top" secondItem="6u6-D7-VHY" secondAttribute="bottom" constant="85" id="SD6-XF-dQS"/>
+                            <constraint firstItem="42c-FV-Roa" firstAttribute="top" secondItem="3TX-Vw-M6l" secondAttribute="bottom" constant="19" id="UXD-a3-KPn"/>
+                            <constraint firstItem="hYC-ea-0KE" firstAttribute="leading" secondItem="WqM-UC-D7c" secondAttribute="leadingMargin" constant="10" id="agx-vo-Vif"/>
+                            <constraint firstItem="J2Q-Xh-3h0" firstAttribute="width" secondItem="42c-FV-Roa" secondAttribute="width" id="b0R-8S-VWa"/>
+                            <constraint firstItem="42c-FV-Roa" firstAttribute="top" secondItem="WqM-UC-D7c" secondAttribute="top" constant="411" id="bzR-cB-gjR"/>
+                            <constraint firstItem="3TX-Vw-M6l" firstAttribute="top" secondItem="X96-Mf-Zx2" secondAttribute="bottom" constant="8" symbolic="YES" id="cmS-Ly-oYV"/>
+                            <constraint firstItem="J2Q-Xh-3h0" firstAttribute="top" secondItem="42c-FV-Roa" secondAttribute="bottom" constant="17" id="f9N-ah-j4S"/>
+                            <constraint firstItem="X96-Mf-Zx2" firstAttribute="centerY" secondItem="hYC-ea-0KE" secondAttribute="centerY" id="iNB-Vs-rZP"/>
+                            <constraint firstItem="6u6-D7-VHY" firstAttribute="centerY" secondItem="X96-Mf-Zx2" secondAttribute="centerY" id="iX8-1z-YNM"/>
+                            <constraint firstItem="42c-FV-Roa" firstAttribute="leading" secondItem="3TX-Vw-M6l" secondAttribute="leading" id="iXr-sU-vR0"/>
+                            <constraint firstItem="J2Q-Xh-3h0" firstAttribute="top" secondItem="WqM-UC-D7c" secondAttribute="top" constant="504" id="l3o-Fs-V8N"/>
+                            <constraint firstItem="3TX-Vw-M6l" firstAttribute="leading" secondItem="hYC-ea-0KE" secondAttribute="leading" id="lFs-Xl-BIu"/>
+                            <constraint firstItem="X96-Mf-Zx2" firstAttribute="centerX" secondItem="WqM-UC-D7c" secondAttribute="centerX" id="pOu-gi-xXq"/>
+                            <constraint firstItem="X96-Mf-Zx2" firstAttribute="top" secondItem="Hgg-Rx-Zx1" secondAttribute="bottom" constant="11" id="qb0-ra-4Ht"/>
+                            <constraint firstItem="42c-FV-Roa" firstAttribute="trailing" secondItem="J2Q-Xh-3h0" secondAttribute="trailing" id="scm-E1-cWT"/>
+                            <constraint firstItem="J2Q-Xh-3h0" firstAttribute="trailing" secondItem="WqM-UC-D7c" secondAttribute="trailingMargin" id="w6g-Jm-N4T"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="arrowUIView" destination="hYC-ea-0KE" id="dvd-hI-QTO"/>
+                        <outlet property="bottomKeyStack" destination="J2Q-Xh-3h0" id="srl-l5-bqP"/>
                         <outlet property="picker" destination="X96-Mf-Zx2" id="1vs-4o-URq"/>
                         <outlet property="spinUIButton" destination="6u6-D7-VHY" id="Dil-aX-HVz"/>
+                        <outlet property="topKeyStack" destination="42c-FV-Roa" id="IUA-9e-l6c"/>
                         <outlet property="wordHSLayout" destination="3TX-Vw-M6l" id="zF4-25-h3W"/>
                         <segue destination="Ar4-pi-06G" kind="show" id="a6Q-xU-8Pn"/>
                     </connections>

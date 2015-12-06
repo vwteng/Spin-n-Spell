@@ -9,16 +9,20 @@
 import UIKit
 
 class PlayViewController: UIViewController {
-    
-    var topic : NSDictionary = NSDictionary()
+    private let letters: String = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     private var words: [String] = [String]()
+    private var currentWord:String = ""
     private var images: [UIImage] = [UIImage]()
     private var lastValue:Int = 0
+    
+    var topic : NSDictionary = NSDictionary()
     
     @IBOutlet weak var arrowUIView: UIImageView!
     @IBOutlet weak var spinUIButton: UIButton!
     @IBOutlet weak var picker: UIPickerView!
     @IBOutlet weak var wordHSLayout: UIStackView!
+    @IBOutlet weak var topKeyStack: UIStackView!
+    @IBOutlet weak var bottomKeyStack: UIStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,16 +41,18 @@ class PlayViewController: UIViewController {
             let image = UIImage(data: data!)
             
             images.append(image!)
-            words.append(word)
+            words.append(word.uppercaseString)
         }
         // End: UI Setup
     }
     
     override func viewDidAppear(animated: Bool) {
+        // SetUp Words
         lastValue = Int(arc4random_uniform(UInt32(images.count)))
         picker.selectRow(lastValue, inComponent: 0, animated: false)
         picker.reloadComponent(0)
         setUpWord(lastValue)
+        setUpKeyBoard()
     }
 
     @IBAction func spin(sender: AnyObject) {
@@ -63,8 +69,10 @@ class PlayViewController: UIViewController {
         picker.selectRow(newValue, inComponent: 0, animated: true)
         picker.reloadComponent(0)
         
-        // Set Words
+        // Set Non-Picker UI
         setUpWord(newValue)
+        setUpKeyBoard()
+        
         spinUIButton.enabled = true
     }
     
@@ -73,12 +81,55 @@ class PlayViewController: UIViewController {
         for view in wordHSLayout.subviews {
             wordHSLayout.removeArrangedSubview(view)
         }
+        
         let word = words[value]
+        currentWord = word
+        
         for char in word.characters {
             let label = UILabel()
             label.text = String(char)
             wordHSLayout.addArrangedSubview(label)
         }
+    }
+    
+    // Updates the keyboard
+    private func setUpKeyBoard() {
+        // remove previous keyboard
+        for view in topKeyStack.subviews {
+            topKeyStack.removeArrangedSubview(view)
+        }
+        for view in bottomKeyStack.subviews {
+            bottomKeyStack.removeArrangedSubview(view)
+        }
+        
+        // create new random options
+        var keyboardChars = currentWord
+        let curWordLength = currentWord.characters.count
+        let lettersLength = UInt32(letters.characters.count)
+        for (var i = 0; i < curWordLength; i++) {
+            let char = letters.startIndex.advancedBy(Int(arc4random_uniform(lettersLength)))
+            keyboardChars.append(letters[char])
+        }
+        
+        // fill out top row
+        for (var i = 0; i < curWordLength * 2; i++) {
+            let index = Int(arc4random_uniform(UInt32(keyboardChars.characters.count)))
+            let char = keyboardChars.startIndex.advancedBy(index)
+            let button = UIButton()
+            
+            button.setTitle(String(keyboardChars[char]), forState: .Normal)
+            button.setTitleColor(UIColor.blueColor(), forState: .Normal)
+            print("\(button.titleLabel!.text)")
+    
+            if i < curWordLength {
+                topKeyStack.addArrangedSubview(button)
+            } else {
+                bottomKeyStack.addArrangedSubview(button)
+            }
+            
+            keyboardChars.removeAtIndex(char)
+        }
+        
     }
     
     // How many selectors we want

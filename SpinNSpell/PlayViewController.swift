@@ -13,7 +13,7 @@ class PlayViewController: UIViewController {
     var topic : NSDictionary = NSDictionary()
     private var words: [String] = [String]()
     private var images: [UIImage] = [UIImage]()
-    private var currentRow:Int = 0
+    private var lastValue:Int = 0
     
     @IBOutlet weak var arrowUIView: UIImageView!
     @IBOutlet weak var spinUIButton: UIButton!
@@ -29,7 +29,7 @@ class PlayViewController: UIViewController {
         spinUIButton.layer.cornerRadius = 30
         spinUIButton.layer.borderWidth = 1
         spinUIButton.layer.borderColor = UIColor.blackColor().CGColor
-        // Load Topic
+        // *** Load Topics ***
         for item in topic["words"] as! NSDictionary {
             let word = item.key as! String
             let imageURL = NSURL(string: item.value as! String)
@@ -40,6 +40,45 @@ class PlayViewController: UIViewController {
             words.append(word)
         }
         // End: UI Setup
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        lastValue = Int(arc4random_uniform(UInt32(images.count)))
+        picker.selectRow(lastValue, inComponent: 0, animated: false)
+        picker.reloadComponent(0)
+        setUpWord(lastValue)
+    }
+
+    @IBAction func spin(sender: AnyObject) {
+        // Disable Spinner clear labels and
+        spinUIButton.enabled = false
+        // Select new value
+        var newValue = Int(arc4random_uniform(UInt32(images.count)))
+        while lastValue == newValue {
+            newValue = Int(arc4random_uniform(UInt32(images.count)))
+        }
+        lastValue = newValue
+        
+        // Set Picker
+        picker.selectRow(newValue, inComponent: 0, animated: true)
+        picker.reloadComponent(0)
+        
+        // Set Words
+        setUpWord(newValue)
+        spinUIButton.enabled = true
+    }
+    
+    // Updates the word display area with new value
+    private func setUpWord(value: Int) {
+        for view in wordHSLayout.subviews {
+            wordHSLayout.removeArrangedSubview(view)
+        }
+        let word = words[value]
+        for char in word.characters {
+            let label = UILabel()
+            label.text = String(char)
+            wordHSLayout.addArrangedSubview(label)
+        }
     }
     
     // How many selectors we want

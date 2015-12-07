@@ -7,7 +7,6 @@
 //
 
 import UIKit
-var wordsSpeltRight: Int = 0
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

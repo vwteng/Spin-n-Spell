@@ -8,10 +8,11 @@
 
 import UIKit
 
-class PlayViewController: UIViewController {
+class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource  {
     private let letters: String = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     private var words: [String] = [String]()
     private var currentWord: String = ""
+    private var speltWord: String = ""
     private var images: [UIImage] = [UIImage]()
     private var lastValue: Int = 0
     
@@ -65,6 +66,7 @@ class PlayViewController: UIViewController {
     @IBAction func spin(sender: AnyObject) {
         // Disable Spinner clear labels and reset screen
         spinUIButton.enabled = false
+        speltWord = ""
         
         // Select new value
         var newValue = Int(arc4random_uniform(UInt32(images.count)))
@@ -86,8 +88,8 @@ class PlayViewController: UIViewController {
     
     // Updates the word display area with new value
     private func setUpWord(value: Int) {
-        for view in wordHSLayout.subviews {
-            wordHSLayout.removeArrangedSubview(view)
+        for view in wordHSLayout.subviews{
+            view.removeFromSuperview()
         }
         
         let word = words[value]
@@ -97,7 +99,7 @@ class PlayViewController: UIViewController {
             let label = UILabel()
             label.text = String(char)
             label.textAlignment = .Center
-            label.textColor = UIColor.whiteColor()
+            label.textColor = UIColor.greenColor()
             wordHSLayout.addArrangedSubview(label)
         }
     }
@@ -105,11 +107,11 @@ class PlayViewController: UIViewController {
     // Updates the keyboard
     private func setUpKeyBoard() {
         // remove previous keyboard
-        for view in topKeyStack.subviews {
-            topKeyStack.removeArrangedSubview(view)
+        for view in topKeyStack.subviews{
+            view.removeFromSuperview()
         }
-        for view in bottomKeyStack.subviews {
-            bottomKeyStack.removeArrangedSubview(view)
+        for view in bottomKeyStack.subviews{
+            view.removeFromSuperview()
         }
         
         // create new random options
@@ -131,6 +133,7 @@ class PlayViewController: UIViewController {
             button.setTitle(String(keyboardChars[char]), forState: .Normal)
             button.setTitleColor(UIColor.blueColor(), forState: .Normal)
             button.setTitleColor(UIColor.lightGrayColor(), forState: .Highlighted)
+            button.setTitleColor(UIColor.lightGrayColor(), forState: .Disabled)
             button.layer.cornerRadius = 5
             button.layer.borderWidth = 1
             button.layer.borderColor = UIColor.blackColor().CGColor
@@ -158,8 +161,32 @@ class PlayViewController: UIViewController {
             if label.textColor !=  UIColor.blackColor() {
                 label.text = letter
                 label.textColor = UIColor.blackColor()
+                speltWord += letter!
                 break
             }
+        }
+        
+        if speltWord.characters.count == currentWord.characters.count {
+            var alertTitle = ""
+            var alertMsg = ""
+            var alertDismiss = ""
+            
+            if speltWord == currentWord {
+                alertTitle = "Nice Job!"
+                alertMsg = "You spelled the word right!"
+                alertDismiss = "Next Word"
+                
+                words.removeAtIndex(lastValue)
+                images.removeAtIndex(lastValue)
+            } else {
+                alertTitle = "Uh Oh..."
+                alertMsg = "Thats not how you spell the word!"
+                alertDismiss = "Try Again"
+            }
+            
+            let alert = UIAlertController(title: alertTitle, message: alertMsg, preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: alertDismiss, style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
         }
     }
     
@@ -170,7 +197,7 @@ class PlayViewController: UIViewController {
     
     // How many options we need
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-       // return topic["words"]!.count
+        // return topic["words"]!.count
         return words.count
     }
     

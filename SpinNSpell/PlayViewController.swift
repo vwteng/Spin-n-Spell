@@ -24,6 +24,7 @@ class PlayViewController: UIViewController {
     @IBOutlet weak var topKeyStack: UIStackView!
     @IBOutlet weak var bottomKeyStack: UIStackView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -88,6 +89,8 @@ class PlayViewController: UIViewController {
         for char in word.characters {
             let label = UILabel()
             label.text = String(char)
+            label.textAlignment = .Center
+            label.textColor = UIColor.whiteColor()
             wordHSLayout.addArrangedSubview(label)
         }
     }
@@ -115,11 +118,16 @@ class PlayViewController: UIViewController {
         for (var i = 0; i < curWordLength * 2; i++) {
             let index = Int(arc4random_uniform(UInt32(keyboardChars.characters.count)))
             let char = keyboardChars.startIndex.advancedBy(index)
-            let button = UIButton()
             
+            // Create keyboard key
+            let button = UIButton()
             button.setTitle(String(keyboardChars[char]), forState: .Normal)
             button.setTitleColor(UIColor.blueColor(), forState: .Normal)
-            print("\(button.titleLabel!.text)")
+            button.layer.cornerRadius = 5
+            button.layer.borderWidth = 1
+            button.layer.borderColor = UIColor.blackColor().CGColor
+            
+            button.addTarget(self, action: "pressed:", forControlEvents: .TouchUpInside)
     
             if i < curWordLength {
                 topKeyStack.addArrangedSubview(button)
@@ -130,6 +138,19 @@ class PlayViewController: UIViewController {
             keyboardChars.removeAtIndex(char)
         }
         
+    }
+    
+    func pressed(sender: UIButton!) {
+        let letter = sender.titleLabel?.text!
+        print("\(letter)")
+        if currentWord.containsString(letter!) {
+            for view in wordHSLayout.subviews {
+                let label = view as! UILabel
+                if label.text == letter {
+                    label.textColor = UIColor.blackColor()
+                }
+            }
+        }
     }
     
     // How many selectors we want

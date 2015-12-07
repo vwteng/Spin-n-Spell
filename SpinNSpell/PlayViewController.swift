@@ -11,9 +11,9 @@ import UIKit
 class PlayViewController: UIViewController {
     private let letters: String = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     private var words: [String] = [String]()
-    private var currentWord:String = ""
+    private var currentWord: String = ""
     private var images: [UIImage] = [UIImage]()
-    private var lastValue:Int = 0
+    private var lastValue: Int = 0
     
     var topic : NSDictionary = NSDictionary()
     
@@ -45,6 +45,8 @@ class PlayViewController: UIViewController {
             words.append(word.uppercaseString)
         }
         // End: UI Setup
+        
+        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -55,10 +57,11 @@ class PlayViewController: UIViewController {
         setUpWord(lastValue)
         setUpKeyBoard()
     }
-
+    
     @IBAction func spin(sender: AnyObject) {
-        // Disable Spinner clear labels and
+        // Disable Spinner clear labels and reset screen
         spinUIButton.enabled = false
+        
         // Select new value
         var newValue = Int(arc4random_uniform(UInt32(images.count)))
         while lastValue == newValue {
@@ -123,12 +126,13 @@ class PlayViewController: UIViewController {
             let button = UIButton()
             button.setTitle(String(keyboardChars[char]), forState: .Normal)
             button.setTitleColor(UIColor.blueColor(), forState: .Normal)
+            button.setTitleColor(UIColor.lightGrayColor(), forState: .Highlighted)
             button.layer.cornerRadius = 5
             button.layer.borderWidth = 1
             button.layer.borderColor = UIColor.blackColor().CGColor
             
             button.addTarget(self, action: "pressed:", forControlEvents: .TouchUpInside)
-    
+            
             if i < curWordLength {
                 topKeyStack.addArrangedSubview(button)
             } else {
@@ -140,15 +144,17 @@ class PlayViewController: UIViewController {
         
     }
     
+    // Button pressed handler
     func pressed(sender: UIButton!) {
+        sender.enabled = false
         let letter = sender.titleLabel?.text!
-        print("\(letter)")
-        if currentWord.containsString(letter!) {
-            for view in wordHSLayout.subviews {
-                let label = view as! UILabel
-                if label.text == letter {
-                    label.textColor = UIColor.blackColor()
-                }
+        
+        for view in wordHSLayout.subviews {
+            let label = view as! UILabel
+            if label.textColor !=  UIColor.blackColor() {
+                label.text = letter
+                label.textColor = UIColor.blackColor()
+                break
             }
         }
     }

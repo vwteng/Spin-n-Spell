@@ -25,7 +25,6 @@ class BadgesViewController: UIViewController, UITableViewDataSource, UITableView
                   "5 correct words in a row",
                   "10 correct words in a row",
                   "10 correct words in a game",
-                  "20 correct words in a game",
                   "Guessed all words in a topic",
                   "Guessed all words in all topics"]
 

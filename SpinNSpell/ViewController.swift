@@ -14,6 +14,20 @@ class ViewController: UIViewController {
     
     var maxLength = 8
     var sound = false
+    
+    var badges : NSDictionary = [
+        "badgeImage": "http://clipartzebraz.com/cliparts/star-clip-art/cliparti1_star-clip-art_03.jpg",
+        "initialBadge": "Created a new game",
+        "otherBadges": [
+            "1": "5 correct words in a row",
+            "2": "10 correct words in a row",
+            "3": "10 correct words in a game",
+            "4": "20 correct words in a game",
+            "5": "Guessed all words in a topic",
+            "6": "Guessed all words in all topics"
+        ]
+    ]
+    
     // Default Topic to Farm Animals:
     var currentTopic : NSDictionary = [
         "topic": "Farm Animals",
@@ -65,6 +79,13 @@ class ViewController: UIViewController {
                 vc.topics = self.topics
             }
         }
+        
+        if segue.identifier == "GoToBadgesSegue" {
+            if let vc = segue.destinationViewController as? BadgesViewController {
+                (segue.destinationViewController as! BadgesViewController).delegate = self
+                vc.badges = self.badges
+            }
+        }
     }
 }
 
@@ -80,9 +101,6 @@ extension ViewController: SettingsViewControllerDelegate, ChangeTopicViewControl
         self.maxLength = maxLength
     }
     func updateBadges(badge: NSDictionary) {
-        self.badge = badge
+        self.badges = badge
     }
 }
-
-
-

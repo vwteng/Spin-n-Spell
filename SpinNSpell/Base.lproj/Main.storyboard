@@ -475,6 +475,9 @@
                             <constraint firstItem="Ie9-6Q-i2a" firstAttribute="top" secondItem="ykc-vW-M9l" secondAttribute="bottom" constant="20" id="s7H-Pg-Cwr"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="ykc-vW-M9l" id="vPe-T1-011"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8da-ww-tae" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -527,6 +530,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="6SR-3u-h66"/>
-        <segue reference="fkx-dh-k1U"/>
+        <segue reference="p9y-mn-flr"/>
     </inferredMetricsTieBreakers>
 </document>

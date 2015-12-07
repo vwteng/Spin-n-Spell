@@ -15,7 +15,7 @@ protocol BadgesViewControllerDelegate {
 
 class BadgesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    //var selectedBadge = NSDictionary()
+    //var selectedBadge : String = ""
     var topics = [NSDictionary]()
     let cellTableIdentifier = "CellTableIdentifier"
     @IBOutlet weak var tableView: UITableView!
@@ -44,12 +44,12 @@ class BadgesViewController: UIViewController, UITableViewDataSource, UITableView
         // Dispose of any resources that can be recreated.
     }
     
-   /* func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+   /*func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let indexPath = tableView.indexPathForSelectedRow
         let currentCell = tableView.cellForRowAtIndexPath(indexPath!)! as! BadgeCell
         selectedBadge = badges[indexPath!.row]
         self.delegate?.updateBadges(selectedBadge)
-    } */
+    }*/
     
     func tableView(tableView: UITableView,
         numberOfRowsInSection section: Int) -> Int {

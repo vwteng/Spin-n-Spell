@@ -16,6 +16,7 @@ protocol BadgesViewControllerDelegate {
 class BadgesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     //var selectedBadge = NSDictionary()
+    var topics = [NSDictionary]()
     let cellTableIdentifier = "CellTableIdentifier"
     @IBOutlet weak var tableView: UITableView!
     var delegate : BadgesViewControllerDelegate?
@@ -34,10 +35,8 @@ class BadgesViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     override func viewDidAppear(animated: Bool) {
-        //self.delegate?.updateData(self.badges)
-        //print("\(badges)")
-        super.viewDidAppear(animated)
-        tableView.reloadData()
+        self.delegate?.updateData(self.topics)
+        print("\(badges)")
     }
 
     override func didReceiveMemoryWarning() {
@@ -59,7 +58,7 @@ class BadgesViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellTableIdentifier, forIndexPath: indexPath) as! BadgeCell
-        cell.textLabel?.text = badges[indexPath.row]
+        cell.textLabel?.text = badges[indexPath.item]
         return cell
     }
     

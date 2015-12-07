@@ -10,7 +10,7 @@ import UIKit
 
 protocol BadgesViewControllerDelegate {
     func updateData(data: [NSDictionary])
-    func updateBadges(badge: NSDictionary)
+    func updateBadges(badge: String)
 }
 
 class BadgesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -20,8 +20,14 @@ class BadgesViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var tableView: UITableView!
     var delegate : BadgesViewControllerDelegate?
     
-    var badges = NSDictionary()
-    
+    var badges = ["Created a new game",
+                  "5 correct words in a row",
+                  "10 correct words in a row",
+                  "10 correct words in a game",
+                  "20 correct words in a game",
+                  "Guessed all words in a topic",
+                  "Guessed all words in all topics"]
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.registerClass(BadgeCell.self, forCellReuseIdentifier : cellTableIdentifier)
@@ -29,7 +35,9 @@ class BadgesViewController: UIViewController, UITableViewDataSource, UITableView
     
     override func viewDidAppear(animated: Bool) {
         //self.delegate?.updateData(self.badges)
-        print("\(badges)")
+        //print("\(badges)")
+        super.viewDidAppear(animated)
+        tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,12 +45,12 @@ class BadgesViewController: UIViewController, UITableViewDataSource, UITableView
         // Dispose of any resources that can be recreated.
     }
     
-    /*func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+   /* func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let indexPath = tableView.indexPathForSelectedRow
         let currentCell = tableView.cellForRowAtIndexPath(indexPath!)! as! BadgeCell
         selectedBadge = badges[indexPath!.row]
         self.delegate?.updateBadges(selectedBadge)
-    }*/
+    } */
     
     func tableView(tableView: UITableView,
         numberOfRowsInSection section: Int) -> Int {
@@ -51,15 +59,7 @@ class BadgesViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellTableIdentifier, forIndexPath: indexPath) as! BadgeCell
-        let imageView = UIImageView(frame: CGRectMake(50, 10, 5, 5))
-        let rowData = badges[indexPath.row]
-        // Code for loading an image from the web
-        let url = NSURL(string: (rowData!["badgeImage"] as? String)!)
-        let data = NSData(contentsOfURL: url!)
-        imageView.image = UIImage(data: data!)
-        // End loading image code
-        cell.imageView?.image = imageView.image
-        cell.badge = (rowData!["badge"]! as? String)!
+        cell.textLabel?.text = badges[indexPath.row]
         return cell
     }
     

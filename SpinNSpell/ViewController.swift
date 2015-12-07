@@ -11,22 +11,12 @@ import UIKit
 class ViewController: UIViewController {
 
     var topics : [NSDictionary] = [NSDictionary]()
+    var badges : [String] = [""]
     
     var maxLength = 8
     var sound = false
     
-    var badges : NSDictionary = [
-        "badgeImage": "http://clipartzebraz.com/cliparts/star-clip-art/cliparti1_star-clip-art_03.jpg",
-        "initialBadge": "Created a new game",
-        "otherBadges": [
-            "1": "5 correct words in a row",
-            "2": "10 correct words in a row",
-            "3": "10 correct words in a game",
-            "4": "20 correct words in a game",
-            "5": "Guessed all words in a topic",
-            "6": "Guessed all words in all topics"
-        ]
-    ]
+    var initialBadge : String = "Created a new game"
     
     // Default Topic to Farm Animals:
     var currentTopic : NSDictionary = [
@@ -100,7 +90,7 @@ extension ViewController: SettingsViewControllerDelegate, ChangeTopicViewControl
         self.sound = sound
         self.maxLength = maxLength
     }
-    func updateBadges(badge: NSDictionary) {
-        self.badges = badge
+    func updateBadges(badge: String) {
+        self.initialBadge = badge
     }
 }

@@ -56,11 +56,14 @@ class ViewController: UIViewController {
             if let vc = segue.destinationViewController as? SettingsViewController {
                 (segue.destinationViewController as! SettingsViewController).delegate = self
                 vc.topics = self.topics
+                vc.maxLength = self.maxLength
+                vc.sound = self.sound
             }
         }
         if segue.identifier == "GoToPlaySegue" {
             if let vc = segue.destinationViewController as? PlayViewController {
                 vc.topic = self.currentTopic
+                vc.maxLength = self.maxLength
             }
         }
         if segue.identifier == "GoToChangeSegue" {
@@ -69,7 +72,6 @@ class ViewController: UIViewController {
                 vc.topics = self.topics
             }
         }
-        
         if segue.identifier == "GoToBadgesSegue" {
             if let vc = segue.destinationViewController as? BadgesViewController {
                 (segue.destinationViewController as! BadgesViewController).delegate = self

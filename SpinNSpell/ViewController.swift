@@ -65,14 +65,10 @@ class ViewController: UIViewController {
                 vc.topics = self.topics
             }
         }
-        
     }
-    
-    
-    
 }
 
-extension ViewController: SettingsViewControllerDelegate, ChangeTopicViewControllerDelegate {
+extension ViewController: SettingsViewControllerDelegate, ChangeTopicViewControllerDelegate, BadgesViewControllerDelegate {
     func updateData(data: [NSDictionary]) {
         self.topics = data
     }
@@ -82,6 +78,9 @@ extension ViewController: SettingsViewControllerDelegate, ChangeTopicViewControl
     func updateSettings(sound: Bool, maxLength: Int) {
         self.sound = sound
         self.maxLength = maxLength
+    }
+    func updateBadges(badge: NSDictionary) {
+        self.badge = badge
     }
 }
 

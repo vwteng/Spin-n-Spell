@@ -16,6 +16,7 @@
 		3CB126971C0D0D51008540DE /* SpinNSpellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB126961C0D0D51008540DE /* SpinNSpellTests.swift */; };
 		3CB126A21C0D0D51008540DE /* SpinNSpellUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB126A11C0D0D51008540DE /* SpinNSpellUITests.swift */; };
 		9D24CC321C15397B00554253 /* BadgesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D24CC311C15397B00554253 /* BadgesViewController.swift */; };
+		9D24CC341C153FB300554253 /* BadgeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D24CC331C153FB300554253 /* BadgeCell.swift */; };
 		CE0E6F531C0FC95C0031D7AD /* JSONViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E6F521C0FC95C0031D7AD /* JSONViewController.swift */; };
 		CEE6CEF71C11246900B6DE7B /* ChangeTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE6CEF61C11246900B6DE7B /* ChangeTopicViewController.swift */; };
 		CEE6CEF91C11259C00B6DE7B /* TopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE6CEF81C11259C00B6DE7B /* TopicCell.swift */; };
@@ -56,6 +57,7 @@
 		3CB126A11C0D0D51008540DE /* SpinNSpellUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinNSpellUITests.swift; sourceTree = "<group>"; };
 		3CB126A31C0D0D51008540DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D24CC311C15397B00554253 /* BadgesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgesViewController.swift; sourceTree = "<group>"; };
+		9D24CC331C153FB300554253 /* BadgeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeCell.swift; sourceTree = "<group>"; };
 		CE0E6F521C0FC95C0031D7AD /* JSONViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONViewController.swift; sourceTree = "<group>"; };
 		CEE6CEF61C11246900B6DE7B /* ChangeTopicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeTopicViewController.swift; sourceTree = "<group>"; };
 		CEE6CEF81C11259C00B6DE7B /* TopicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicCell.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				3CB126811C0D0D51008540DE /* AppDelegate.swift */,
 				3CB126831C0D0D51008540DE /* ViewController.swift */,
 				CEE6CEF81C11259C00B6DE7B /* TopicCell.swift */,
+				9D24CC331C153FB300554253 /* BadgeCell.swift */,
 				3CB126851C0D0D51008540DE /* Main.storyboard */,
 				031892391C1240BA008F443F /* PlayViewController.swift */,
 				CEE6CEFC1C112C5300B6DE7B /* AboutViewController.swift */,
@@ -289,6 +292,7 @@
 				CEE6CEF91C11259C00B6DE7B /* TopicCell.swift in Sources */,
 				CE0E6F531C0FC95C0031D7AD /* JSONViewController.swift in Sources */,
 				CEE6CEFB1C112B9100B6DE7B /* SettingsViewController.swift in Sources */,
+				9D24CC341C153FB300554253 /* BadgeCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

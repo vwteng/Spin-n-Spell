@@ -8,10 +8,20 @@
 
 import UIKit
 
-class BadgesViewController: UIViewController {
+protocol BadgesViewControllerDelegate {
+    func updateData(data: [NSDictionary])
+    func updateBadges(badge: NSDictionary)
+}
 
+class BadgesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    var badges = [NSDictionary]()
+    let cellTableIdentifier = "CellTableIdentifier"
+    var delegate : BadgesViewControllerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.registerClass(BadgeCell.self, forCellReuseIdentifier : cellTableIdentifier)
     }
 
     override func didReceiveMemoryWarning() {

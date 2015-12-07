@@ -11,9 +11,13 @@ import UIKit
 class ViewController: UIViewController {
 
     var topics : [NSDictionary] = [NSDictionary]()
+    var badges : [String] = [""]
     
     var maxLength = 8
     var sound = false
+    
+    var initialBadge : String = "Created a new game"
+    
     // Default Topic to Farm Animals:
     var currentTopic : NSDictionary = [
         "topic": "Farm Animals",
@@ -52,11 +56,14 @@ class ViewController: UIViewController {
             if let vc = segue.destinationViewController as? SettingsViewController {
                 (segue.destinationViewController as! SettingsViewController).delegate = self
                 vc.topics = self.topics
+                vc.maxLength = self.maxLength
+                vc.sound = self.sound
             }
         }
         if segue.identifier == "GoToPlaySegue" {
             if let vc = segue.destinationViewController as? PlayViewController {
                 vc.topic = self.currentTopic
+                vc.maxLength = self.maxLength
             }
         }
         if segue.identifier == "GoToChangeSegue" {
@@ -65,14 +72,16 @@ class ViewController: UIViewController {
                 vc.topics = self.topics
             }
         }
-        
+        if segue.identifier == "GoToBadgesSegue" {
+            if let vc = segue.destinationViewController as? BadgesViewController {
+                (segue.destinationViewController as! BadgesViewController).delegate = self
+                vc.badges = self.badges
+            }
+        }
     }
-    
-    
-    
 }
 
-extension ViewController: SettingsViewControllerDelegate, ChangeTopicViewControllerDelegate {
+extension ViewController: SettingsViewControllerDelegate, ChangeTopicViewControllerDelegate, BadgesViewControllerDelegate {
     func updateData(data: [NSDictionary]) {
         self.topics = data
     }
@@ -83,7 +92,7 @@ extension ViewController: SettingsViewControllerDelegate, ChangeTopicViewControl
         self.sound = sound
         self.maxLength = maxLength
     }
+    func updateBadges(badge: String) {
+        self.initialBadge = badge
+    }
 }
-
-
-

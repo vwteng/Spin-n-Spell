@@ -17,6 +17,8 @@ class PlayViewController: UIViewController {
     
     var topic : NSDictionary = NSDictionary()
     
+    var maxLength = Int()
+    
     @IBOutlet weak var arrowUIView: UIImageView!
     @IBOutlet weak var spinUIButton: UIButton!
     @IBOutlet weak var picker: UIPickerView!
@@ -37,12 +39,14 @@ class PlayViewController: UIViewController {
         // *** Load Topics ***
         for item in topic["words"] as! NSDictionary {
             let word = item.key as! String
-            let imageURL = NSURL(string: item.value as! String)
-            let data = NSData(contentsOfURL: imageURL!)
-            let image = UIImage(data: data!)
-            
-            images.append(image!)
-            words.append(word.uppercaseString)
+            if word.characters.count <= maxLength {
+                let imageURL = NSURL(string: item.value as! String)
+                let data = NSData(contentsOfURL: imageURL!)
+                let image = UIImage(data: data!)
+                
+                images.append(image!)
+                words.append(word.uppercaseString)
+            }
         }
         // End: UI Setup
         
@@ -166,7 +170,8 @@ class PlayViewController: UIViewController {
     
     // How many options we need
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return topic["words"]!.count
+       // return topic["words"]!.count
+        return words.count
     }
     
     // What each row will show

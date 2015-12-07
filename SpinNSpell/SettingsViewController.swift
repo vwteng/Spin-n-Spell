@@ -16,12 +16,19 @@ protocol SettingsViewControllerDelegate {
 class SettingsViewController: UIViewController {
     
     var maxLength = 8
-    var sound = true
+    var sound = false
     var topics = [NSDictionary]()
     var delegate : SettingsViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        maxWordLength.text = "Max Word Length: \(maxLength)"
+        lengthSlider.value = Float(maxLength)
+        if sound {
+            soundSwitch.setOn(true, animated: false)
+        } else {
+            soundSwitch.setOn(false, animated: false)
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -60,7 +67,6 @@ class SettingsViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "GoToJSONSegue" {
             if let vc = segue.destinationViewController as? JSONViewController {
-                // will need to pass settings around?
                 (segue.destinationViewController as! JSONViewController).delegate = self
                 vc.topics = self.topics
             }

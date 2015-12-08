@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource  {
     private let letters: String = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -15,6 +16,9 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     private var speltWord: String = ""
     private var images: [UIImage] = [UIImage]()
     private var lastValue: Int = 0
+    
+    private var spinSound: SystemSoundID = 0
+    private var correctSound: SystemSoundID = 0
     
     var topic : NSDictionary = NSDictionary()
     
@@ -84,6 +88,12 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         setUpKeyBoard()
         
         spinUIButton.enabled = true
+        
+        // Play audio
+        let soundURL = NSBundle.mainBundle().URLForResource("crunch", withExtension: "wav")! as CFURLRef
+        AudioServicesCreateSystemSoundID(soundURL, &spinSound)
+        
+        AudioServicesPlaySystemSound(spinSound)
     }
     
     // Updates the word display area with new value
@@ -178,6 +188,12 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                 
                 words.removeAtIndex(lastValue)
                 images.removeAtIndex(lastValue)
+                
+                let soundURL = NSBundle.mainBundle().URLForResource("hit", withExtension: "wav")! as CFURLRef
+                AudioServicesCreateSystemSoundID(soundURL, &correctSound)
+                
+                AudioServicesPlaySystemSound(correctSound)
+                
             } else {
                 alertTitle = "Uh Oh..."
                 alertMsg = "Thats not how you spell the word!"

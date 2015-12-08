@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0318923A1C1240BA008F443F /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031892391C1240BA008F443F /* PlayViewController.swift */; };
+		3C49A5531C169BC000AA5CB4 /* crunch.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3C49A5521C169BC000AA5CB4 /* crunch.wav */; };
+		3C49A5551C16A15500AA5CB4 /* hit.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3C49A5541C16A15500AA5CB4 /* hit.wav */; };
 		3CB126821C0D0D51008540DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB126811C0D0D51008540DE /* AppDelegate.swift */; };
 		3CB126841C0D0D51008540DE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB126831C0D0D51008540DE /* ViewController.swift */; };
 		3CB126871C0D0D51008540DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CB126851C0D0D51008540DE /* Main.storyboard */; };
@@ -43,6 +45,8 @@
 
 /* Begin PBXFileReference section */
 		031892391C1240BA008F443F /* PlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
+		3C49A5521C169BC000AA5CB4 /* crunch.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = crunch.wav; path = "../../../Dropbox/INFO 498 iOS/9781484204108/Examples/07 - Pickers/Pickers/crunch.wav"; sourceTree = "<group>"; };
+		3C49A5541C16A15500AA5CB4 /* hit.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = hit.wav; path = ../../hit.wav; sourceTree = "<group>"; };
 		3CB1267E1C0D0D51008540DE /* SpinNSpell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpinNSpell.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CB126811C0D0D51008540DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3CB126831C0D0D51008540DE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +117,8 @@
 		3CB126801C0D0D51008540DE /* SpinNSpell */ = {
 			isa = PBXGroup;
 			children = (
+				3C49A5541C16A15500AA5CB4 /* hit.wav */,
+				3C49A5521C169BC000AA5CB4 /* crunch.wav */,
 				3CB126811C0D0D51008540DE /* AppDelegate.swift */,
 				3CB126831C0D0D51008540DE /* ViewController.swift */,
 				CEE6CEF81C11259C00B6DE7B /* TopicCell.swift */,
@@ -257,6 +263,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CB1268C1C0D0D51008540DE /* LaunchScreen.storyboard in Resources */,
+				3C49A5531C169BC000AA5CB4 /* crunch.wav in Resources */,
+				3C49A5551C16A15500AA5CB4 /* hit.wav in Resources */,
 				3CB126891C0D0D51008540DE /* Assets.xcassets in Resources */,
 				3CB126871C0D0D51008540DE /* Main.storyboard in Resources */,
 			);

@@ -49,9 +49,22 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                 words.append(word.uppercaseString)
             }
         }
+        
+        navigationController!.setNavigationBarHidden(false, animated:true)
+        let infoButton:UIButton = UIButton(type: UIButtonType.Custom) as UIButton
+        infoButton.addTarget(self, action: "GoToInfoSegue", forControlEvents: UIControlEvents.TouchUpInside)
+        infoButton.setTitle("Help", forState: UIControlState.Normal)
+        infoButton.sizeToFit()
+        infoButton.setTitleColor(UIColor(red: 0.0, green: 122.0/255.0, blue: 1.0, alpha: 1.9), forState: UIControlState.Normal)
+        let myCustomInfoButtonItem:UIBarButtonItem = UIBarButtonItem(customView: infoButton)
+        self.navigationItem.rightBarButtonItem = myCustomInfoButtonItem
         // End: UI Setup
         
         
+    }
+    
+    func GoToInfoSegue() {
+        self.performSegueWithIdentifier("GoToInfo", sender: nil)
     }
     
     override func viewDidAppear(animated: Bool) {

@@ -76,21 +76,11 @@
                                     <segue destination="jgi-Ib-LdI" kind="show" identifier="GoToChangeSegue" id="YCo-pg-ChX"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sci-QQ-LEi">
-                                <rect key="frame" x="20" y="28" width="30" height="30"/>
-                                <animations/>
-                                <state key="normal" title="?"/>
-                                <connections>
-                                    <segue destination="3he-Sy-CYo" kind="show" id="kG4-Wp-eY7"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="pra-HP-6cn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Eq6-zj-wBM"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="Sci-QQ-LEi" secondAttribute="leading" id="H0w-T9-X0z"/>
-                            <constraint firstItem="Sci-QQ-LEi" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="aX0-U0-mcu"/>
                             <constraint firstItem="4T2-J0-PqQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mnz-aw-uer"/>
                             <constraint firstItem="8Cp-oW-21t" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qo6-UY-P69"/>
                             <constraint firstItem="o22-JL-P9I" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sBP-gB-dBi"/>
@@ -101,11 +91,12 @@
                     <navigationItem key="navigationItem" id="Fyf-fV-Nma"/>
                     <connections>
                         <outlet property="currentTopicLabel" destination="pra-HP-6cn" id="3Bu-Pj-ZYA"/>
+                        <segue destination="3he-Sy-CYo" kind="show" identifier="GoToInfo" id="E2r-H3-GHI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="149" y="337"/>
+            <point key="canvasLocation" x="196" y="353"/>
         </scene>
         <!--JSON-->
         <scene sceneID="Dra-x7-Pq7">
@@ -161,6 +152,7 @@
                     </view>
                     <connections>
                         <outlet property="textBox" destination="F4P-cm-2hy" id="eUH-Zo-3tO"/>
+                        <segue destination="3he-Sy-CYo" kind="show" identifier="GoToInfo" id="7Pe-my-LOL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cmh-gd-0nQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -260,6 +252,7 @@
                         <outlet property="lengthSlider" destination="Ei1-g4-Ql7" id="7L0-zW-Vwj"/>
                         <outlet property="maxWordLength" destination="Rhp-7t-iS8" id="ldd-Id-EbV"/>
                         <outlet property="soundSwitch" destination="eZZ-FM-iXE" id="5gX-GL-zKR"/>
+                        <segue destination="3he-Sy-CYo" kind="show" identifier="GoToInfo" id="pfL-g6-Umo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mRv-oN-ZgK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -278,8 +271,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="About" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2rN-Ns-dgE">
-                                <rect key="frame" x="194" y="67" width="47" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HELP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2rN-Ns-dgE">
+                                <rect key="frame" x="199" y="67" width="42" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -345,6 +338,7 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="hBm-9p-R1r" id="qST-xe-7g7"/>
+                        <segue destination="3he-Sy-CYo" kind="show" identifier="GoToInfo" id="9Di-8Q-THf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4w5-qx-8ew" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -442,6 +436,7 @@
                         <outlet property="topKeyStack" destination="bwA-n4-F1V" id="vs8-Rh-dZa"/>
                         <outlet property="wordHSLayout" destination="3TX-Vw-M6l" id="zF4-25-h3W"/>
                         <segue destination="Ar4-pi-06G" kind="show" id="a6Q-xU-8Pn"/>
+                        <segue destination="3he-Sy-CYo" kind="show" identifier="GoToInfo" id="oHz-PP-vZx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4s1-2h-jMG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -482,6 +477,7 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="ykc-vW-M9l" id="vPe-T1-011"/>
+                        <segue destination="3he-Sy-CYo" kind="show" identifier="GoToInfo" id="Hvj-d0-5eu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8da-ww-tae" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -527,6 +523,9 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="3he-Sy-CYo" kind="show" identifier="GoToInfo" id="0R7-eg-cP3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oIl-Q7-t8o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -534,7 +533,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="p9y-mn-flr"/>
         <segue reference="kSS-fO-J7e"/>
+        <segue reference="E2r-H3-GHI"/>
+        <segue reference="p9y-mn-flr"/>
     </inferredMetricsTieBreakers>
 </document>

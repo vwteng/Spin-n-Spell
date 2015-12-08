@@ -25,11 +25,23 @@ class ChangeTopicViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.registerClass(TopicCell.self, forCellReuseIdentifier : cellTableIdentifier)
+        navigationController!.setNavigationBarHidden(false, animated:true)
+        let infoButton:UIButton = UIButton(type: UIButtonType.Custom) as UIButton
+        infoButton.addTarget(self, action: "GoToInfoSegue", forControlEvents: UIControlEvents.TouchUpInside)
+        infoButton.setTitle("Help", forState: UIControlState.Normal)
+        infoButton.sizeToFit()
+        infoButton.setTitleColor(UIColor(red: 0.0, green: 122.0/255.0, blue: 1.0, alpha: 1.9), forState: UIControlState.Normal)
+        let myCustomInfoButtonItem:UIBarButtonItem = UIBarButtonItem(customView: infoButton)
+        self.navigationItem.rightBarButtonItem = myCustomInfoButtonItem
+    }
+    
+    func GoToInfoSegue() {
+        self.performSegueWithIdentifier("GoToInfo", sender: nil)
     }
     
     override func viewDidAppear(animated: Bool) {
         self.delegate?.updateData(self.topics)
-        print("\(topics)")
+        //print("\(topics)")
     }
     
     override func didReceiveMemoryWarning() {

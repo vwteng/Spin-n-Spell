@@ -37,6 +37,7 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         spinUIButton.layer.cornerRadius = 30
         spinUIButton.layer.borderWidth = 1
         spinUIButton.layer.borderColor = UIColor.blackColor().CGColor
+        
         // *** Load Topics ***
         for item in topic["words"] as! NSDictionary {
             let word = item.key as! String
@@ -50,8 +51,6 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             }
         }
         // End: UI Setup
-        
-        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -115,16 +114,10 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         }
         
         // create new random options
-        var keyboardChars = currentWord
-        let curWordLength = currentWord.characters.count
-        let lettersLength = UInt32(letters.characters.count)
-        for (var i = 0; i < curWordLength; i++) {
-            let char = letters.startIndex.advancedBy(Int(arc4random_uniform(lettersLength)))
-            keyboardChars.append(letters[char])
-        }
+        var keyboardChars = generateKeyOptions()
         
         // fill out top row
-        for (var i = 0; i < curWordLength * 2; i++) {
+        for (var i = 0; i < currentWord.characters.count * 2; i++) {
             let index = Int(arc4random_uniform(UInt32(keyboardChars.characters.count)))
             let char = keyboardChars.startIndex.advancedBy(index)
             
@@ -140,7 +133,7 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             
             button.addTarget(self, action: "pressed:", forControlEvents: .TouchUpInside)
             
-            if i < curWordLength {
+            if i < currentWord.characters.count {
                 topKeyStack.addArrangedSubview(button)
             } else {
                 bottomKeyStack.addArrangedSubview(button)
@@ -148,7 +141,17 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             
             keyboardChars.removeAtIndex(char)
         }
-        
+    }
+    
+    private func generateKeyOptions() -> String {
+        var keyboardChars = currentWord
+        let curWordLength = currentWord.characters.count
+        let lettersLength = UInt32(letters.characters.count)
+        for (var i = 0; i < curWordLength; i++) {
+            let char = letters.startIndex.advancedBy(Int(arc4random_uniform(lettersLength)))
+            keyboardChars.append(letters[char])
+        }
+        return keyboardChars
     }
     
     // Button pressed handler

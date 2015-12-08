@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource  {
     private let letters: String = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -16,9 +17,13 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     private var images: [UIImage] = [UIImage]()
     private var lastValue: Int = 0
     
+    private var spinSound: SystemSoundID = 0
+    private var correctSound: SystemSoundID = 0
+    
     var topic : NSDictionary = NSDictionary()
     
     var maxLength = Int()
+    var sound = Bool()
     
     @IBOutlet weak var arrowUIView: UIImageView!
     @IBOutlet weak var spinUIButton: UIButton!
@@ -50,7 +55,20 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                 words.append(word.uppercaseString)
             }
         }
+        
+        navigationController!.setNavigationBarHidden(false, animated:true)
+        let infoButton:UIButton = UIButton(type: UIButtonType.Custom) as UIButton
+        infoButton.addTarget(self, action: "GoToInfoSegue", forControlEvents: UIControlEvents.TouchUpInside)
+        infoButton.setTitle("Help", forState: UIControlState.Normal)
+        infoButton.sizeToFit()
+        infoButton.setTitleColor(UIColor(red: 0.0, green: 122.0/255.0, blue: 1.0, alpha: 1.9), forState: UIControlState.Normal)
+        let myCustomInfoButtonItem:UIBarButtonItem = UIBarButtonItem(customView: infoButton)
+        self.navigationItem.rightBarButtonItem = myCustomInfoButtonItem
         // End: UI Setup
+    }
+    
+    func GoToInfoSegue() {
+        self.performSegueWithIdentifier("GoToInfo", sender: nil)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -83,6 +101,14 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         setUpKeyBoard()
         
         spinUIButton.enabled = true
+        
+        // Play audio
+        if sound {
+            let soundURL = NSBundle.mainBundle().URLForResource("crunch", withExtension: "wav")! as CFURLRef
+            AudioServicesCreateSystemSoundID(soundURL, &spinSound)
+            
+            AudioServicesPlaySystemSound(spinSound)
+        }
     }
     
     // Updates the word display area with new value
@@ -181,6 +207,14 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                 
                 words.removeAtIndex(lastValue)
                 images.removeAtIndex(lastValue)
+                
+                if sound {
+                    let soundURL = NSBundle.mainBundle().URLForResource("hit", withExtension: "wav")! as CFURLRef
+                    AudioServicesCreateSystemSoundID(soundURL, &correctSound)
+                    
+                    AudioServicesPlaySystemSound(correctSound)
+                }
+                
             } else {
                 alertTitle = "Uh Oh..."
                 alertMsg = "Thats not how you spell the word!"

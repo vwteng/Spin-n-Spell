@@ -128,6 +128,7 @@ class ViewController: UIViewController {
             if let vc = segue.destinationViewController as? PlayViewController {
                 vc.topic = self.currentTopic
                 vc.maxLength = self.maxLength
+                vc.sound = self.sound
             }
         }
         if segue.identifier == "GoToChangeSegue" {

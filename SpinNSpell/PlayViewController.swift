@@ -23,6 +23,7 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     var topic : NSDictionary = NSDictionary()
     
     var maxLength = Int()
+    var sound = Bool()
     
     @IBOutlet weak var arrowUIView: UIImageView!
     @IBOutlet weak var spinUIButton: UIButton!
@@ -103,10 +104,12 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         spinUIButton.enabled = true
         
         // Play audio
-        let soundURL = NSBundle.mainBundle().URLForResource("crunch", withExtension: "wav")! as CFURLRef
-        AudioServicesCreateSystemSoundID(soundURL, &spinSound)
-        
-        AudioServicesPlaySystemSound(spinSound)
+        if sound {
+            let soundURL = NSBundle.mainBundle().URLForResource("crunch", withExtension: "wav")! as CFURLRef
+            AudioServicesCreateSystemSoundID(soundURL, &spinSound)
+            
+            AudioServicesPlaySystemSound(spinSound)
+        }
     }
     
     // Updates the word display area with new value
@@ -202,10 +205,12 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                 words.removeAtIndex(lastValue)
                 images.removeAtIndex(lastValue)
                 
-                let soundURL = NSBundle.mainBundle().URLForResource("hit", withExtension: "wav")! as CFURLRef
-                AudioServicesCreateSystemSoundID(soundURL, &correctSound)
-                
-                AudioServicesPlaySystemSound(correctSound)
+                if sound {
+                    let soundURL = NSBundle.mainBundle().URLForResource("hit", withExtension: "wav")! as CFURLRef
+                    AudioServicesCreateSystemSoundID(soundURL, &correctSound)
+                    
+                    AudioServicesPlaySystemSound(correctSound)
+                }
                 
             } else {
                 alertTitle = "Uh Oh..."

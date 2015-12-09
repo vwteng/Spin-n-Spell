@@ -148,15 +148,7 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             let char = keyboardChars.startIndex.advancedBy(index)
             
             // Create keyboard key
-            let button = UIButton()
-            button.setTitle(String(keyboardChars[char]), forState: .Normal)
-            button.setTitleColor(UIColor.blueColor(), forState: .Normal)
-            button.setTitleColor(UIColor.lightGrayColor(), forState: .Highlighted)
-            button.setTitleColor(UIColor.lightGrayColor(), forState: .Disabled)
-            button.layer.cornerRadius = 5
-            button.layer.borderWidth = 1
-            button.layer.borderColor = UIColor.blackColor().CGColor
-            
+            let button = createKeyboardButtonWithLetter(String(keyboardChars[char]))
             button.addTarget(self, action: "pressed:", forControlEvents: .TouchUpInside)
             
             if i < currentWord.characters.count {
@@ -178,6 +170,18 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             keyboardChars.append(letters[char])
         }
         return keyboardChars
+    }
+    
+    private func createKeyboardButtonWithLetter(letter: String) -> UIButton {
+        let button = UIButton()
+        button.setTitle(letter, forState: .Normal)
+        button.setTitleColor(UIColor.blueColor(), forState: .Normal)
+        button.setTitleColor(UIColor.lightGrayColor(), forState: .Highlighted)
+        button.setTitleColor(UIColor.lightGrayColor(), forState: .Disabled)
+        button.layer.cornerRadius = 5
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.blackColor().CGColor
+        return button
     }
     
     // Button pressed handler

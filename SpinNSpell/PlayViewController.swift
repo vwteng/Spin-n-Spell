@@ -239,6 +239,7 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         }
     }
     
+    // Earn a badge for meeting specific qualifications
     func earnBadge () {
         let alertTitle = "New Badge!"
         var alertMsg = ""

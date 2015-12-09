@@ -9,7 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // Initialize the loaded topics to be Animals.json
     var topics : [NSDictionary] = [
@@ -86,10 +87,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var currentTopicLabel: UILabel!
     
     override func viewDidAppear(animated: Bool) {
+        activityIndicator.stopAnimating()
         currentTopicLabel.text = "Current Topic: \(currentTopic["topic"]!)"
         //print("\(topics)")
         // print(sound)
         // print(maxLength)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        dispatch_async(dispatch_get_main_queue()) {
+            self.activityIndicator.stopAnimating()
+        }
+        //activityIndicator.stopAnimating()
     }
     
     override func viewDidLoad() {
@@ -114,8 +123,26 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+
+    @IBAction func playPushed(sender: AnyObject) {
+        dispatch_async(dispatch_get_main_queue()) {
+            self.activityIndicator.startAnimating()
+        }
+        //activityIndicator.startAnimating()
+    }
+    @IBAction func changeTopic(sender: AnyObject) {
+        activityIndicator.startAnimating()
+    }
+    @IBAction func badgesPushed(sender: AnyObject) {
+        activityIndicator.startAnimating()
+    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        dispatch_async(dispatch_get_main_queue()) {
+            
+            self.activityIndicator.startAnimating()
+        }
+        //activityIndicator.startAnimating()
         if segue.identifier == "GoToSettingsSegue" {
             if let vc = segue.destinationViewController as? SettingsViewController {
                 (segue.destinationViewController as! SettingsViewController).delegate = self
@@ -143,6 +170,7 @@ class ViewController: UIViewController {
                 vc.badges = self.badges
             }
         }
+        activityIndicator.stopAnimating()
     }
 }
 
@@ -160,4 +188,5 @@ extension ViewController: SettingsViewControllerDelegate, ChangeTopicViewControl
     func updateBadges(badge: String) {
         self.initialBadge = badge
     }
+    
 }

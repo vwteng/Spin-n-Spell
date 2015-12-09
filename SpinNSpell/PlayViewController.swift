@@ -245,19 +245,13 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         let alertDismiss = "Continue"
         
         if numCorrect == 10 {
-            alertMsg = "You spelled 5 words correct!"
-        }
-        
-        if numCorrect == 20 {
             alertMsg = "You spelled 10 words correct!"
-        }
-        
-        if numCorrectConsecutive == 5 {
+        } else if numCorrect == 20 {
+            alertMsg = "You spelled 20 words correct!"
+        } else if numCorrectConsecutive == 5 {
             alertMsg = "You spelled 5 words correct in a row!"
-        }
-        
-        if numCorrectConsecutive == 10 {
-            alertMsg = "You spelled 5 words correct in a row!"
+        } else if numCorrectConsecutive == 10 {
+            alertMsg = "You spelled 10 words correct in a row!"
         }
         
         let alert = UIAlertController(title: alertTitle, message: alertMsg, preferredStyle: UIAlertControllerStyle.Alert)

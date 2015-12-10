@@ -439,7 +439,7 @@
                         <outlet property="spinUIButton" destination="6u6-D7-VHY" id="Dil-aX-HVz"/>
                         <outlet property="topKeyStack" destination="bwA-n4-F1V" id="vs8-Rh-dZa"/>
                         <outlet property="wordHSLayout" destination="3TX-Vw-M6l" id="zF4-25-h3W"/>
-                        <segue destination="Ar4-pi-06G" kind="show" id="a6Q-xU-8Pn"/>
+                        <segue destination="Ar4-pi-06G" kind="show" identifier="GoToFinishedSegue" id="a6Q-xU-8Pn"/>
                         <segue destination="3he-Sy-CYo" kind="show" identifier="GoToInfo" id="oHz-PP-vZx"/>
                     </connections>
                 </viewController>
@@ -537,8 +537,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="oHz-PP-vZx"/>
         <segue reference="kSS-fO-J7e"/>
-        <segue reference="p9y-mn-flr"/>
+        <segue reference="fkx-dh-k1U"/>
+        <segue reference="0R7-eg-cP3"/>
     </inferredMetricsTieBreakers>
 </document>

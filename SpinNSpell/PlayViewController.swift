@@ -225,6 +225,9 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                     AudioServicesPlaySystemSound(correctSound)
                 }
                 
+                if words.count == 0 {
+                    performSegueWithIdentifier("GoToFinishedSegue", sender: nil)
+                }
             } else {
                 alertTitle = "Uh Oh..."
                 alertMsg = "Thats not how you spell the word!"
@@ -233,11 +236,13 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                 numCorrectConsecutive = 0
             }
             
-            let alert = UIAlertController(title: alertTitle, message: alertMsg, preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: alertDismiss, style: UIAlertActionStyle.Default, handler: {(alert: UIAlertAction!) in
-                self.spin(self)
-            }))
-            self.presentViewController(alert, animated: true, completion: nil)
+            if words.count > 0 {
+                let alert = UIAlertController(title: alertTitle, message: alertMsg, preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: alertDismiss, style: UIAlertActionStyle.Default, handler: {(alert: UIAlertAction!) in
+                    self.spin(self)
+                }))
+                self.presentViewController(alert, animated: true, completion: nil)
+            }
         }
     }
     

@@ -87,18 +87,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var currentTopicLabel: UILabel!
     
     override func viewDidAppear(animated: Bool) {
-        activityIndicator.stopAnimating()
         currentTopicLabel.text = "Current Topic: \(currentTopic["topic"]!)"
-        //print("\(topics)")
-        // print(sound)
-        // print(maxLength)
     }
     
-    override func viewWillAppear(animated: Bool) {
-        dispatch_async(dispatch_get_main_queue()) {
-            self.activityIndicator.stopAnimating()
-        }
-        //activityIndicator.stopAnimating()
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        activityIndicator.stopAnimating()
     }
     
     override func viewDidLoad() {
@@ -125,11 +120,11 @@ class ViewController: UIViewController {
     }
 
     @IBAction func playPushed(sender: AnyObject) {
-        dispatch_async(dispatch_get_main_queue()) {
-            self.activityIndicator.startAnimating()
-        }
         //activityIndicator.startAnimating()
+        print("First: In Play \(self.activityIndicator.isAnimating())")
+
     }
+    
     @IBAction func changeTopic(sender: AnyObject) {
         activityIndicator.startAnimating()
     }
@@ -138,10 +133,12 @@ class ViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        dispatch_async(dispatch_get_main_queue()) {
-            
-            self.activityIndicator.startAnimating()
-        }
+        //self.activityIndicator.startAnimating()
+        activityIndicator.hidden = false
+        activityIndicator.startAnimating()
+     
+        print("First: In Perpare for Segue \(self.activityIndicator.isAnimating())")
+
         //activityIndicator.startAnimating()
         if segue.identifier == "GoToSettingsSegue" {
             if let vc = segue.destinationViewController as? SettingsViewController {
@@ -170,7 +167,6 @@ class ViewController: UIViewController {
                 vc.badges = self.badges
             }
         }
-        activityIndicator.stopAnimating()
     }
 }
 

@@ -8,6 +8,10 @@
 
 import UIKit
 
+var badges : [String] = [String]()
+var numCorrect: Int = 0
+var numCorrectConsecutive: Int = 0
+
 protocol BadgesViewControllerDelegate {
     func updateData(data: [NSDictionary])
     func updateBadges(badge: String)
@@ -21,13 +25,12 @@ class BadgesViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var tableView: UITableView!
     var delegate : BadgesViewControllerDelegate?
     
-    var badges = ["Created a new game",
-                  "5 correct words in a row",
+    /*var badges = ["5 correct words in a row",
                   "10 correct words in a row",
                   "10 correct words in a game",
                   "20 correct words in a game",
                   "Guessed all words in a topic",
-                  "Guessed all words in all topics"]
+                  "Guessed all words in all topics"]*/
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,7 +73,7 @@ class BadgesViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellTableIdentifier, forIndexPath: indexPath) as! BadgeCell
-        cell.textLabel?.text = badges[indexPath.item]
+        cell.textLabel?.text = badges[indexPath.row]
         return cell
     }
     

@@ -62,12 +62,9 @@ class ViewController: UIViewController {
             ]
         ]
     ]
-    var badges : [String] = [""]
     
     var maxLength = 8
     var sound = false
-    
-    var initialBadge : String = "Created a new game"
     
     // Default Topic to Farm Animals: 
     // For some reason setting currentTopic to topics[0] doesn't compile...
@@ -160,16 +157,17 @@ class ViewController: UIViewController {
                 vc.topics = self.topics
             }
         }
+        /*
         if segue.identifier == "GoToBadgesSegue" {
             if let vc = segue.destinationViewController as? BadgesViewController {
                 (segue.destinationViewController as! BadgesViewController).delegate = self
                 vc.badges = self.badges
             }
-        }
+        }*/
     }
 }
 
-extension ViewController: SettingsViewControllerDelegate, ChangeTopicViewControllerDelegate, BadgesViewControllerDelegate {
+extension ViewController: SettingsViewControllerDelegate, ChangeTopicViewControllerDelegate {
     func updateData(data: [NSDictionary]) {
         self.topics = data
     }
@@ -180,8 +178,8 @@ extension ViewController: SettingsViewControllerDelegate, ChangeTopicViewControl
         self.sound = sound
         self.maxLength = maxLength
     }
-    func updateBadges(badge: String) {
+    /*func updateBadges(badge: String) {
         self.initialBadge = badge
-    }
+    }*/
     
 }

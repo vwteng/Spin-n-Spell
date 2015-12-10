@@ -17,8 +17,8 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     private var images: [UIImage] = [UIImage]()
     private var lastValue: Int = 0
     
-    private var numCorrect: Int = 0
-    private var numCorrectConsecutive: Int = 0
+    //private var numCorrect: Int = 0
+    //private var numCorrectConsecutive: Int = 0
     
     private var spinSound: SystemSoundID = 0
     private var correctSound: SystemSoundID = 0
@@ -265,6 +265,10 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         let alert = UIAlertController(title: alertTitle, message: alertMsg, preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: alertDismiss, style: UIAlertActionStyle.Default, handler: nil))
         self.presentViewController(alert, animated: true, completion: nil)
+        
+        if badges.contains(alertMsg) == false {
+            badges.append(alertMsg)
+        }
     }
     
     // How many selectors we want

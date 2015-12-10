@@ -71,6 +71,7 @@ class ViewController: UIViewController {
     
     // Default Topic to Farm Animals: 
     // For some reason setting currentTopic to topics[0] doesn't compile...
+    
     var currentTopic : NSDictionary = [
         "topic": "Farm Animals",
         "startingImage": "http://donate.worldvision.org/media/catalog/product/cache/1/image/310x/9df78eab33525d08d6e5fb8d27136e95/D/4/D4041711_13_Farm_Animals.jpg",
@@ -99,7 +100,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         currentTopicLabel.text = "Current Topic: \(currentTopic["topic"]!)"
-        // print("\(topics)")
         
         navigationController!.setNavigationBarHidden(false, animated:true)
         let infoButton:UIButton = UIButton(type: UIButtonType.Custom) as UIButton
@@ -109,6 +109,7 @@ class ViewController: UIViewController {
         infoButton.setTitleColor(UIColor(red: 0.0, green: 122.0/255.0, blue: 1.0, alpha: 1.9), forState: UIControlState.Normal)
         let myCustomInfoButtonItem:UIBarButtonItem = UIBarButtonItem(customView: infoButton)
         self.navigationItem.rightBarButtonItem = myCustomInfoButtonItem
+        self.navigationItem.setHidesBackButton(true, animated: false)
     }
     
     func GoToInfoSegue() {
@@ -120,7 +121,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func playPushed(sender: AnyObject) {
-        //activityIndicator.startAnimating()
+        activityIndicator.startAnimating()
         print("First: In Play \(self.activityIndicator.isAnimating())")
 
     }
@@ -133,13 +134,11 @@ class ViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        //self.activityIndicator.startAnimating()
         activityIndicator.hidden = false
         activityIndicator.startAnimating()
      
         print("First: In Perpare for Segue \(self.activityIndicator.isAnimating())")
 
-        //activityIndicator.startAnimating()
         if segue.identifier == "GoToSettingsSegue" {
             if let vc = segue.destinationViewController as? SettingsViewController {
                 (segue.destinationViewController as! SettingsViewController).delegate = self

@@ -491,7 +491,7 @@
         <!--Finished-->
         <scene sceneID="xLf-C8-B2W">
             <objects>
-                <viewController title="Finished" id="Ar4-pi-06G" sceneMemberID="viewController">
+                <viewController title="Finished" id="Ar4-pi-06G" customClass="FinishedViewController" customModule="SpinNSpell" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NfZ-sg-jYx"/>
                         <viewControllerLayoutGuide type="bottom" id="xYX-vp-i7Q"/>

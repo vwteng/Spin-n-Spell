@@ -20,6 +20,7 @@
 		9D24CC321C15397B00554253 /* BadgesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D24CC311C15397B00554253 /* BadgesViewController.swift */; };
 		9D24CC341C153FB300554253 /* BadgeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D24CC331C153FB300554253 /* BadgeCell.swift */; };
 		CE0E6F531C0FC95C0031D7AD /* JSONViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E6F521C0FC95C0031D7AD /* JSONViewController.swift */; };
+		CEBB6BF21C1931C80013CF4C /* FinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBB6BF11C1931C80013CF4C /* FinishedViewController.swift */; };
 		CEE6CEF71C11246900B6DE7B /* ChangeTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE6CEF61C11246900B6DE7B /* ChangeTopicViewController.swift */; };
 		CEE6CEF91C11259C00B6DE7B /* TopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE6CEF81C11259C00B6DE7B /* TopicCell.swift */; };
 		CEE6CEFB1C112B9100B6DE7B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE6CEFA1C112B9100B6DE7B /* SettingsViewController.swift */; };
@@ -63,6 +64,7 @@
 		9D24CC311C15397B00554253 /* BadgesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgesViewController.swift; sourceTree = "<group>"; };
 		9D24CC331C153FB300554253 /* BadgeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeCell.swift; sourceTree = "<group>"; };
 		CE0E6F521C0FC95C0031D7AD /* JSONViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONViewController.swift; sourceTree = "<group>"; };
+		CEBB6BF11C1931C80013CF4C /* FinishedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishedViewController.swift; sourceTree = "<group>"; };
 		CEE6CEF61C11246900B6DE7B /* ChangeTopicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeTopicViewController.swift; sourceTree = "<group>"; };
 		CEE6CEF81C11259C00B6DE7B /* TopicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicCell.swift; sourceTree = "<group>"; };
 		CEE6CEFA1C112B9100B6DE7B /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				CEE6CEFA1C112B9100B6DE7B /* SettingsViewController.swift */,
 				CEE6CEF61C11246900B6DE7B /* ChangeTopicViewController.swift */,
 				9D24CC311C15397B00554253 /* BadgesViewController.swift */,
+				CEBB6BF11C1931C80013CF4C /* FinishedViewController.swift */,
 				CE0E6F521C0FC95C0031D7AD /* JSONViewController.swift */,
 				3CB126881C0D0D51008540DE /* Assets.xcassets */,
 				3CB1268A1C0D0D51008540DE /* LaunchScreen.storyboard */,
@@ -300,6 +303,7 @@
 				CEE6CEF91C11259C00B6DE7B /* TopicCell.swift in Sources */,
 				CE0E6F531C0FC95C0031D7AD /* JSONViewController.swift in Sources */,
 				CEE6CEFB1C112B9100B6DE7B /* SettingsViewController.swift in Sources */,
+				CEBB6BF21C1931C80013CF4C /* FinishedViewController.swift in Sources */,
 				9D24CC341C153FB300554253 /* BadgeCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

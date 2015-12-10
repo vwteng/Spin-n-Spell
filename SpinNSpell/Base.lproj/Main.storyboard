@@ -33,6 +33,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="playPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="waa-q5-x5w"/>
                                     <segue destination="P1v-aV-hmM" kind="show" identifier="GoToPlaySegue" id="jxJ-dg-W8q"/>
                                 </connections>
                             </button>
@@ -62,6 +63,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="badgesPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gtI-Yy-itu"/>
                                     <segue destination="Wde-w7-v83" kind="show" id="p9y-mn-flr"/>
                                 </connections>
                             </button>
@@ -73,14 +75,23 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="changeTopic:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nHh-cy-t3D"/>
                                     <segue destination="jgi-Ib-LdI" kind="show" identifier="GoToChangeSegue" id="YCo-pg-ChX"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="9Ne-0b-yzX">
+                                <rect key="frame" x="282" y="205" width="37" height="37"/>
+                                <animations/>
+                                <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="9Ne-0b-yzX" firstAttribute="centerX" secondItem="o22-JL-P9I" secondAttribute="centerX" id="3g3-16-unB"/>
                             <constraint firstItem="pra-HP-6cn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Eq6-zj-wBM"/>
+                            <constraint firstItem="pra-HP-6cn" firstAttribute="top" secondItem="9Ne-0b-yzX" secondAttribute="bottom" constant="8" id="HzR-4E-Oqu"/>
+                            <constraint firstItem="9Ne-0b-yzX" firstAttribute="top" secondItem="o22-JL-P9I" secondAttribute="bottom" constant="5" id="Q07-ZM-bRI"/>
                             <constraint firstItem="4T2-J0-PqQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mnz-aw-uer"/>
                             <constraint firstItem="8Cp-oW-21t" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qo6-UY-P69"/>
                             <constraint firstItem="o22-JL-P9I" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sBP-gB-dBi"/>
@@ -90,6 +101,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Fyf-fV-Nma"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="9Ne-0b-yzX" id="pN6-50-GuW"/>
                         <outlet property="currentTopicLabel" destination="pra-HP-6cn" id="3Bu-Pj-ZYA"/>
                         <segue destination="3he-Sy-CYo" kind="show" identifier="GoToInfo" id="E2r-H3-GHI"/>
                     </connections>

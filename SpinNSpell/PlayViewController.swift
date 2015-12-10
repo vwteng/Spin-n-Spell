@@ -226,7 +226,9 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             }
             
             let alert = UIAlertController(title: alertTitle, message: alertMsg, preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: alertDismiss, style: UIAlertActionStyle.Default, handler: nil))
+            alert.addAction(UIAlertAction(title: alertDismiss, style: UIAlertActionStyle.Default, handler: {(alert: UIAlertAction!) in
+                self.spin(self)
+            }))
             self.presentViewController(alert, animated: true, completion: nil)
         }
     }

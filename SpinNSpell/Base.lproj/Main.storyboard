@@ -404,6 +404,11 @@
                                 <rect key="frame" x="30" y="496" width="550" height="88"/>
                                 <animations/>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="cn0-Xh-3H1">
+                                <rect key="frame" x="287" y="38" width="37" height="37"/>
+                                <animations/>
+                                <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -415,6 +420,7 @@
                             <constraint firstItem="3TX-Vw-M6l" firstAttribute="leading" secondItem="bwA-n4-F1V" secondAttribute="leading" id="3WO-73-Dzv"/>
                             <constraint firstItem="bwA-n4-F1V" firstAttribute="top" secondItem="WqM-UC-D7c" secondAttribute="top" constant="400" id="80d-fd-JoO"/>
                             <constraint firstItem="saV-iN-jMf" firstAttribute="top" secondItem="WqM-UC-D7c" secondAttribute="top" constant="496" id="Jra-D2-5LV"/>
+                            <constraint firstItem="X96-Mf-Zx2" firstAttribute="top" secondItem="cn0-Xh-3H1" secondAttribute="bottom" id="M8z-bD-iuX"/>
                             <constraint firstItem="3TX-Vw-M6l" firstAttribute="top" secondItem="X96-Mf-Zx2" secondAttribute="bottom" constant="8" symbolic="YES" id="NYc-97-Wvh"/>
                             <constraint firstItem="X96-Mf-Zx2" firstAttribute="leading" secondItem="hYC-ea-0KE" secondAttribute="trailing" constant="31" id="Pot-wK-X2s"/>
                             <constraint firstItem="6u6-D7-VHY" firstAttribute="centerY" secondItem="X96-Mf-Zx2" secondAttribute="centerY" id="QLy-yM-LsG"/>
@@ -428,11 +434,13 @@
                             <constraint firstItem="bwA-n4-F1V" firstAttribute="trailing" secondItem="WqM-UC-D7c" secondAttribute="trailingMargin" id="pOR-b4-VLM"/>
                             <constraint firstItem="bwA-n4-F1V" firstAttribute="leading" secondItem="saV-iN-jMf" secondAttribute="leading" id="qVu-GZ-BbQ"/>
                             <constraint firstItem="P22-KX-qxD" firstAttribute="top" secondItem="saV-iN-jMf" secondAttribute="bottom" constant="16" id="qiX-x0-QGL"/>
+                            <constraint firstItem="cn0-Xh-3H1" firstAttribute="centerX" secondItem="WqM-UC-D7c" secondAttribute="centerX" id="xWr-If-fIp"/>
                             <constraint firstItem="X96-Mf-Zx2" firstAttribute="centerX" secondItem="WqM-UC-D7c" secondAttribute="centerX" id="xcv-by-iWe"/>
                             <constraint firstItem="saV-iN-jMf" firstAttribute="top" secondItem="bwA-n4-F1V" secondAttribute="bottom" constant="8" symbolic="YES" id="ymV-ol-hUb"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="cn0-Xh-3H1" id="CMk-Qo-LaM"/>
                         <outlet property="arrowUIView" destination="hYC-ea-0KE" id="dvd-hI-QTO"/>
                         <outlet property="bottomKeyStack" destination="saV-iN-jMf" id="yIA-K8-ebZ"/>
                         <outlet property="picker" destination="X96-Mf-Zx2" id="1vs-4o-URq"/>
@@ -538,7 +546,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="kSS-fO-J7e"/>
-        <segue reference="fkx-dh-k1U"/>
-        <segue reference="0R7-eg-cP3"/>
+        <segue reference="E2r-H3-GHI"/>
+        <segue reference="p9y-mn-flr"/>
     </inferredMetricsTieBreakers>
 </document>

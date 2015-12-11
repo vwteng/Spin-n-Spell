@@ -28,6 +28,7 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     var maxLength = Int()
     var sound = Bool()
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var arrowUIView: UIImageView!
     @IBOutlet weak var spinUIButton: UIButton!
     @IBOutlet weak var picker: UIPickerView!
@@ -38,7 +39,7 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        activityIndicator.startAnimating()
         // Start: UI Setup
         arrowUIView.image = UIImage(named: "arrow")
         spinUIButton.backgroundColor = UIColor.clearColor()
@@ -47,16 +48,45 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         spinUIButton.layer.borderColor = UIColor.blackColor().CGColor
         
         // *** Load Topics ***
-        for item in topic["words"] as! NSDictionary {
-            let word = item.key as! String
-            if word.characters.count <= maxLength {
-                let imageURL = NSURL(string: item.value as! String)
-                let data = NSData(contentsOfURL: imageURL!)
-                let image = UIImage(data: data!)
-                
-                images.append(image!)
+            for item in topic["words"] as! NSDictionary {
+                let word = item.key as! String
+                if word.characters.count <= maxLength {
+                    
+                    let sessionConfig = NSURLSessionConfiguration.defaultSessionConfiguration()
+                    
+                    /* Create session, and optionally set a NSURLSessionDelegate. */
+                    let session = NSURLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
+                    
+                    let URL = NSURL(string: item.value as! String)
+                    let request = NSMutableURLRequest(URL: URL!)
+                    request.HTTPMethod = "GET"
+                    
+                    /* Start a new Task */
+                    let task = session.dataTaskWithRequest(request, completionHandler: { (data : NSData?, response : NSURLResponse?, error : NSError?) -> Void in
+                        if (error == nil) { // Success
+                            let statusCode = (response as! NSHTTPURLResponse).statusCode
+                            print("URL Session Task Succeeded: HTTP \(statusCode)")
+                            
+                            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                let image = UIImage(data: data!)
+                                self.images.append(image!)
+                                if self.images.count == self.topic["words"]!.count {
+                                    print("now I can call reload data")
+                                    // load picker in here
+                                    self.activityIndicator.hidesWhenStopped = true
+                                    self.activityIndicator.stopAnimating()
+                                    self.picker.reloadAllComponents()
+                                }
+                                
+                            })
+                        }
+                        else { // Failure
+                            print("URL Session Task Failed: %@", error!.localizedDescription);
+                        }
+                    })
+                    task.resume()
+                }
                 words.append(word.uppercaseString)
-            }
         }
         
         navigationController!.setNavigationBarHidden(false, animated:true)
@@ -77,8 +107,8 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     override func viewDidAppear(animated: Bool) {
         // SetUp Words
         lastValue = Int(arc4random_uniform(UInt32(images.count)))
-        picker.selectRow(lastValue, inComponent: 0, animated: false)
-        picker.reloadComponent(0)
+        //picker.selectRow(lastValue, inComponent: 0, animated: false)
+        //picker.reloadComponent(0)
         setUpWord(lastValue)
         setUpKeyBoard()
     }
@@ -284,11 +314,15 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     // What each row will show
     func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
-        let image = images[row]
-        let imageView = UIImageView(image: image)
-        imageView.frame = CGRect(x: 0, y: 0, width: picker.frame.width, height: picker.frame.height)
-        imageView.contentMode = .ScaleAspectFit
-        
+        // something in here is wrong... it is loading the wrong word with the wrong image 
+        var imageView = UIImageView()
+        if self.images.count != 0 {
+            let image = images[row]
+            imageView = UIImageView(image: image)
+            imageView.frame = CGRect(x: 0, y: 0, width: picker.frame.width, height: picker.frame.height)
+            imageView.contentMode = .ScaleAspectFit
+            return imageView
+        }
         return imageView
     }
     

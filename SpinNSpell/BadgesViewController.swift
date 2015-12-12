@@ -30,9 +30,7 @@ class BadgesViewController: UIViewController, UITableViewDataSource, UITableView
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         badges = ["Started a new game"]
-        
         tableView.registerClass(BadgeCell.self, forCellReuseIdentifier : cellTableIdentifier)
         navigationController!.setNavigationBarHidden(false, animated:true)
         let infoButton:UIButton = UIButton(type: UIButtonType.Custom) as UIButton

@@ -276,9 +276,8 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                     }))
                     self.presentViewController(alert, animated: true, completion: nil)
                 } else if showSecondAlertCorrect {
-                    alertTitle = "New Badge"
-                    alertMsg = "You spelled \(numCorrect) words correct!"
-                    alertDismiss = "Continue"
+                    alertTitle = "New Badge!"
+                    alertMsg = "You spelled \(numCorrect) words correct"
                     
                     if badges.contains(alertMsg) == false {
                         badges.append(alertMsg)
@@ -289,9 +288,8 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                     }))
                     self.presentViewController(alert, animated: true, completion: nil)
                 } else if showSecondAlertConsecutive {
-                    alertTitle = "New Badge"
-                    alertMsg = "You spelled \(numCorrectConsecutive) words correct in a row!"
-                    alertDismiss = "Continue"
+                    alertTitle = "New Badge!"
+                    alertMsg = "You spelled \(numCorrectConsecutive) words correct in a row"
                     
                     if badges.contains(alertMsg) == false {
                         badges.append(alertMsg)
@@ -306,6 +304,7 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         }
     }
     
+    // Check if a badge has been earned for a certain number of words correct
     func secondAlertCorrect() -> Bool {
         if numCorrect == 10 || numCorrect == 20 {
             return true
@@ -314,6 +313,7 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         }
     }
     
+    // Check if a badge has been earned for a certain number of words consecutively correct
     func secondAlertConsecutive() -> Bool {
         if numCorrectConsecutive == 3 || numCorrectConsecutive == 10 {
             return true

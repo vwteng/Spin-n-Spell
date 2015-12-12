@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fZU-JE-ycj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fZU-JE-ycj">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -285,6 +285,7 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Help &amp; FAQ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f2d-xQ-qph">
                                 <rect key="frame" x="256" y="28" width="88" height="21"/>
+                                <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -336,18 +337,26 @@
                                     <outlet property="delegate" destination="jgi-Ib-LdI" id="v95-ll-nJf"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="jM4-9p-gRd">
+                                <rect key="frame" x="282" y="281" width="37" height="37"/>
+                                <animations/>
+                                <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="4LP-mR-aVT" firstAttribute="top" secondItem="hBm-9p-R1r" secondAttribute="bottom" constant="32" id="0aP-ou-ZO1"/>
+                            <constraint firstItem="jM4-9p-gRd" firstAttribute="centerX" secondItem="hBm-9p-R1r" secondAttribute="centerX" id="AN0-1G-Jwk"/>
                             <constraint firstItem="hBm-9p-R1r" firstAttribute="trailing" secondItem="qfT-Yl-qUb" secondAttribute="trailingMargin" id="HQr-He-AIF"/>
                             <constraint firstItem="hBm-9p-R1r" firstAttribute="leading" secondItem="qfT-Yl-qUb" secondAttribute="leadingMargin" constant="19" id="clt-mF-lR6"/>
                             <constraint firstItem="hBm-9p-R1r" firstAttribute="centerX" secondItem="qfT-Yl-qUb" secondAttribute="centerX" id="i2h-xs-zTp"/>
+                            <constraint firstItem="jM4-9p-gRd" firstAttribute="centerY" secondItem="hBm-9p-R1r" secondAttribute="centerY" id="qpf-3F-ZC2"/>
                             <constraint firstItem="hBm-9p-R1r" firstAttribute="centerY" secondItem="qfT-Yl-qUb" secondAttribute="centerY" id="wbN-q9-Qwr"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="jM4-9p-gRd" id="Bu9-eS-52S"/>
                         <outlet property="tableView" destination="hBm-9p-R1r" id="qST-xe-7g7"/>
                         <segue destination="3he-Sy-CYo" kind="show" identifier="GoToInfo" id="9Di-8Q-THf"/>
                     </connections>

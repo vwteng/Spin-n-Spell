@@ -266,33 +266,25 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             
             if words.count >= 1 {
                 if showSecondAlertCorrect == false && showSecondAlertConsecutive == false {
-                    let alert = UIAlertController(title: alertTitle, message: alertMsg, preferredStyle: UIAlertControllerStyle.Alert)
-                    alert.addAction(UIAlertAction(title: alertDismiss, style: UIAlertActionStyle.Default, handler: {(alert: UIAlertAction!) in self.spin(self)
-                    }))
-                    self.presentViewController(alert, animated: true, completion: nil)
+                    self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
                 } else if showSecondAlertCorrect {
                     alertTitle = "New Badge!"
                     alertMsg = "You spelled \(numCorrect) words correct"
                     
-                    let alert = UIAlertController(title: alertTitle, message: alertMsg, preferredStyle: UIAlertControllerStyle.Alert)
-                    alert.addAction(UIAlertAction(title: alertDismiss, style: UIAlertActionStyle.Default, handler: {(alert: UIAlertAction!) in self.spin(self)
-                    }))
-                    self.presentViewController(alert, animated: true, completion: nil)
-                    
                     if badges.contains(alertMsg) == false {
+                        self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
+                    
                         badges.insert(alertMsg, atIndex: badgeIndexCount)
                         badgeIndexCount++
+                    } else {
+                        self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
                     }
                 } else if showSecondAlertConsecutive {
                     alertTitle = "New Badge!"
                     alertMsg = "You spelled \(numCorrectConsecutive) words correct in a row"
-                    
-                    let alert = UIAlertController(title: alertTitle, message: alertMsg, preferredStyle: UIAlertControllerStyle.Alert)
-                    alert.addAction(UIAlertAction(title: alertDismiss, style: UIAlertActionStyle.Default, handler: {(alert: UIAlertAction!) in self.spin(self)
-                    }))
-                    self.presentViewController(alert, animated: true, completion: nil)
-                    
                     if badges.contains(alertMsg) == false {
+                        self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
+
                         badges.insert(alertMsg, atIndex: badgeIndexCount)
                         badgeIndexCount++
                     }
@@ -301,6 +293,13 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                 performSegueWithIdentifier("GoToFinishedSegue", sender: nil)
             }
         }
+    }
+    
+    func showAlert(alertTitle: String, alertMsg: String, alertDismiss: String) -> UIAlertController {
+        let alert = UIAlertController(title: alertTitle, message: alertMsg, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: alertDismiss, style: UIAlertActionStyle.Default, handler: {(alert: UIAlertAction!) in self.spin(self)
+        }))
+        return alert
     }
     
     // Check if a badge has been earned for a certain number of words correct

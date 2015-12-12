@@ -305,20 +305,12 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     // Check if a badge has been earned for a certain number of words correct
     func secondAlertCorrect() -> Bool {
-        if numCorrect == 2 || numCorrect == 10 || numCorrect == 20 {
-            return true
-        } else {
-            return false
-        }
+        return numCorrect == 2 || numCorrect == 10 || numCorrect == 20
     }
     
     // Check if a badge has been earned for a certain number of words consecutively correct
     func secondAlertConsecutive() -> Bool {
-        if numCorrectConsecutive == 3 || numCorrectConsecutive == 10 {
-            return true
-        } else {
-            return false
-        }
+        return numCorrectConsecutive == 3 || numCorrectConsecutive == 10
     }
     
     // How many selectors we want

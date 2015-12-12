@@ -251,13 +251,13 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                 if sound {
                     let soundURL = NSBundle.mainBundle().URLForResource("hit", withExtension: "wav")! as CFURLRef
                     AudioServicesCreateSystemSoundID(soundURL, &correctSound)
-                    
                     AudioServicesPlaySystemSound(correctSound)
                 }
                 
                 if words.count == 0 {
                     performSegueWithIdentifier("GoToFinishedSegue", sender: nil)
                 }
+                
             } else {
                 alertTitle = "Uh Oh..."
                 alertMsg = "Thats not how you spell the word!"
@@ -265,19 +265,19 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                 
                 numCorrectConsecutive = 0
             }
-            
-            if words.count > 0 {
+            if words.count > 1 {
                 let alert = UIAlertController(title: alertTitle, message: alertMsg, preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: alertDismiss, style: UIAlertActionStyle.Default, handler: {(alert: UIAlertAction!) in
-                    self.spin(self)
-                }))
-                self.presentViewController(alert, animated: true, completion: nil)
+                alert.addAction(UIAlertAction(title: alertDismiss, style: UIAlertActionStyle.Default, handler: {(alert: UIAlertAction!) in self.spin(self)
+            }))
+            self.presentViewController(alert, animated: true, completion: nil)
             }
         }
     }
     
+
+    
     // Earn a badge for meeting specific qualifications
-    func earnBadge () {
+    func earnBadge () -> [String] {
         let alertTitle = "New Badge!"
         var alertMsg = ""
         let alertDismiss = "Continue"
@@ -299,6 +299,7 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         if badges.contains(alertMsg) == false {
             badges.append(alertMsg)
         }
+        return badges
     }
     
     // How many selectors we want

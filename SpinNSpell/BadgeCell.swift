@@ -12,9 +12,7 @@ class BadgeCell: UITableViewCell {
    
     var badge: String = "" {
         didSet {
-            if (badge != oldValue) {
-                badgeType.text = badge
-            }
+            badgeType.text = badge
         }
     }
     

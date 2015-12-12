@@ -69,8 +69,8 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                                 let image = UIImage(data: data!)
                                 self.images.append(image!)
+                                self.words.append(word.uppercaseString)
                                 if self.images.count == self.topic["words"]!.count {
-                                    print("now I can call reload data")
                                     // load picker in here
                                     self.activityIndicator.hidesWhenStopped = true
                                     self.activityIndicator.stopAnimating()
@@ -85,7 +85,6 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                     })
                     task.resume()
                 }
-                words.append(word.uppercaseString)
         }
         
         navigationController!.setNavigationBarHidden(false, animated:true)
@@ -106,8 +105,8 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     override func viewDidAppear(animated: Bool) {
         // SetUp Words
         lastValue = Int(arc4random_uniform(UInt32(images.count)))
-        //picker.selectRow(lastValue, inComponent: 0, animated: false)
-        //picker.reloadComponent(0)
+        picker.reloadAllComponents()
+        picker.selectRow(lastValue, inComponent: 0, animated: false)
         setUpWord(lastValue)
         setUpKeyBoard()
     }
@@ -125,8 +124,8 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         lastValue = newValue
         
         // Set Picker
+        picker.reloadAllComponents()
         picker.selectRow(newValue, inComponent: 0, animated: true)
-        picker.reloadComponent(0)
         
         // Set Non-Picker UI
         setUpWord(newValue)

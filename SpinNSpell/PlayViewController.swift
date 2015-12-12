@@ -9,9 +9,6 @@
 import UIKit
 import AudioToolbox
 
-var numCorrect: Int = 0
-var numCorrectConsecutive: Int = 0
-
 class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource  {
     private let letters: String = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     private var words: [String] = [String]()
@@ -22,6 +19,9 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     private var spinSound: SystemSoundID = 0
     private var correctSound: SystemSoundID = 0
+    
+    private var numCorrect: Int = 0
+    private var numCorrectConsecutive: Int = 0
     
     var topic : NSDictionary = NSDictionary()
     
@@ -35,7 +35,6 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     @IBOutlet weak var wordHSLayout: UIStackView!
     @IBOutlet weak var topKeyStack: UIStackView!
     @IBOutlet weak var bottomKeyStack: UIStackView!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -254,10 +253,6 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                     AudioServicesPlaySystemSound(correctSound)
                 }
                 
-                if words.count == 0 {
-                    performSegueWithIdentifier("GoToFinishedSegue", sender: nil)
-                }
-                
             } else {
                 alertTitle = "Uh Oh..."
                 alertMsg = "Thats not how you spell the word!"
@@ -269,7 +264,7 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             let showSecondAlertCorrect = secondAlertCorrect()
             let showSecondAlertConsecutive = secondAlertConsecutive()
             
-            if words.count > 1 {
+            if words.count >= 1 {
                 if showSecondAlertCorrect == false && showSecondAlertConsecutive == false {
                     let alert = UIAlertController(title: alertTitle, message: alertMsg, preferredStyle: UIAlertControllerStyle.Alert)
                     alert.addAction(UIAlertAction(title: alertDismiss, style: UIAlertActionStyle.Default, handler: {(alert: UIAlertAction!) in self.spin(self)
@@ -300,13 +295,15 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                     }))
                     self.presentViewController(alert, animated: true, completion: nil)
                 }
+            } else {
+                performSegueWithIdentifier("GoToFinishedSegue", sender: nil)
             }
         }
     }
     
     // Check if a badge has been earned for a certain number of words correct
     func secondAlertCorrect() -> Bool {
-        if numCorrect == 10 || numCorrect == 20 {
+        if numCorrect == 2 || numCorrect == 10 || numCorrect == 20 {
             return true
         } else {
             return false

@@ -276,6 +276,10 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                         badges.insert(alertMsg, atIndex: badgeIndexCount)
                         badgeIndexCount++
                     } else {
+                        alertTitle = "Nice Job!"
+                        alertMsg = "You spelled the word right!"
+                        alertDismiss = "Next Word"
+                        
                         self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
                     }
                 } else if showSecondAlertConsecutive {
@@ -288,6 +292,10 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                         badges.insert(alertMsg, atIndex: badgeIndexCount)
                         badgeIndexCount++
                     } else {
+                        alertTitle = "Nice Job!"
+                        alertMsg = "You spelled the word right!"
+                        alertDismiss = "Next Word"
+                        
                         self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
                     }
                 }

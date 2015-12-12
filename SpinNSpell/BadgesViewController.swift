@@ -22,6 +22,7 @@ class BadgesViewController: UIViewController, UITableViewDataSource, UITableView
     //var selectedBadge : String = ""
     var topics = [NSDictionary]()
     let cellTableIdentifier = "CellTableIdentifier"
+    
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.dataSource = self
@@ -32,7 +33,7 @@ class BadgesViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        badges = ["testing badge 1", "testing badge 2"]
+        badges = ["Started a new game"]
         
         tableView.registerClass(BadgeCell.self, forCellReuseIdentifier : cellTableIdentifier)
         navigationController!.setNavigationBarHidden(false, animated:true)
@@ -52,7 +53,6 @@ class BadgesViewController: UIViewController, UITableViewDataSource, UITableView
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func GoToInfoSegue() {

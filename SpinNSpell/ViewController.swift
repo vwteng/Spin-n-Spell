@@ -66,6 +66,8 @@ class ViewController: UIViewController {
     var maxLength = 8
     var sound = false
     
+    var initialBadge : String = ""
+    
     // Default Topic to Farm Animals: 
     // For some reason setting currentTopic to topics[0] doesn't compile...
     
@@ -134,7 +136,7 @@ class ViewController: UIViewController {
         activityIndicator.hidden = false
         activityIndicator.startAnimating()
      
-        print("First: In Perpare for Segue \(self.activityIndicator.isAnimating())")
+        print("First: In Prepare for Segue \(self.activityIndicator.isAnimating())")
 
         if segue.identifier == "GoToSettingsSegue" {
             if let vc = segue.destinationViewController as? SettingsViewController {
@@ -157,8 +159,8 @@ class ViewController: UIViewController {
                 vc.topics = self.topics
             }
         }
-        /*
-        if segue.identifier == "GoToBadgesSegue" {
+        
+        /*if segue.identifier == "GoToBadgesSegue" {
             if let vc = segue.destinationViewController as? BadgesViewController {
                 (segue.destinationViewController as! BadgesViewController).delegate = self
                 vc.badges = self.badges
@@ -178,7 +180,7 @@ extension ViewController: SettingsViewControllerDelegate, ChangeTopicViewControl
         self.sound = sound
         self.maxLength = maxLength
     }
-    /*func updateBadges(badge: String) {
+   /* func updateBadges(badge: String) {
         self.initialBadge = badge
     }*/
     

@@ -17,9 +17,6 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     private var images: [UIImage] = [UIImage]()
     private var lastValue: Int = 0
     
-    //private var numCorrect: Int = 0
-    //private var numCorrectConsecutive: Int = 0
-    
     private var spinSound: SystemSoundID = 0
     private var correctSound: SystemSoundID = 0
     
@@ -290,6 +287,8 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             alertMsg = "You spelled 5 words correct in a row!"
         } else if numCorrectConsecutive == 10 {
             alertMsg = "You spelled 10 words correct in a row!"
+        } else if numCorrect == 2 {
+            alertMsg = "You spelled 2 words correct in a row!"
         }
         
         let alert = UIAlertController(title: alertTitle, message: alertMsg, preferredStyle: UIAlertControllerStyle.Alert)

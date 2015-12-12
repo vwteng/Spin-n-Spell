@@ -274,26 +274,28 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                     alertTitle = "New Badge!"
                     alertMsg = "You spelled \(numCorrect) words correct"
                     
-                    if badges.contains(alertMsg) == false {
-                        badges.append(alertMsg)
-                    }
-                
                     let alert = UIAlertController(title: alertTitle, message: alertMsg, preferredStyle: UIAlertControllerStyle.Alert)
                     alert.addAction(UIAlertAction(title: alertDismiss, style: UIAlertActionStyle.Default, handler: {(alert: UIAlertAction!) in self.spin(self)
                     }))
                     self.presentViewController(alert, animated: true, completion: nil)
+                    
+                    if badges.contains(alertMsg) == false {
+                        badges.insert(alertMsg, atIndex: badgeIndexCount)
+                        badgeIndexCount++
+                    }
                 } else if showSecondAlertConsecutive {
                     alertTitle = "New Badge!"
                     alertMsg = "You spelled \(numCorrectConsecutive) words correct in a row"
                     
-                    if badges.contains(alertMsg) == false {
-                        badges.append(alertMsg)
-                    }
-                    
                     let alert = UIAlertController(title: alertTitle, message: alertMsg, preferredStyle: UIAlertControllerStyle.Alert)
                     alert.addAction(UIAlertAction(title: alertDismiss, style: UIAlertActionStyle.Default, handler: {(alert: UIAlertAction!) in self.spin(self)
                     }))
                     self.presentViewController(alert, animated: true, completion: nil)
+                    
+                    if badges.contains(alertMsg) == false {
+                        badges.insert(alertMsg, atIndex: badgeIndexCount)
+                        badgeIndexCount++
+                    }
                 }
             } else {
                 performSegueWithIdentifier("GoToFinishedSegue", sender: nil)

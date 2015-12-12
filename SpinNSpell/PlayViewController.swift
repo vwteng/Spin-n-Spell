@@ -16,6 +16,7 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     private var speltWord: String = ""
     private var images: [UIImage] = [UIImage]()
     private var lastValue: Int = 0
+    private var wordCount : Int = 0
     
     private var spinSound: SystemSoundID = 0
     private var correctSound: SystemSoundID = 0
@@ -70,7 +71,7 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                                 let image = UIImage(data: data!)
                                 self.images.append(image!)
                                 self.words.append(word.uppercaseString)
-                                if self.images.count == self.topic["words"]!.count {
+                                if self.images.count == self.words.count {
                                     // load picker in here
                                     self.activityIndicator.hidesWhenStopped = true
                                     self.activityIndicator.stopAnimating()

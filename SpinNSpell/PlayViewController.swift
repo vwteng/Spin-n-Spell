@@ -282,11 +282,14 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                 } else if showSecondAlertConsecutive {
                     alertTitle = "New Badge!"
                     alertMsg = "You spelled \(numCorrectConsecutive) words correct in a row"
+                    
                     if badges.contains(alertMsg) == false {
                         self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
 
                         badges.insert(alertMsg, atIndex: badgeIndexCount)
                         badgeIndexCount++
+                    } else {
+                        self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
                     }
                 }
             } else {
@@ -295,6 +298,7 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         }
     }
     
+    // Display an alert
     func showAlert(alertTitle: String, alertMsg: String, alertDismiss: String) -> UIAlertController {
         let alert = UIAlertController(title: alertTitle, message: alertMsg, preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: alertDismiss, style: UIAlertActionStyle.Default, handler: {(alert: UIAlertAction!) in self.spin(self)

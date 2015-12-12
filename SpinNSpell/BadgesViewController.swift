@@ -18,7 +18,6 @@ protocol BadgesViewControllerDelegate {
 
 class BadgesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    //var selectedBadge : String = ""
     var topics = [NSDictionary]()
     let cellTableIdentifier = "CellTableIdentifier"
     

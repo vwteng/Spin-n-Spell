@@ -159,13 +159,6 @@ class ViewController: UIViewController {
                 vc.topics = self.topics
             }
         }
-        
-        /*if segue.identifier == "GoToBadgesSegue" {
-            if let vc = segue.destinationViewController as? BadgesViewController {
-                (segue.destinationViewController as! BadgesViewController).delegate = self
-                vc.badges = self.badges
-            }
-        }*/
     }
 }
 
@@ -180,8 +173,4 @@ extension ViewController: SettingsViewControllerDelegate, ChangeTopicViewControl
         self.sound = sound
         self.maxLength = maxLength
     }
-   /* func updateBadges(badge: String) {
-        self.initialBadge = badge
-    }*/
-    
 }

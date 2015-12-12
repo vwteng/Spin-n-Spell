@@ -9,6 +9,9 @@
 import UIKit
 import AudioToolbox
 
+var numCorrect: Int = 0
+var numCorrectConsecutive: Int = 0
+
 class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource  {
     private let letters: String = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     private var words: [String] = [String]()
@@ -262,43 +265,61 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                 
                 numCorrectConsecutive = 0
             }
+            
+            let showSecondAlertCorrect = secondAlertCorrect()
+            let showSecondAlertConsecutive = secondAlertConsecutive()
+            
             if words.count > 1 {
-                let alert = UIAlertController(title: alertTitle, message: alertMsg, preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: alertDismiss, style: UIAlertActionStyle.Default, handler: {(alert: UIAlertAction!) in self.spin(self)
-            }))
-            self.presentViewController(alert, animated: true, completion: nil)
+                if showSecondAlertCorrect == false && showSecondAlertConsecutive == false {
+                    let alert = UIAlertController(title: alertTitle, message: alertMsg, preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: alertDismiss, style: UIAlertActionStyle.Default, handler: {(alert: UIAlertAction!) in self.spin(self)
+                    }))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                } else if showSecondAlertCorrect {
+                    alertTitle = "New Badge"
+                    alertMsg = "You spelled \(numCorrect) words correct!"
+                    alertDismiss = "Continue"
+                    
+                    if badges.contains(alertMsg) == false {
+                        badges.append(alertMsg)
+                    }
+                
+                    let alert = UIAlertController(title: alertTitle, message: alertMsg, preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: alertDismiss, style: UIAlertActionStyle.Default, handler: {(alert: UIAlertAction!) in self.spin(self)
+                    }))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                } else if showSecondAlertConsecutive {
+                    alertTitle = "New Badge"
+                    alertMsg = "You spelled \(numCorrectConsecutive) words correct in a row!"
+                    alertDismiss = "Continue"
+                    
+                    if badges.contains(alertMsg) == false {
+                        badges.append(alertMsg)
+                    }
+                    
+                    let alert = UIAlertController(title: alertTitle, message: alertMsg, preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: alertDismiss, style: UIAlertActionStyle.Default, handler: {(alert: UIAlertAction!) in self.spin(self)
+                    }))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                }
             }
         }
     }
     
-
+    func secondAlertCorrect() -> Bool {
+        if numCorrect == 10 || numCorrect == 20 {
+            return true
+        } else {
+            return false
+        }
+    }
     
-    // Earn a badge for meeting specific qualifications
-    func earnBadge () -> [String] {
-        let alertTitle = "New Badge!"
-        var alertMsg = ""
-        let alertDismiss = "Continue"
-        
-        if numCorrect == 10 {
-            alertMsg = "You spelled 10 words correct!"
-        } else if numCorrect == 20 {
-            alertMsg = "You spelled 20 words correct!"
-        } else if numCorrectConsecutive == 5 {
-            alertMsg = "You spelled 5 words correct in a row!"
-        } else if numCorrectConsecutive == 10 {
-            alertMsg = "You spelled 10 words correct in a row!"
-        } else if numCorrect == 2 {
-            alertMsg = "You spelled 2 words correct in a row!"
+    func secondAlertConsecutive() -> Bool {
+        if numCorrectConsecutive == 3 || numCorrectConsecutive == 10 {
+            return true
+        } else {
+            return false
         }
-        
-        let alert = UIAlertController(title: alertTitle, message: alertMsg, preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: alertDismiss, style: UIAlertActionStyle.Default, handler: nil))
-        self.presentViewController(alert, animated: true, completion: nil)
-        
-        if badges.contains(alertMsg) == false {
-            badges.append(alertMsg)
-        }
-        return badges
     }
     
     // How many selectors we want

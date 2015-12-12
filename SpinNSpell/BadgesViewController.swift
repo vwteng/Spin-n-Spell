@@ -9,8 +9,6 @@
 import UIKit
 
 var badges = [String]()
-var numCorrect: Int = 0
-var numCorrectConsecutive: Int = 0
 
 protocol BadgesViewControllerDelegate {
     func updateData(data: [NSDictionary])

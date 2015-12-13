@@ -118,6 +118,8 @@ class ChangeTopicViewController: UIViewController, UITableViewDataSource, UITabl
             imageView.image = images[indexPath.row]
         }
         
+        cell.backgroundColor = UIColor.clearColor()
+        
         cell.imageView?.image = imageView.image
         cell.topic = (rowData["topic"]! as? String)!
         return cell

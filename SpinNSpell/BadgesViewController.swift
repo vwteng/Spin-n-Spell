@@ -63,6 +63,7 @@ class BadgesViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellTableIdentifier, forIndexPath: indexPath) as! BadgeCell
         cell.textLabel?.text = badges[indexPath.row]
+        cell.backgroundColor = UIColor.clearColor()
         return cell
     }
     

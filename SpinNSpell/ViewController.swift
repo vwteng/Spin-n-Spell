@@ -12,6 +12,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    @IBOutlet weak var logo: UIImageView!
+    
     // Initialize the loaded topics to be Animals.json
     var topics : [NSDictionary] = [
         [
@@ -64,7 +66,7 @@ class ViewController: UIViewController {
     ]
     
     var maxLength = 8
-    var sound = false
+    var sound = true
     
     var initialBadge : String = ""
     
@@ -109,6 +111,8 @@ class ViewController: UIViewController {
         let myCustomInfoButtonItem:UIBarButtonItem = UIBarButtonItem(customView: infoButton)
         self.navigationItem.rightBarButtonItem = myCustomInfoButtonItem
         self.navigationItem.setHidesBackButton(true, animated: false)
+                
+        logo.image = UIImage(named: "logo")
     }
     
     func GoToInfoSegue() {

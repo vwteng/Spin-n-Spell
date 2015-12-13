@@ -21,6 +21,7 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     private var spinSound: SystemSoundID = 0
     private var correctSound: SystemSoundID = 0
+    private var incorrectSound: SystemSoundID = 0
     
     private var numCorrect: Int = 0
     private var numCorrectConsecutive: Int = 0
@@ -43,10 +44,8 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         activityIndicator.startAnimating()
         // Start: UI Setup
         arrowUIView.image = UIImage(named: "arrow")
-        spinUIButton.backgroundColor = UIColor.clearColor()
+        spinUIButton.backgroundColor = UIColor(red:0.69, green:0.09, blue:0.00, alpha:1.0)
         spinUIButton.layer.cornerRadius = 30
-        spinUIButton.layer.borderWidth = 1
-        spinUIButton.layer.borderColor = UIColor.blackColor().CGColor
         
         // *** Load Topics ***
         for item in topic["words"] as! NSDictionary {
@@ -191,7 +190,6 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             } else {
                 bottomKeyStack.addArrangedSubview(button)
             }
-            
             keyboardChars.removeAtIndex(char)
         }
     }
@@ -210,12 +208,11 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     private func createKeyboardButtonWithLetter(letter: String) -> UIButton {
         let button = UIButton()
         button.setTitle(letter, forState: .Normal)
-        button.setTitleColor(UIColor.blueColor(), forState: .Normal)
-        button.setTitleColor(UIColor.lightGrayColor(), forState: .Highlighted)
-        button.setTitleColor(UIColor.lightGrayColor(), forState: .Disabled)
+        button.backgroundColor = UIColor(red:1.00, green:0.38, blue:0.00, alpha:1.0)
+        button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        button.setTitleColor(UIColor(red:1.00, green:0.72, blue:0.00, alpha:1.0), forState: .Highlighted)
+        button.setTitleColor(UIColor(red:1.00, green:0.72, blue:0.00, alpha:1.0), forState: .Disabled)
         button.layer.cornerRadius = 5
-        button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.blackColor().CGColor
         return button
     }
     
@@ -251,7 +248,7 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                 numCorrectConsecutive++
                 
                 if sound {
-                    let soundURL = NSBundle.mainBundle().URLForResource("hit", withExtension: "wav")! as CFURLRef
+                    let soundURL = NSBundle.mainBundle().URLForResource("correct", withExtension: "wav")! as CFURLRef
                     AudioServicesCreateSystemSoundID(soundURL, &correctSound)
                     AudioServicesPlaySystemSound(correctSound)
                 }
@@ -262,6 +259,12 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                 alertDismiss = "Try Again"
                 
                 numCorrectConsecutive = 0
+                
+                if sound {
+                    let soundURL = NSBundle.mainBundle().URLForResource("incorrect", withExtension: "wav")! as CFURLRef
+                    AudioServicesCreateSystemSoundID(soundURL, &incorrectSound)
+                    AudioServicesPlaySystemSound(incorrectSound)
+                }
             }
             
             let showSecondAlertCorrect = secondAlertCorrect()
@@ -271,33 +274,60 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                 if !showSecondAlertCorrect && !showSecondAlertConsecutive {
                     self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
                 } else if showSecondAlertCorrect {
+                    alertTitle = "New Badge!"
+                    alertMsg = "You spelled \(numCorrect) words correct"
+                    
                     if badges.contains(alertMsg) {
+                        alertTitle = "Nice Job!"
+                        alertMsg = "You spelled the word right!"
+                        
                         self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
                     } else {
-                        alertTitle = "New Badge!"
-                        alertMsg = "You spelled \(numCorrect) words correct"
-                        
                         badges.insert(alertMsg, atIndex: badgeIndexCount)
                         badgeIndexCount++
                         
                         self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
                     }
                 } else if showSecondAlertConsecutive {
+                    alertTitle = "New Badge!"
+                    alertMsg = "You spelled \(numCorrectConsecutive) words correct in a row"
+                    
                     if badges.contains(alertMsg) {
+                        alertTitle = "Nice Job!"
+                        alertMsg = "You spelled the word right!"
+                        
                         self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
                     } else {
-                        alertTitle = "New Badge!"
-                        alertMsg = "You spelled \(numCorrectConsecutive) words correct in a row"
-                        
                         badges.insert(alertMsg, atIndex: badgeIndexCount)
                         badgeIndexCount++
                         
                         self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
                     }
                 }
-            }
-            if words.count < 1 {
-                performSegueWithIdentifier("GoToFinishedSegue", sender: nil)
+            } else {
+                if showSecondAlertCorrect {
+                    alertTitle = "New Badge!"
+                    alertMsg = "You spelled \(numCorrectConsecutive) words correct in a row"
+
+                    if badges.contains(alertMsg) == false {
+                        badges.insert(alertMsg, atIndex: badgeIndexCount)
+                        badgeIndexCount++
+                        
+                        self.presentViewController(showAlertOnCompletion(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
+                    }
+                } else if showSecondAlertConsecutive {
+                    alertTitle = "New Badge!"
+                    alertMsg = "You spelled \(numCorrectConsecutive) words correct in a row"
+                    
+                    if badges.contains(alertMsg) == false {
+                        badges.insert(alertMsg, atIndex: badgeIndexCount)
+                        badgeIndexCount++
+                        
+                        self.presentViewController(showAlertOnCompletion(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
+                    }
+                } else {
+                    performSegueWithIdentifier("GoToFinishedSegue", sender: nil)
+                }
             }
         }
     }
@@ -310,14 +340,22 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         return alert
     }
     
+    // Display a badge alert and then segue to the finished screen
+    func showAlertOnCompletion(alertTitle: String, alertMsg: String, alertDismiss: String) -> UIAlertController {
+        let alert = UIAlertController(title: alertTitle, message: alertMsg, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: alertDismiss, style: UIAlertActionStyle.Default, handler: { action in self.performSegueWithIdentifier("GoToFinishedSegue", sender: self) }))
+        return alert
+    }
+    
+    
     // Check if a badge has been earned for a certain number of words correct
     func secondAlertCorrect() -> Bool {
-        return numCorrect == 2 || numCorrect == 10 || numCorrect == 20
+        return numCorrect == 3 || numCorrect == 6 || numCorrect == 10 || numCorrect == 20
     }
     
     // Check if a badge has been earned for a certain number of words consecutively correct
     func secondAlertConsecutive() -> Bool {
-        return numCorrectConsecutive == 3 || numCorrectConsecutive == 10
+        return numCorrectConsecutive == 5 || numCorrectConsecutive == 10 || numCorrectConsecutive == 15
     }
     
     // How many selectors we want

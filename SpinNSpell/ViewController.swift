@@ -121,8 +121,6 @@ class ViewController: UIViewController {
 
     @IBAction func playPushed(sender: AnyObject) {
         activityIndicator.startAnimating()
-        print("First: In Play \(self.activityIndicator.isAnimating())")
-
     }
     
     @IBAction func changeTopic(sender: AnyObject) {
@@ -135,8 +133,6 @@ class ViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         activityIndicator.hidden = false
         activityIndicator.startAnimating()
-     
-        print("First: In Prepare for Segue \(self.activityIndicator.isAnimating())")
 
         if segue.identifier == "GoToSettingsSegue" {
             if let vc = segue.destinationViewController as? SettingsViewController {

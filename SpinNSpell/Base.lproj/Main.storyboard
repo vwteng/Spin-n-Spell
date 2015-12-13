@@ -283,16 +283,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Help &amp; FAQ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f2d-xQ-qph">
-                                <rect key="frame" x="256" y="28" width="88" height="21"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yfl-Mo-lQD">
+                                <rect key="frame" x="180" y="73" width="240" height="507"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <mutableString key="text">Spin ’n’ Spell was designed by Morgan Evans, Joshua Malters, Vivian Teng and Conrad Zimney from the University of Washington.
+
+It is an interactive early development education application targeted at children ages 4-7, with the intention of teaching them to spell basic words from a variety of topics. Along the way, users can earn and view different badges for their accomplishments, as well as change their difficulty settings.
+ 
+TOPICS
+The app comes with a set of topics. Users can upload JSON files for additional topics to choose from.
+
+SPELLING
+Users can begin a game with the current topic they chose. The picture of the word is displayed with letter buttons below. Users are to spell the word by tapping on the letters. Users can also press the spin button to get a different word. Once the word is complete, the users will be notified if they were correct or incorrect.
+
+BADGES
+Users will receive badges upon certain accomplishments. They will receive an alert when they receive a new badge. All of the badges received can also be viewed on the badges screen.
+
+SETTINGS
+The settings screen allows the users to control a few aspects of the game. Users can upload a new JSON topic file, change the maximum word length of the words being spelt and control the audio.
+
+AUDIO
+Users can enable or disable audio for the game on the settings screen.
+
+DIFFICULTY
+Users can change the difficulty of the game by setting a maximum word length on the settings screen. </mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yfl-Mo-lQD" firstAttribute="centerX" secondItem="2Xt-5J-Xvj" secondAttribute="centerX" id="Dhb-hn-3R6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="yfl-Mo-lQD" secondAttribute="trailing" id="EVh-dd-zbw"/>
+                            <constraint firstItem="yfl-Mo-lQD" firstAttribute="leading" secondItem="2Xt-5J-Xvj" secondAttribute="leadingMargin" id="tSp-fz-BHC"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="exP-bJ-AN6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -564,8 +590,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Hvj-d0-5eu"/>
-        <segue reference="fkx-dh-k1U"/>
         <segue reference="kSS-fO-J7e"/>
+        <segue reference="fkx-dh-k1U"/>
+        <segue reference="7Pe-my-LOL"/>
     </inferredMetricsTieBreakers>
 </document>

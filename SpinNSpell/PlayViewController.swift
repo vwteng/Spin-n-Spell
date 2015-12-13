@@ -266,7 +266,7 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             let showSecondAlertConsecutive = secondAlertConsecutive()
             
             if words.count >= 1 {
-                if showSecondAlertCorrect == false && showSecondAlertConsecutive == false {
+                if !showSecondAlertCorrect && !showSecondAlertConsecutive {
                     self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
                 } else if showSecondAlertCorrect {
                     if badges.contains(alertMsg) {

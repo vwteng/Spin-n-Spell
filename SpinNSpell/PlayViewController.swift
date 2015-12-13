@@ -271,32 +271,31 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                 if !showSecondAlertCorrect && !showSecondAlertConsecutive {
                     self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
                 } else if showSecondAlertCorrect {
+                    alertTitle = "New Badge!"
+                    alertMsg = "You spelled \(numCorrect) words correct"
+                    
                     if badges.contains(alertMsg) {
                         self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
                     } else {
-                        alertTitle = "New Badge!"
-                        alertMsg = "You spelled \(numCorrect) words correct"
-                        
                         badges.insert(alertMsg, atIndex: badgeIndexCount)
                         badgeIndexCount++
                         
                         self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
                     }
                 } else if showSecondAlertConsecutive {
+                    alertTitle = "New Badge!"
+                    alertMsg = "You spelled \(numCorrectConsecutive) words correct in a row"
+                    
                     if badges.contains(alertMsg) {
                         self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
                     } else {
-                        alertTitle = "New Badge!"
-                        alertMsg = "You spelled \(numCorrectConsecutive) words correct in a row"
-                        
                         badges.insert(alertMsg, atIndex: badgeIndexCount)
                         badgeIndexCount++
                         
                         self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
                     }
                 }
-            }
-            if words.count < 1 {
+            } else {
                 performSegueWithIdentifier("GoToFinishedSegue", sender: nil)
             }
         }

@@ -21,7 +21,6 @@ class JSONViewController: UIViewController {
     @IBOutlet weak var textBox: UITextView!
     
     @IBAction func checkForNewTopics(sender: AnyObject) {
-        //print("\(topics)")
         let sessionConfig = NSURLSessionConfiguration.defaultSessionConfiguration()
         let session = NSURLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
         let URL = NSURL(string: self.textBox.text!)
@@ -33,14 +32,13 @@ class JSONViewController: UIViewController {
             do {
                 self.topics = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments) as! [NSDictionary]
                 self.delegate?.updateData(self.topics)
-                self.presentViewController(self.showAlert("Success", alertMsg: "Successfully downloaded new topics", alertDismiss: "OK"),animated: true,completion: nil)
+                // self.presentViewController(self.showAlert("Success", alertMsg: "Successfully downloaded new topics", alertDismiss: "OK"),animated: true,completion: nil)
             } catch {
                 print("\(error)")
-                self.presentViewController(self.showAlert("Error", alertMsg: "Please try a different URL", alertDismiss: "Dismiss"),animated: true,completion: nil)
+                // self.presentViewController(self.showAlert("Error", alertMsg: "Please try a different URL", alertDismiss: "Dismiss"),animated: true,completion: nil)
             }
         }
         task.resume()
-        print("\(topics)")
     }
     
     override func viewDidLoad() {
@@ -75,12 +73,5 @@ class JSONViewController: UIViewController {
     func GoToInfoSegue() {
         self.performSegueWithIdentifier("GoToInfo", sender: nil)
     }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let vc = segue.destinationViewController as? ChangeTopicViewController {
-            // will need to pass settings around?
-            // Might not even need to pass data here since it is handled through the extensions and protocols
-        }
-    }
-    
+
 }

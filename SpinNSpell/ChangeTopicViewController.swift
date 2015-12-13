@@ -22,7 +22,7 @@ class ChangeTopicViewController: UIViewController, UITableViewDataSource, UITabl
     
     var topics = [NSDictionary]()
     
-    private var images: [UIImage] = [UIImage]()
+    var imageDict : [String : UIImage] = [String : UIImage]()
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
@@ -52,15 +52,12 @@ class ChangeTopicViewController: UIViewController, UITableViewDataSource, UITabl
                     
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         let image = UIImage(data: data!)
-                        self.images.append(image!)
-                        if self.images.count == self.topics.count {
-                            print("now I can call reload data")
-                            // load picker in here
+                        self.imageDict[topic["topic"]! as! String] = image
+                        if self.imageDict.count == self.topics.count {
                             self.activityIndicator.hidesWhenStopped = true
                             self.activityIndicator.stopAnimating()
                             self.tableView.reloadData()
                         }
-                        
                     })
                 }
                 else { // Failure
@@ -68,9 +65,7 @@ class ChangeTopicViewController: UIViewController, UITableViewDataSource, UITabl
                 }
             })
             task.resume()
-            //words.append(word.uppercaseString)
         }
-        
         navigationController!.setNavigationBarHidden(false, animated:true)
         let infoButton:UIButton = UIButton(type: UIButtonType.Custom) as UIButton
         infoButton.addTarget(self, action: "GoToInfoSegue", forControlEvents: UIControlEvents.TouchUpInside)
@@ -87,7 +82,6 @@ class ChangeTopicViewController: UIViewController, UITableViewDataSource, UITabl
     
     override func viewDidAppear(animated: Bool) {
         self.delegate?.updateData(self.topics)
-        //print("\(topics)")
     }
     
     override func didReceiveMemoryWarning() {
@@ -112,12 +106,9 @@ class ChangeTopicViewController: UIViewController, UITableViewDataSource, UITabl
         let cell = tableView.dequeueReusableCellWithIdentifier(cellTableIdentifier, forIndexPath: indexPath) as! TopicCell
         let imageView = UIImageView(frame: CGRectMake(50, 10, 5, 5))
         let rowData = topics[indexPath.row]
-        
-        // This needs to change to just load the image from the stored array
         if !activityIndicator.isAnimating() {
-            imageView.image = images[indexPath.row]
+            imageView.image = imageDict[rowData["topic"] as! String]
         }
-        
         cell.backgroundColor = UIColor.clearColor()
         
         cell.imageView?.image = imageView.image

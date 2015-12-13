@@ -45,7 +45,7 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         // Start: UI Setup
         arrowUIView.image = UIImage(named: "arrow")
         spinUIButton.backgroundColor = UIColor(red:0.69, green:0.09, blue:0.00, alpha:1.0)
-        spinUIButton.layer.cornerRadius = 30
+        spinUIButton.layer.cornerRadius = 15
         
         // *** Load Topics ***
         for item in topic["words"] as! NSDictionary {
@@ -76,6 +76,7 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                                 self.activityIndicator.hidesWhenStopped = true
                                 self.activityIndicator.stopAnimating()
                                 self.picker.reloadAllComponents()
+                                print("\(self.words)")
                             }
                             
                         })
@@ -87,7 +88,7 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                 task.resume()
             }
         }
-        
+
         navigationController!.setNavigationBarHidden(false, animated:true)
         let infoButton:UIButton = UIButton(type: UIButtonType.Custom) as UIButton
         infoButton.addTarget(self, action: "GoToInfoSegue", forControlEvents: UIControlEvents.TouchUpInside)

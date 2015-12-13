@@ -20,6 +20,8 @@ class SettingsViewController: UIViewController {
     var topics = [NSDictionary]()
     var delegate : SettingsViewControllerDelegate?
 
+    @IBOutlet weak var uploadButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         maxWordLength.text = "Max Word Length: \(maxLength)"
@@ -29,6 +31,10 @@ class SettingsViewController: UIViewController {
         } else {
             soundSwitch.setOn(false, animated: false)
         }
+        
+        uploadButton.layer.cornerRadius = 5
+        uploadButton.layer.borderWidth = 1
+        uploadButton.layer.borderColor = UIColor.blackColor().CGColor
         navigationController!.setNavigationBarHidden(false, animated:true)
         let infoButton:UIButton = UIButton(type: UIButtonType.Custom) as UIButton
         infoButton.addTarget(self, action: "GoToInfoSegue", forControlEvents: UIControlEvents.TouchUpInside)
@@ -57,7 +63,6 @@ class SettingsViewController: UIViewController {
         maxWordLength.text = "Max Word Length: \(currValue)"
         self.delegate?.updateSettings(sound, maxLength: maxLength)
     }
-    
     
     /* Sounds */
     @IBOutlet weak var soundSwitch: UISwitch!

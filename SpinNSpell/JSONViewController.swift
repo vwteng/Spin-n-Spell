@@ -19,6 +19,7 @@ class JSONViewController: UIViewController {
     var delegate : JSONViewControllerDelegate?
     
     @IBOutlet weak var textBox: UITextView!
+    @IBOutlet weak var checkButton: UIButton!
     
     @IBAction func checkForNewTopics(sender: AnyObject) {
         let sessionConfig = NSURLSessionConfiguration.defaultSessionConfiguration()
@@ -44,6 +45,9 @@ class JSONViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.textBox.text = "https://students.washington.edu/conrad16/ios/spelling-json-files/Animals.json"
+        checkButton.layer.cornerRadius = 5
+        checkButton.layer.borderWidth = 1
+        checkButton.layer.borderColor = UIColor.blackColor().CGColor
         navigationController!.setNavigationBarHidden(false, animated:true)
         let infoButton:UIButton = UIButton(type: UIButtonType.Custom) as UIButton
         infoButton.addTarget(self, action: "GoToInfoSegue", forControlEvents: UIControlEvents.TouchUpInside)

@@ -96,8 +96,12 @@
                     <navigationItem key="navigationItem" id="Fyf-fV-Nma"/>
                     <connections>
                         <outlet property="activityIndicator" destination="9Ne-0b-yzX" id="pN6-50-GuW"/>
+                        <outlet property="badgeButton" destination="nuy-3A-lF2" id="2pg-W0-2Rh"/>
+                        <outlet property="changeButton" destination="rhj-j0-EoS" id="Enj-hw-hra"/>
                         <outlet property="currentTopicLabel" destination="pra-HP-6cn" id="3Bu-Pj-ZYA"/>
                         <outlet property="logo" destination="Kd4-S4-aSH" id="ytt-FU-EDd"/>
+                        <outlet property="playButton" destination="8Cp-oW-21t" id="XXB-QZ-GgN"/>
+                        <outlet property="settingsButton" destination="4T2-J0-PqQ" id="Tog-Gh-LSk"/>
                         <segue destination="3he-Sy-CYo" kind="show" identifier="GoToInfo" id="E2r-H3-GHI"/>
                     </connections>
                 </viewController>
@@ -176,6 +180,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="checkButton" destination="Ci8-wB-PdD" id="7fp-44-vBP"/>
                         <outlet property="textBox" destination="F4P-cm-2hy" id="eUH-Zo-3tO"/>
                         <segue destination="3he-Sy-CYo" kind="show" identifier="GoToInfo" id="7Pe-my-LOL"/>
                     </connections>
@@ -260,6 +265,7 @@
                         <outlet property="lengthSlider" destination="Ei1-g4-Ql7" id="7L0-zW-Vwj"/>
                         <outlet property="maxWordLength" destination="Rhp-7t-iS8" id="ldd-Id-EbV"/>
                         <outlet property="soundSwitch" destination="eZZ-FM-iXE" id="5gX-GL-zKR"/>
+                        <outlet property="uploadButton" destination="H6X-2d-QeI" id="Emf-92-a2n"/>
                         <segue destination="3he-Sy-CYo" kind="show" identifier="GoToInfo" id="pfL-g6-Umo"/>
                     </connections>
                 </viewController>
@@ -612,6 +618,8 @@ Users can change the difficulty of the game by setting a maximum word length on 
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="returnButton" destination="KKD-Bk-gnw" id="0Rs-F3-DKu"/>
+                        <outlet property="viewButton" destination="EHj-jV-gyO" id="XWE-lv-rIO"/>
                         <segue destination="3he-Sy-CYo" kind="show" identifier="GoToInfo" id="0R7-eg-cP3"/>
                     </connections>
                 </viewController>

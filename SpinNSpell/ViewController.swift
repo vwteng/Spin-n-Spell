@@ -14,6 +14,12 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var logo: UIImageView!
     
+    @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var changeButton: UIButton!
+    @IBOutlet weak var badgeButton: UIButton!
+    @IBOutlet weak var settingsButton: UIButton!
+    
+    
     // Initialize the loaded topics to be Animals.json
     var topics : [NSDictionary] = [
         [
@@ -101,6 +107,22 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         currentTopicLabel.text = "Current Topic: \(currentTopic["topic"]!)"
+        
+        playButton.layer.cornerRadius = 5
+        playButton.layer.borderWidth = 1
+        playButton.layer.borderColor = UIColor.blackColor().CGColor
+        
+        changeButton.layer.cornerRadius = 5
+        changeButton.layer.borderWidth = 1
+        changeButton.layer.borderColor = UIColor.blackColor().CGColor
+        
+        badgeButton.layer.cornerRadius = 5
+        badgeButton.layer.borderWidth = 1
+        badgeButton.layer.borderColor = UIColor.blackColor().CGColor
+        
+        settingsButton.layer.cornerRadius = 5
+        settingsButton.layer.borderWidth = 1
+        settingsButton.layer.borderColor = UIColor.blackColor().CGColor
         
         navigationController!.setNavigationBarHidden(false, animated:true)
         let infoButton:UIButton = UIButton(type: UIButtonType.Custom) as UIButton

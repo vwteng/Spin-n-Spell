@@ -191,7 +191,6 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             } else {
                 bottomKeyStack.addArrangedSubview(button)
             }
-            
             keyboardChars.removeAtIndex(char)
         }
     }
@@ -302,7 +301,29 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                     }
                 }
             } else {
-                performSegueWithIdentifier("GoToFinishedSegue", sender: nil)
+                if showSecondAlertCorrect {
+                    alertTitle = "New Badge!"
+                    alertMsg = "You spelled \(numCorrectConsecutive) words correct in a row"
+
+                    if badges.contains(alertMsg) == false {
+                        badges.insert(alertMsg, atIndex: badgeIndexCount)
+                        badgeIndexCount++
+                        
+                        self.presentViewController(showAlertOnCompletion(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
+                    }
+                } else if showSecondAlertConsecutive {
+                    alertTitle = "New Badge!"
+                    alertMsg = "You spelled \(numCorrectConsecutive) words correct in a row"
+                    
+                    if badges.contains(alertMsg) == false {
+                        badges.insert(alertMsg, atIndex: badgeIndexCount)
+                        badgeIndexCount++
+                        
+                        self.presentViewController(showAlertOnCompletion(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
+                    }
+                } else {
+                    performSegueWithIdentifier("GoToFinishedSegue", sender: nil)
+                }
             }
         }
     }
@@ -315,14 +336,22 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         return alert
     }
     
+    // Display a badge alert and then segue to the finished screen
+    func showAlertOnCompletion(alertTitle: String, alertMsg: String, alertDismiss: String) -> UIAlertController {
+        let alert = UIAlertController(title: alertTitle, message: alertMsg, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: alertDismiss, style: UIAlertActionStyle.Default, handler: { action in self.performSegueWithIdentifier("GoToFinishedSegue", sender: self) }))
+        return alert
+    }
+    
+    
     // Check if a badge has been earned for a certain number of words correct
     func secondAlertCorrect() -> Bool {
-        return numCorrect == 2 || numCorrect == 10 || numCorrect == 20
+        return numCorrect == 3 || numCorrect == 6 || numCorrect == 10 || numCorrect == 20
     }
     
     // Check if a badge has been earned for a certain number of words consecutively correct
     func secondAlertConsecutive() -> Bool {
-        return numCorrectConsecutive == 3 || numCorrectConsecutive == 10
+        return numCorrectConsecutive == 5 || numCorrectConsecutive == 10 || numCorrectConsecutive == 15
     }
     
     // How many selectors we want

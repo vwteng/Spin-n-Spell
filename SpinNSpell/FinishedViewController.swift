@@ -10,10 +10,19 @@ import UIKit
 
 class FinishedViewController: UIViewController {
 
+    @IBOutlet weak var viewButton: UIButton!
+    @IBOutlet weak var returnButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.setHidesBackButton(true, animated: false)
         
+        viewButton.layer.cornerRadius = 5
+        viewButton.layer.borderWidth = 1
+        viewButton.layer.borderColor = UIColor.blackColor().CGColor
+        returnButton.layer.cornerRadius = 5
+        returnButton.layer.borderWidth = 1
+        returnButton.layer.borderColor = UIColor.blackColor().CGColor
         navigationController!.setNavigationBarHidden(false, animated:true)
         let infoButton:UIButton = UIButton(type: UIButtonType.Custom) as UIButton
         infoButton.addTarget(self, action: "GoToInfoSegue", forControlEvents: UIControlEvents.TouchUpInside)

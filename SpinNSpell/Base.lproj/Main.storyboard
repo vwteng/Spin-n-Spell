@@ -417,6 +417,14 @@
                                 <animations/>
                                 <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UZG-q7-L8T">
+                                <rect key="frame" x="528" y="257" width="43" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Speak"/>
+                                <connections>
+                                    <action selector="speak:" destination="P1v-aV-hmM" eventType="touchUpInside" id="8p7-Ar-fVn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -434,7 +442,9 @@
                             <constraint firstItem="6u6-D7-VHY" firstAttribute="centerY" secondItem="X96-Mf-Zx2" secondAttribute="centerY" id="QLy-yM-LsG"/>
                             <constraint firstItem="6u6-D7-VHY" firstAttribute="trailing" secondItem="3TX-Vw-M6l" secondAttribute="trailing" id="VC8-wN-FV1"/>
                             <constraint firstItem="3TX-Vw-M6l" firstAttribute="leading" secondItem="hYC-ea-0KE" secondAttribute="leading" id="YA6-2h-C1Y"/>
+                            <constraint firstItem="UZG-q7-L8T" firstAttribute="top" secondItem="6u6-D7-VHY" secondAttribute="bottom" constant="43" id="aKy-Bk-hPn"/>
                             <constraint firstItem="hYC-ea-0KE" firstAttribute="leading" secondItem="WqM-UC-D7c" secondAttribute="leadingMargin" constant="10" id="cJd-Yh-nCF"/>
+                            <constraint firstItem="3TX-Vw-M6l" firstAttribute="top" secondItem="UZG-q7-L8T" secondAttribute="bottom" constant="12" id="evj-Yn-0Un"/>
                             <constraint firstItem="3TX-Vw-M6l" firstAttribute="top" secondItem="hYC-ea-0KE" secondAttribute="bottom" constant="96" id="hv3-o4-N0U"/>
                             <constraint firstItem="3TX-Vw-M6l" firstAttribute="top" secondItem="6u6-D7-VHY" secondAttribute="bottom" constant="85" id="k5A-yN-Yev"/>
                             <constraint firstItem="hYC-ea-0KE" firstAttribute="centerY" secondItem="X96-Mf-Zx2" secondAttribute="centerY" id="lGi-aQ-xnn"/>
@@ -442,6 +452,7 @@
                             <constraint firstItem="bwA-n4-F1V" firstAttribute="trailing" secondItem="WqM-UC-D7c" secondAttribute="trailingMargin" id="pOR-b4-VLM"/>
                             <constraint firstItem="bwA-n4-F1V" firstAttribute="leading" secondItem="saV-iN-jMf" secondAttribute="leading" id="qVu-GZ-BbQ"/>
                             <constraint firstItem="P22-KX-qxD" firstAttribute="top" secondItem="saV-iN-jMf" secondAttribute="bottom" constant="16" id="qiX-x0-QGL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="UZG-q7-L8T" secondAttribute="trailing" constant="9" id="r5N-nY-b06"/>
                             <constraint firstItem="cn0-Xh-3H1" firstAttribute="centerX" secondItem="WqM-UC-D7c" secondAttribute="centerX" id="xWr-If-fIp"/>
                             <constraint firstItem="X96-Mf-Zx2" firstAttribute="centerX" secondItem="WqM-UC-D7c" secondAttribute="centerX" id="xcv-by-iWe"/>
                             <constraint firstItem="saV-iN-jMf" firstAttribute="top" secondItem="bwA-n4-F1V" secondAttribute="bottom" constant="8" symbolic="YES" id="ymV-ol-hUb"/>
@@ -554,7 +565,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="kSS-fO-J7e"/>
-        <segue reference="0R7-eg-cP3"/>
+        <segue reference="oHz-PP-vZx"/>
         <segue reference="fkx-dh-k1U"/>
     </inferredMetricsTieBreakers>
 </document>

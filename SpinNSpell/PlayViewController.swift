@@ -8,8 +8,9 @@
 
 import UIKit
 import AudioToolbox
+import AVFoundation
 
-class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource  {
+class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, AVSpeechSynthesizerDelegate {
     private let letters: String = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     private var words: [String] = [String]()
     private var currentWord: String = ""
@@ -353,5 +354,22 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     func pickerView(pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
         return picker.frame.height
     }
+    
+    // Text to speech function //
+    
+    @IBAction func speak(sender: AnyObject) {
+        if sound {
+            let string = currentWord
+            let utterance = AVSpeechUtterance(string: string)
+            utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+            
+            let synthesizer = AVSpeechSynthesizer()
+            synthesizer.delegate = self
+            synthesizer.speakUtterance(utterance)
+        } else {
+            self.presentViewController(showAlert("Sound Disabled", alertMsg: "Please enable sound in Settings", alertDismiss: "OK"),animated: true,completion: nil)
+        }
+    }
+    
 }
 

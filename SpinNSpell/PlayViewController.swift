@@ -8,14 +8,16 @@
 
 import UIKit
 import AudioToolbox
+import AVFoundation
 
-class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource  {
+class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, AVSpeechSynthesizerDelegate {
     private let letters: String = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     private var words: [String] = [String]()
     private var currentWord: String = ""
     private var speltWord: String = ""
     private var images: [UIImage] = [UIImage]()
     private var lastValue: Int = 0
+    private var wordCount : Int = 0
     
     private var spinSound: SystemSoundID = 0
     private var correctSound: SystemSoundID = 0
@@ -70,7 +72,7 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                                 let image = UIImage(data: data!)
                                 self.images.append(image!)
                                 self.words.append(word.uppercaseString)
-                                if self.images.count == self.topic["words"]!.count {
+                                if self.images.count == self.words.count {
                                     // load picker in here
                                     self.activityIndicator.hidesWhenStopped = true
                                     self.activityIndicator.stopAnimating()
@@ -277,28 +279,28 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                 if showSecondAlertCorrect == false && showSecondAlertConsecutive == false {
                     self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
                 } else if showSecondAlertCorrect {
-                    alertTitle = "New Badge!"
-                    alertMsg = "You spelled \(numCorrect) words correct"
-                    
-                    if badges.contains(alertMsg) == false {
+                    if badges.contains(alertMsg) {
                         self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
-                    
+                    } else {
+                        alertTitle = "New Badge!"
+                        alertMsg = "You spelled \(numCorrect) words correct"
+                        
+                        self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
+                        
                         badges.insert(alertMsg, atIndex: badgeIndexCount)
                         badgeIndexCount++
-                    } else {
-                        self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
                     }
                 } else if showSecondAlertConsecutive {
-                    alertTitle = "New Badge!"
-                    alertMsg = "You spelled \(numCorrectConsecutive) words correct in a row"
-                    
-                    if badges.contains(alertMsg) == false {
+                    if badges.contains(alertMsg) {
                         self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
-
+                    } else {
+                        alertTitle = "New Badge!"
+                        alertMsg = "You spelled \(numCorrectConsecutive) words correct in a row"
+                        
+                        self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
+                        
                         badges.insert(alertMsg, atIndex: badgeIndexCount)
                         badgeIndexCount++
-                    } else {
-                        self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
                     }
                 }
             }
@@ -356,5 +358,22 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     func pickerView(pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
         return picker.frame.height
     }
+    
+    // Text to speech function //
+    
+    @IBAction func speak(sender: AnyObject) {
+        if sound {
+            let string = currentWord
+            let utterance = AVSpeechUtterance(string: string)
+            utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+            
+            let synthesizer = AVSpeechSynthesizer()
+            synthesizer.delegate = self
+            synthesizer.speakUtterance(utterance)
+        } else {
+            self.presentViewController(showAlert("Sound Disabled", alertMsg: "Please enable sound in Settings", alertDismiss: "OK"),animated: true,completion: nil)
+        }
+    }
+    
 }
 

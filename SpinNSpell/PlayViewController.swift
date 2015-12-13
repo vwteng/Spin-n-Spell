@@ -42,10 +42,12 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         activityIndicator.startAnimating()
+        
         // Start: UI Setup
         arrowUIView.image = UIImage(named: "arrow")
         spinUIButton.backgroundColor = UIColor(red:0.69, green:0.09, blue:0.00, alpha:1.0)
         spinUIButton.layer.cornerRadius = 15
+        bottomKeyStack.frame.size = topKeyStack.frame.size
         
         // *** Load Topics ***
         for item in topic["words"] as! NSDictionary {
@@ -214,6 +216,7 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         button.setTitleColor(UIColor(red:1.00, green:0.72, blue:0.00, alpha:1.0), forState: .Highlighted)
         button.setTitleColor(UIColor(red:1.00, green:0.72, blue:0.00, alpha:1.0), forState: .Disabled)
         button.layer.cornerRadius = 5
+        button.frame.size.height = 40
         return button
     }
     

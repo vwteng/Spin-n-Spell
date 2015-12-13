@@ -269,36 +269,28 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                 if showSecondAlertCorrect == false && showSecondAlertConsecutive == false {
                     self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
                 } else if showSecondAlertCorrect {
-                    alertTitle = "New Badge!"
-                    alertMsg = "You spelled \(numCorrect) words correct"
-                    
-                    if badges.contains(alertMsg) == false {
+                    if badges.contains(alertMsg) {
                         self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
-                    
-                        badges.insert(alertMsg, atIndex: badgeIndexCount)
-                        badgeIndexCount++
                     } else {
-                        alertTitle = "Nice Job!"
-                        alertMsg = "You spelled the word right!"
-                        alertDismiss = "Next Word"
+                        alertTitle = "New Badge!"
+                        alertMsg = "You spelled \(numCorrect) words correct"
                         
                         self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
+                        
+                        badges.insert(alertMsg, atIndex: badgeIndexCount)
+                        badgeIndexCount++
                     }
                 } else if showSecondAlertConsecutive {
-                    alertTitle = "New Badge!"
-                    alertMsg = "You spelled \(numCorrectConsecutive) words correct in a row"
-                    
-                    if badges.contains(alertMsg) == false {
+                    if badges.contains(alertMsg) {
                         self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
-
-                        badges.insert(alertMsg, atIndex: badgeIndexCount)
-                        badgeIndexCount++
                     } else {
-                        alertTitle = "Nice Job!"
-                        alertMsg = "You spelled the word right!"
-                        alertDismiss = "Next Word"
+                        alertTitle = "New Badge!"
+                        alertMsg = "You spelled \(numCorrectConsecutive) words correct in a row"
                         
                         self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
+                        
+                        badges.insert(alertMsg, atIndex: badgeIndexCount)
+                        badgeIndexCount++
                     }
                 }
             } else {

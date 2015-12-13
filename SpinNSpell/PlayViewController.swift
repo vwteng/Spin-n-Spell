@@ -49,44 +49,44 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         spinUIButton.layer.borderColor = UIColor.blackColor().CGColor
         
         // *** Load Topics ***
-            for item in topic["words"] as! NSDictionary {
-                let word = item.key as! String
-                if word.characters.count <= maxLength {
-                    
-                    let sessionConfig = NSURLSessionConfiguration.defaultSessionConfiguration()
-                    
-                    /* Create session, and optionally set a NSURLSessionDelegate. */
-                    let session = NSURLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
-                    
-                    let URL = NSURL(string: item.value as! String)
-                    let request = NSMutableURLRequest(URL: URL!)
-                    request.HTTPMethod = "GET"
-                    
-                    /* Start a new Task */
-                    let task = session.dataTaskWithRequest(request, completionHandler: { (data : NSData?, response : NSURLResponse?, error : NSError?) -> Void in
-                        if (error == nil) { // Success
-                            let statusCode = (response as! NSHTTPURLResponse).statusCode
-                            print("URL Session Task Succeeded: HTTP \(statusCode)")
+        for item in topic["words"] as! NSDictionary {
+            let word = item.key as! String
+            if word.characters.count <= maxLength {
+                
+                let sessionConfig = NSURLSessionConfiguration.defaultSessionConfiguration()
+                
+                /* Create session, and optionally set a NSURLSessionDelegate. */
+                let session = NSURLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
+                
+                let URL = NSURL(string: item.value as! String)
+                let request = NSMutableURLRequest(URL: URL!)
+                request.HTTPMethod = "GET"
+                
+                /* Start a new Task */
+                let task = session.dataTaskWithRequest(request, completionHandler: { (data : NSData?, response : NSURLResponse?, error : NSError?) -> Void in
+                    if (error == nil) { // Success
+                        let statusCode = (response as! NSHTTPURLResponse).statusCode
+                        print("URL Session Task Succeeded: HTTP \(statusCode)")
+                        
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            let image = UIImage(data: data!)
+                            self.images.append(image!)
+                            self.words.append(word.uppercaseString)
+                            if self.images.count == self.words.count {
+                                // load picker in here
+                                self.activityIndicator.hidesWhenStopped = true
+                                self.activityIndicator.stopAnimating()
+                                self.picker.reloadAllComponents()
+                            }
                             
-                            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                                let image = UIImage(data: data!)
-                                self.images.append(image!)
-                                self.words.append(word.uppercaseString)
-                                if self.images.count == self.words.count {
-                                    // load picker in here
-                                    self.activityIndicator.hidesWhenStopped = true
-                                    self.activityIndicator.stopAnimating()
-                                    self.picker.reloadAllComponents()
-                                }
-                                
-                            })
-                        }
-                        else { // Failure
-                            print("URL Session Task Failed: %@", error!.localizedDescription);
-                        }
-                    })
-                    task.resume()
-                }
+                        })
+                    }
+                    else { // Failure
+                        print("URL Session Task Failed: %@", error!.localizedDescription);
+                    }
+                })
+                task.resume()
+            }
         }
         
         navigationController!.setNavigationBarHidden(false, animated:true)
@@ -120,12 +120,12 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         
         // Select new value
         var newValue = Int(arc4random_uniform(UInt32(images.count)))
-        while lastValue == newValue {
-            newValue = Int(arc4random_uniform(UInt32(images.count)))
+        if words.count > 1 {
+            while lastValue == newValue {
+                newValue = Int(arc4random_uniform(UInt32(images.count)))
+            }
         }
         lastValue = newValue
-        
-        print("new value: \(newValue)")
         
         // Set Picker
         picker.reloadAllComponents()
@@ -238,20 +238,14 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             var alertTitle = ""
             var alertMsg = ""
             var alertDismiss = ""
-            
-            print("array before: \(words)")
-            print("speltWord.count = currentWord.count")
-            print("word: \(speltWord)")
+    
             if speltWord == currentWord {
-                print("spelt word == currentWord")
                 alertTitle = "Nice Job!"
                 alertMsg = "You spelled the word right!"
                 alertDismiss = "Next Word"
-                
-                print("word count before: \(words.count)")
+            
                 words.removeAtIndex(lastValue)
                 images.removeAtIndex(lastValue)
-                print("array after: \(words)")
                 
                 numCorrect++
                 numCorrectConsecutive++
@@ -273,10 +267,8 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             let showSecondAlertCorrect = secondAlertCorrect()
             let showSecondAlertConsecutive = secondAlertConsecutive()
             
-            print("word count after: \(words.count)")
             if words.count > 0 {
-                print("Inside words.count > 0")
-                if showSecondAlertCorrect == false && showSecondAlertConsecutive == false {
+                if !showSecondAlertCorrect && !showSecondAlertConsecutive {
                     self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
                 } else if showSecondAlertCorrect {
                     if badges.contains(alertMsg) {
@@ -285,10 +277,10 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                         alertTitle = "New Badge!"
                         alertMsg = "You spelled \(numCorrect) words correct"
                         
-                        self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
-                        
                         badges.insert(alertMsg, atIndex: badgeIndexCount)
                         badgeIndexCount++
+                        
+                        self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
                     }
                 } else if showSecondAlertConsecutive {
                     if badges.contains(alertMsg) {
@@ -297,17 +289,16 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                         alertTitle = "New Badge!"
                         alertMsg = "You spelled \(numCorrectConsecutive) words correct in a row"
                         
-                        self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
-                        
                         badges.insert(alertMsg, atIndex: badgeIndexCount)
                         badgeIndexCount++
+                        
+                        self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
                     }
                 }
             }
             if words.count < 1 {
                 performSegueWithIdentifier("GoToFinishedSegue", sender: nil)
             }
-            print("")
         }
     }
     
@@ -342,7 +333,7 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     // What each row will show
     func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
-        // something in here is wrong... it is loading the wrong word with the wrong image 
+        // something in here is wrong... it is loading the wrong word with the wrong image
         var imageView = UIImageView()
         if self.images.count != 0 {
             let image = images[row]

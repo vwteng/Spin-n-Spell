@@ -360,7 +360,6 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     }
     
     // Text to speech function //
-    
     @IBAction func speak(sender: AnyObject) {
         if sound {
             let string = currentWord
@@ -374,6 +373,5 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             self.presentViewController(showAlert("Sound Disabled", alertMsg: "Please enable sound in Settings", alertDismiss: "OK"),animated: true,completion: nil)
         }
     }
-    
 }
 

@@ -299,10 +299,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yfl-Mo-lQD">
-                                <rect key="frame" x="180" y="73" width="240" height="507"/>
+                                <rect key="frame" x="180" y="148" width="240" height="432"/>
                                 <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <mutableString key="text">Spin ’n’ Spell was designed by Morgan Evans, Joshua Malters, Vivian Teng and Conrad Zimney from the University of Washington.
+                                <color key="backgroundColor" red="1" green="0.99607843139999996" blue="0.81960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <string key="text">Spin ’n’ Spell was designed by Morgan Evans, Joshua Malters, Vivian Teng and Conrad Zimney from the University of Washington.
 
 It is an interactive early development education application targeted at children ages 4-7, with the intention of teaching them to spell basic words from a variety of topics. Along the way, users can earn and view different badges for their accomplishments, as well as change their difficulty settings.
  
@@ -322,19 +322,34 @@ AUDIO
 Users can enable or disable audio for the game on the settings screen.
 
 DIFFICULTY
-Users can change the difficulty of the game by setting a maximum word length on the settings screen. </mutableString>
+Users can change the difficulty of the game by setting a maximum word length on the settings screen. </string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RX6-vv-Tii">
+                                <rect key="frame" x="180" y="28" width="240" height="112"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="112" id="TZ8-3r-L8y"/>
+                                    <constraint firstAttribute="width" constant="240" id="Yo8-qa-nXy"/>
+                                    <constraint firstAttribute="width" secondItem="RX6-vv-Tii" secondAttribute="height" multiplier="15:7" id="xac-cM-G4P"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="1" green="0.99607843139999996" blue="0.81960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="yfl-Mo-lQD" firstAttribute="centerX" secondItem="2Xt-5J-Xvj" secondAttribute="centerX" id="Dhb-hn-3R6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="yfl-Mo-lQD" secondAttribute="trailing" id="EVh-dd-zbw"/>
+                            <constraint firstItem="yfl-Mo-lQD" firstAttribute="top" secondItem="RX6-vv-Tii" secondAttribute="bottom" constant="8" id="OB4-tc-b4b"/>
+                            <constraint firstItem="RX6-vv-Tii" firstAttribute="centerX" secondItem="2Xt-5J-Xvj" secondAttribute="centerX" id="ou7-86-1WL"/>
                             <constraint firstItem="yfl-Mo-lQD" firstAttribute="leading" secondItem="2Xt-5J-Xvj" secondAttribute="leadingMargin" id="tSp-fz-BHC"/>
+                            <constraint firstItem="RX6-vv-Tii" firstAttribute="top" secondItem="hg2-QP-fSe" secondAttribute="bottom" constant="8" id="uav-CG-zXV"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="logo" destination="RX6-vv-Tii" id="h2X-05-oGl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="exP-bJ-AN6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -427,7 +442,7 @@ Users can change the difficulty of the game by setting a maximum word length on 
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X96-Mf-Zx2">
+                            <pickerView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X96-Mf-Zx2">
                                 <rect key="frame" x="101" y="75" width="399" height="216"/>
                                 <animations/>
                                 <connections>
@@ -435,7 +450,7 @@ Users can change the difficulty of the game by setting a maximum word length on 
                                     <outlet property="delegate" destination="P1v-aV-hmM" id="YJZ-cu-vAy"/>
                                 </connections>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6u6-D7-VHY">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6u6-D7-VHY">
                                 <rect key="frame" x="518" y="152" width="62" height="62"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
@@ -446,14 +461,14 @@ Users can change the difficulty of the game by setting a maximum word length on 
                                     <action selector="spin:" destination="P1v-aV-hmM" eventType="touchUpInside" id="gYN-da-uLK"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hYC-ea-0KE">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hYC-ea-0KE">
                                 <rect key="frame" x="30" y="163" width="40" height="40"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="V68-bU-aef"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="3TX-Vw-M6l">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="3TX-Vw-M6l">
                                 <rect key="frame" x="30" y="299" width="550" height="93"/>
                                 <animations/>
                             </stackView>
@@ -470,7 +485,7 @@ Users can change the difficulty of the game by setting a maximum word length on 
                                 <animations/>
                                 <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UZG-q7-L8T">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UZG-q7-L8T">
                                 <rect key="frame" x="35" y="232" width="30" height="30"/>
                                 <animations/>
                                 <state key="normal" title="🔊"/>

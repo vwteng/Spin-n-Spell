@@ -21,6 +21,7 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     private var spinSound: SystemSoundID = 0
     private var correctSound: SystemSoundID = 0
+    private var incorrectSound: SystemSoundID = 0
     
     private var numCorrect: Int = 0
     private var numCorrectConsecutive: Int = 0
@@ -250,7 +251,7 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                 numCorrectConsecutive++
                 
                 if sound {
-                    let soundURL = NSBundle.mainBundle().URLForResource("hit", withExtension: "wav")! as CFURLRef
+                    let soundURL = NSBundle.mainBundle().URLForResource("correct", withExtension: "wav")! as CFURLRef
                     AudioServicesCreateSystemSoundID(soundURL, &correctSound)
                     AudioServicesPlaySystemSound(correctSound)
                 }
@@ -261,6 +262,12 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                 alertDismiss = "Try Again"
                 
                 numCorrectConsecutive = 0
+                
+                if sound {
+                    let soundURL = NSBundle.mainBundle().URLForResource("incorrect", withExtension: "wav")! as CFURLRef
+                    AudioServicesCreateSystemSoundID(soundURL, &incorrectSound)
+                    AudioServicesPlaySystemSound(incorrectSound)
+                }
             }
             
             let showSecondAlertCorrect = secondAlertCorrect()

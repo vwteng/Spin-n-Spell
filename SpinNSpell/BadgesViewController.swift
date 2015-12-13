@@ -11,11 +11,6 @@ import UIKit
 var badges = [String]()
 var badgeIndexCount: Int = 0
 
-protocol BadgesViewControllerDelegate {
-    func updateData(data: [NSDictionary])
-    func updateBadges(badge: String)
-}
-
 class BadgesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var topics = [NSDictionary]()
@@ -26,8 +21,7 @@ class BadgesViewController: UIViewController, UITableViewDataSource, UITableView
             tableView.dataSource = self
         }
     }
-    var delegate : BadgesViewControllerDelegate?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         badges.insert("", atIndex: badgeIndexCount)
@@ -43,7 +37,6 @@ class BadgesViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     override func viewDidAppear(animated: Bool) {
-        self.delegate?.updateData(self.topics)
         print("\(badges)")
     }
 

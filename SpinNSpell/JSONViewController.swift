@@ -70,6 +70,10 @@ class JSONViewController: UIViewController {
         //print("\(topics)")
     }
     
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     func GoToInfoSegue() {
         self.performSegueWithIdentifier("GoToInfo", sender: nil)
     }

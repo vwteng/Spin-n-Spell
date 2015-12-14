@@ -20,6 +20,7 @@ class JSONViewController: UIViewController {
     
     @IBOutlet weak var textBox: UITextView!
     @IBOutlet weak var checkButton: UIButton!
+    @IBOutlet weak var statusLabel: UILabel!
     
     @IBAction func checkForNewTopics(sender: AnyObject) {
         let sessionConfig = NSURLSessionConfiguration.defaultSessionConfiguration()
@@ -28,15 +29,18 @@ class JSONViewController: UIViewController {
         let request = NSMutableURLRequest(URL: URL!)
         request.HTTPMethod = "GET"
         let task = session.dataTaskWithRequest(request) { (data, response, error) -> Void in
-            let statusCode = (response as! NSHTTPURLResponse).statusCode
-            print("URL Task Status: \(statusCode)")
             do {
                 self.topics = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments) as! [NSDictionary]
                 self.delegate?.updateData(self.topics)
-                // self.presentViewController(self.showAlert("Success", alertMsg: "Successfully downloaded new topics", alertDismiss: "OK"),animated: true,completion: nil)
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.statusLabel.text = "Download Status: Success!"
+                })
             } catch {
                 print("\(error)")
-                // self.presentViewController(self.showAlert("Error", alertMsg: "Please try a different URL", alertDismiss: "Dismiss"),animated: true,completion: nil)
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.statusLabel.text = "Download Status: Failure"
+                })
             }
         }
         task.resume()
@@ -56,14 +60,6 @@ class JSONViewController: UIViewController {
         infoButton.setTitleColor(UIColor(red: 0.0, green: 122.0/255.0, blue: 1.0, alpha: 1.9), forState: UIControlState.Normal)
         let myCustomInfoButtonItem:UIBarButtonItem = UIBarButtonItem(customView: infoButton)
         self.navigationItem.rightBarButtonItem = myCustomInfoButtonItem
-    }
-    
-    // Display an alert
-    func showAlert(alertTitle: String, alertMsg: String, alertDismiss: String) -> UIAlertController {
-        let alert = UIAlertController(title: alertTitle, message: alertMsg, preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: alertDismiss, style: UIAlertActionStyle.Default, handler: {(alert: UIAlertAction!) in NSLog("Dismissed")
-        }))
-        return alert
     }
     
     override func didReceiveMemoryWarning() {

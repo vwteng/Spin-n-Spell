@@ -158,12 +158,20 @@
                                     <action selector="checkForNewTopics:" destination="zHa-JO-bl0" eventType="touchUpInside" id="pmz-xn-383"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Download Status: Pending" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RAw-Ik-mJg">
+                                <rect key="frame" x="206" y="454" width="202" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.99607843137254903" blue="0.81960784313725488" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="F4P-cm-2hy" secondAttribute="trailing" constant="99" id="3UH-wO-reZ"/>
                             <constraint firstItem="F4P-cm-2hy" firstAttribute="top" secondItem="pgw-tC-OMq" secondAttribute="top" constant="257" id="7DJ-k2-g9y"/>
+                            <constraint firstItem="RAw-Ik-mJg" firstAttribute="top" secondItem="Ci8-wB-PdD" secondAttribute="bottom" constant="8" id="BVI-Ue-0wU"/>
                             <constraint firstItem="F4P-cm-2hy" firstAttribute="top" secondItem="6TI-lS-txc" secondAttribute="bottom" constant="8" symbolic="YES" id="Bg6-xF-aiL"/>
+                            <constraint firstItem="CnP-qg-eas" firstAttribute="top" secondItem="RAw-Ik-mJg" secondAttribute="bottom" constant="125" id="DoD-Zh-Oe3"/>
                             <constraint firstItem="6TI-lS-txc" firstAttribute="centerX" secondItem="pgw-tC-OMq" secondAttribute="centerX" id="HWU-hG-Wyg"/>
                             <constraint firstItem="F4P-cm-2hy" firstAttribute="leading" secondItem="pgw-tC-OMq" secondAttribute="leadingMargin" constant="62" id="JHK-4e-FIW"/>
                             <constraint firstItem="Ci8-wB-PdD" firstAttribute="centerX" secondItem="pgw-tC-OMq" secondAttribute="centerX" id="Y8w-5J-1TK"/>
@@ -171,6 +179,7 @@
                             <constraint firstItem="F4P-cm-2hy" firstAttribute="leading" secondItem="pgw-tC-OMq" secondAttribute="leadingMargin" id="fOc-tK-pqf"/>
                             <constraint firstItem="F4P-cm-2hy" firstAttribute="centerX" secondItem="pgw-tC-OMq" secondAttribute="centerX" id="m2z-Ku-Bz0"/>
                             <constraint firstItem="Ci8-wB-PdD" firstAttribute="top" secondItem="F4P-cm-2hy" secondAttribute="bottom" constant="8" symbolic="YES" id="nxd-5i-HxG"/>
+                            <constraint firstItem="RAw-Ik-mJg" firstAttribute="centerX" secondItem="Ci8-wB-PdD" secondAttribute="centerX" constant="6.5" id="sZh-3d-SwM"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -181,6 +190,7 @@
                     </view>
                     <connections>
                         <outlet property="checkButton" destination="Ci8-wB-PdD" id="7fp-44-vBP"/>
+                        <outlet property="statusLabel" destination="RAw-Ik-mJg" id="tJg-Vy-DLO"/>
                         <outlet property="textBox" destination="F4P-cm-2hy" id="eUH-Zo-3tO"/>
                         <segue destination="3he-Sy-CYo" kind="show" identifier="GoToInfo" id="7Pe-my-LOL"/>
                     </connections>
@@ -624,6 +634,6 @@ Users can change the difficulty of the game by setting a maximum word length on 
     <inferredMetricsTieBreakers>
         <segue reference="kSS-fO-J7e"/>
         <segue reference="fkx-dh-k1U"/>
-        <segue reference="0R7-eg-cP3"/>
+        <segue reference="7Pe-my-LOL"/>
     </inferredMetricsTieBreakers>
 </document>

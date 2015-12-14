@@ -12,7 +12,7 @@ protocol JSONViewControllerDelegate {
     func updateData(data: [NSDictionary])
 }
 
-class JSONViewController: UIViewController {
+class JSONViewController: UIViewController, UITextViewDelegate {
     
     var topics : [NSDictionary] = [NSDictionary]()
     
@@ -37,7 +37,6 @@ class JSONViewController: UIViewController {
                 })
             } catch {
                 print("\(error)")
-                
                 dispatch_async(dispatch_get_main_queue(), {
                     self.statusLabel.text = "Download Status: Failure"
                 })
@@ -60,6 +59,8 @@ class JSONViewController: UIViewController {
         infoButton.setTitleColor(UIColor(red: 0.0, green: 122.0/255.0, blue: 1.0, alpha: 1.9), forState: UIControlState.Normal)
         let myCustomInfoButtonItem:UIBarButtonItem = UIBarButtonItem(customView: infoButton)
         self.navigationItem.rightBarButtonItem = myCustomInfoButtonItem
+        
+        textBox.delegate = self
     }
     
     override func didReceiveMemoryWarning() {
@@ -76,6 +77,14 @@ class JSONViewController: UIViewController {
     
     func GoToInfoSegue() {
         self.performSegueWithIdentifier("GoToInfo", sender: nil)
+    }
+    
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n") {
+            textBox.resignFirstResponder()
+            return false
+        }
+        return true
     }
 
 }

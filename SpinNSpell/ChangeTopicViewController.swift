@@ -108,11 +108,11 @@ class ChangeTopicViewController: UIViewController, UITableViewDataSource, UITabl
         let rowData = topics[indexPath.row]
         if !activityIndicator.isAnimating() {
             imageView.image = imageDict[rowData["topic"] as! String]
+            cell.topic = (rowData["topic"]! as? String)!
         }
         cell.backgroundColor = UIColor.clearColor()
         
         cell.imageView?.image = imageView.image
-        cell.topic = (rowData["topic"]! as? String)!
         return cell
     }
     

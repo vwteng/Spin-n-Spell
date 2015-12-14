@@ -331,6 +331,9 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                     }
                 } else {
                     performSegueWithIdentifier("GoToFinishedSegue", sender: nil)
+                    // PASS CURRENT TOPIC AND SETTINGS TO FINISHED SCREEN THEN FROM FINISHED TO HOME
+                    
+                    
                 }
             }
         }

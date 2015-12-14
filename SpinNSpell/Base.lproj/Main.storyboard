@@ -135,7 +135,7 @@
                                 </constraints>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ci8-wB-PdD">
@@ -158,12 +158,20 @@
                                     <action selector="checkForNewTopics:" destination="zHa-JO-bl0" eventType="touchUpInside" id="pmz-xn-383"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Download Status: Pending" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RAw-Ik-mJg">
+                                <rect key="frame" x="206" y="454" width="202" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.99607843137254903" blue="0.81960784313725488" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="F4P-cm-2hy" secondAttribute="trailing" constant="99" id="3UH-wO-reZ"/>
                             <constraint firstItem="F4P-cm-2hy" firstAttribute="top" secondItem="pgw-tC-OMq" secondAttribute="top" constant="257" id="7DJ-k2-g9y"/>
+                            <constraint firstItem="RAw-Ik-mJg" firstAttribute="top" secondItem="Ci8-wB-PdD" secondAttribute="bottom" constant="8" id="BVI-Ue-0wU"/>
                             <constraint firstItem="F4P-cm-2hy" firstAttribute="top" secondItem="6TI-lS-txc" secondAttribute="bottom" constant="8" symbolic="YES" id="Bg6-xF-aiL"/>
+                            <constraint firstItem="CnP-qg-eas" firstAttribute="top" secondItem="RAw-Ik-mJg" secondAttribute="bottom" constant="125" id="DoD-Zh-Oe3"/>
                             <constraint firstItem="6TI-lS-txc" firstAttribute="centerX" secondItem="pgw-tC-OMq" secondAttribute="centerX" id="HWU-hG-Wyg"/>
                             <constraint firstItem="F4P-cm-2hy" firstAttribute="leading" secondItem="pgw-tC-OMq" secondAttribute="leadingMargin" constant="62" id="JHK-4e-FIW"/>
                             <constraint firstItem="Ci8-wB-PdD" firstAttribute="centerX" secondItem="pgw-tC-OMq" secondAttribute="centerX" id="Y8w-5J-1TK"/>
@@ -171,6 +179,7 @@
                             <constraint firstItem="F4P-cm-2hy" firstAttribute="leading" secondItem="pgw-tC-OMq" secondAttribute="leadingMargin" id="fOc-tK-pqf"/>
                             <constraint firstItem="F4P-cm-2hy" firstAttribute="centerX" secondItem="pgw-tC-OMq" secondAttribute="centerX" id="m2z-Ku-Bz0"/>
                             <constraint firstItem="Ci8-wB-PdD" firstAttribute="top" secondItem="F4P-cm-2hy" secondAttribute="bottom" constant="8" symbolic="YES" id="nxd-5i-HxG"/>
+                            <constraint firstItem="RAw-Ik-mJg" firstAttribute="centerX" secondItem="Ci8-wB-PdD" secondAttribute="centerX" constant="6.5" id="sZh-3d-SwM"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -181,6 +190,7 @@
                     </view>
                     <connections>
                         <outlet property="checkButton" destination="Ci8-wB-PdD" id="7fp-44-vBP"/>
+                        <outlet property="statusLabel" destination="RAw-Ik-mJg" id="tJg-Vy-DLO"/>
                         <outlet property="textBox" destination="F4P-cm-2hy" id="eUH-Zo-3tO"/>
                         <segue destination="3he-Sy-CYo" kind="show" identifier="GoToInfo" id="7Pe-my-LOL"/>
                     </connections>
@@ -285,7 +295,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yfl-Mo-lQD">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfl-Mo-lQD">
                                 <rect key="frame" x="180" y="148" width="240" height="432"/>
                                 <color key="backgroundColor" red="1" green="0.99607843139999996" blue="0.81960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <string key="text">Spin ’n’ Spell was designed by Morgan Evans, Joshua Malters, Vivian Teng and Conrad Zimney from the University of Washington.

@@ -10,6 +10,11 @@ import UIKit
 
 class FinishedViewController: UIViewController {
 
+    var topic : NSDictionary = NSDictionary()
+    
+    var maxLength = Int()
+    var sound = Bool()
+    
     @IBOutlet weak var viewButton: UIButton!
     @IBOutlet weak var returnButton: UIButton!
     
@@ -36,6 +41,16 @@ class FinishedViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "GoToHomeSegue" {
+            if let vc = segue.destinationViewController as? ViewController {
+                vc.currentTopic = self.topic
+                vc.maxLength = self.maxLength
+                vc.sound = self.sound
+            }
+        }
     }
     
 }

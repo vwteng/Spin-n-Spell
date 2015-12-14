@@ -607,7 +607,7 @@ Users can change the difficulty of the game by setting a maximum word length on 
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="kSS-fO-J7e"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="GoToHomeSegue" id="kSS-fO-J7e"/>
                                 </connections>
                             </button>
                         </subviews>

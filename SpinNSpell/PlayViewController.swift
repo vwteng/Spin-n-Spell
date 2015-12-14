@@ -409,5 +409,15 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             self.presentViewController(showAlert("Sound Disabled", alertMsg: "Please enable sound in Settings", alertDismiss: "OK"),animated: true,completion: nil)
         }
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "GoToFinishedSegue" {
+            if let vc = segue.destinationViewController as? FinishedViewController {
+                vc.topic = self.topic
+                vc.maxLength = self.maxLength
+                vc.sound = self.sound
+            }
+        }
+    }
 }
 

@@ -282,32 +282,20 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                         alertTitle = "New Badge!"
                         alertMsg = "You spelled \(numCorrect) words correct"
                         
-                        if badges.contains(alertMsg) {
-                            alertTitle = "Nice Job!"
-                            alertMsg = "You spelled the word right!"
-                            
-                            self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
-                        } else {
-                            badges.insert(alertMsg, atIndex: badgeIndexCount)
-                            badgeIndexCount++
-                            
-                            self.presentViewController(showBadgeAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
-                        }
                     } else if showSecondAlertConsecutive {
                         alertTitle = "New Badge!"
                         alertMsg = "You spelled \(numCorrectConsecutive) words correct in a row"
+                    }
+                    if badges.contains(alertMsg) {
+                        alertTitle = "Nice Job!"
+                        alertMsg = "You spelled the word right!"
                         
-                        if badges.contains(alertMsg) {
-                            alertTitle = "Nice Job!"
-                            alertMsg = "You spelled the word right!"
-                            
-                            self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
-                        } else {
-                            badges.insert(alertMsg, atIndex: badgeIndexCount)
-                            badgeIndexCount++
-                            
-                            self.presentViewController(showBadgeAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
-                        }
+                        self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
+                    } else {
+                        badges.insert(alertMsg, atIndex: badgeIndexCount)
+                        badgeIndexCount++
+                        
+                        self.presentViewController(showBadgeAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
                     }
                 } else {
                     if showSecondAlertCorrect {
@@ -379,7 +367,7 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         
         // Check if a badge has been earned for a certain number of words correct
         func secondAlertCorrect() -> Bool {
-            return numCorrect == 3 || numCorrect == 6 || numCorrect == 10 || numCorrect == 20
+            return numCorrect == 3 || numCorrect == 7 || numCorrect == 10 || numCorrect == 20
         }
         
         // Check if a badge has been earned for a certain number of words consecutively correct

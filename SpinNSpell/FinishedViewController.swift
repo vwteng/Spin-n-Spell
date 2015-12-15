@@ -11,6 +11,7 @@ import UIKit
 class FinishedViewController: UIViewController {
 
     var topic : NSDictionary = NSDictionary()
+    var topics = [NSDictionary]()
     
     var maxLength = Int()
     var sound = Bool()
@@ -49,6 +50,7 @@ class FinishedViewController: UIViewController {
                 vc.currentTopic = self.topic
                 vc.maxLength = self.maxLength
                 vc.sound = self.sound
+                vc.topics = self.topics
             }
         }
     }

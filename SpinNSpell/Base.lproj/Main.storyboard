@@ -457,7 +457,7 @@ Users can change the difficulty of the game by setting a maximum word length on 
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X96-Mf-Zx2">
+                            <pickerView userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X96-Mf-Zx2">
                                 <rect key="frame" x="61" y="57" width="252" height="183"/>
                                 <animations/>
                                 <connections>
@@ -469,7 +469,7 @@ Users can change the difficulty of the game by setting a maximum word length on 
                                 <rect key="frame" x="20" y="248" width="333" height="93"/>
                                 <animations/>
                             </stackView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="cn0-Xh-3H1">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="cn0-Xh-3H1">
                                 <rect key="frame" x="187" y="12" width="37" height="37"/>
                                 <animations/>
                                 <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -495,18 +495,6 @@ Users can change the difficulty of the game by setting a maximum word length on 
                                     <constraint firstAttribute="width" secondItem="saV-iN-jMf" secondAttribute="height" multiplier="333:128" id="S11-ny-a5m"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UZG-q7-L8T">
-                                <rect key="frame" x="11" y="128" width="42" height="42"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="42" id="E5U-Ai-63u"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="🔊"/>
-                                <connections>
-                                    <action selector="speak:" destination="P1v-aV-hmM" eventType="touchUpInside" id="8p7-Ar-fVn"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cU9-T9-ovx">
                                 <rect key="frame" x="321" y="178" width="48" height="30"/>
                                 <animations/>
@@ -527,6 +515,18 @@ Users can change the difficulty of the game by setting a maximum word length on 
                                     <constraint firstAttribute="width" secondItem="bwA-n4-F1V" secondAttribute="height" multiplier="333:128" id="4bm-a3-Vup"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UZG-q7-L8T">
+                                <rect key="frame" x="11" y="120" width="42" height="57"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="E5U-Ai-63u"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="🔊"/>
+                                <connections>
+                                    <action selector="speak:" destination="P1v-aV-hmM" eventType="touchUpInside" id="8p7-Ar-fVn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.81960784310000001" green="0.9579084967" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -568,6 +568,7 @@ Users can change the difficulty of the game by setting a maximum word length on 
                                 <exclude reference="4AK-4i-Z3d"/>
                                 <exclude reference="aKy-Bk-hPn"/>
                                 <exclude reference="r5N-nY-b06"/>
+                                <exclude reference="vBi-Cp-sxf"/>
                                 <exclude reference="evj-Yn-0Un"/>
                             </mask>
                         </variation>
@@ -694,7 +695,7 @@ Users can change the difficulty of the game by setting a maximum word length on 
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="kSS-fO-J7e"/>
+        <segue reference="oHz-PP-vZx"/>
         <segue reference="p9y-mn-flr"/>
-        <segue reference="9Di-8Q-THf"/>
     </inferredMetricsTieBreakers>
 </document>

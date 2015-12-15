@@ -81,7 +81,6 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                                 self.activityIndicator.hidesWhenStopped = true
                                 self.activityIndicator.stopAnimating()
                                 self.picker.reloadAllComponents()
-                                print("\(self.words)")
                             }
                             
                         })
@@ -93,7 +92,7 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                 task.resume()
             }
         }
-
+        
         navigationController!.setNavigationBarHidden(false, animated:true)
         let infoButton:UIButton = UIButton(type: UIButtonType.Custom) as UIButton
         infoButton.addTarget(self, action: "GoToInfoSegue", forControlEvents: UIControlEvents.TouchUpInside)
@@ -255,12 +254,12 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             var alertTitle = ""
             var alertMsg = ""
             var alertDismiss = ""
-    
+            
             if speltWord == currentWord {
                 alertTitle = "Nice Job!"
                 alertMsg = "You spelled the word right!"
                 alertDismiss = "Next Word"
-            
+                
                 words.removeAtIndex(lastValue)
                 images.removeAtIndex(lastValue)
                 
@@ -289,6 +288,8 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             
             let showSecondAlertCorrect = secondAlertCorrect()
             let showSecondAlertConsecutive = secondAlertConsecutive()
+            
+            print("word count: \(words.count)")
             
             if words.count > 0 {
                 if !showSecondAlertCorrect && !showSecondAlertConsecutive {
@@ -326,31 +327,21 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                 }
             } else {
                 if showSecondAlertCorrect {
+                    print("in else showSecondAlert")
                     alertTitle = "New Badge!"
-                    alertMsg = "You spelled \(numCorrectConsecutive) words correct in a row"
-
-                    if badges.contains(alertMsg) == false {
-                        badges.insert(alertMsg, atIndex: badgeIndexCount)
-                        badgeIndexCount++
-                        
-                        self.presentViewController(showAlertOnCompletion(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
-                    }
+                    alertMsg = "You spelled \(numCorrect) words correct"
                 } else if showSecondAlertConsecutive {
+                    print("in else if showSecondAlertConsecutive")
                     alertTitle = "New Badge!"
                     alertMsg = "You spelled \(numCorrectConsecutive) words correct in a row"
-                    
-                    if badges.contains(alertMsg) == false {
-                        badges.insert(alertMsg, atIndex: badgeIndexCount)
-                        badgeIndexCount++
-                        
-                        self.presentViewController(showAlertOnCompletion(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
-                    }
-                } else {
-                    performSegueWithIdentifier("GoToFinishedSegue", sender: nil)
-                    // PASS CURRENT TOPIC AND SETTINGS TO FINISHED SCREEN THEN FROM FINISHED TO HOME
-                    
-                    
                 }
+                
+                if !badges.contains(alertMsg) {
+                    print("In badges does not contain")
+                    badges.insert(alertMsg, atIndex: badgeIndexCount)
+                    badgeIndexCount++
+                }
+                self.presentViewController(showAlertOnCompletion(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
             }
         }
     }

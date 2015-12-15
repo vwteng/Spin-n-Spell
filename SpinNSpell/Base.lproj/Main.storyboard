@@ -433,7 +433,7 @@ Users can change the difficulty of the game by setting a maximum word length on 
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X96-Mf-Zx2">
+                            <pickerView userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X96-Mf-Zx2">
                                 <rect key="frame" x="61" y="57" width="252" height="183"/>
                                 <connections>
                                     <outlet property="dataSource" destination="P1v-aV-hmM" id="mU1-mz-NJU"/>
@@ -443,11 +443,11 @@ Users can change the difficulty of the game by setting a maximum word length on 
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="3TX-Vw-M6l">
                                 <rect key="frame" x="20" y="248" width="333" height="93"/>
                             </stackView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="cn0-Xh-3H1">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="cn0-Xh-3H1">
                                 <rect key="frame" x="187" y="12" width="37" height="37"/>
                                 <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6u6-D7-VHY">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6u6-D7-VHY">
                                 <rect key="frame" x="321" y="93" width="48" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="MiQ-ib-5XJ"/>
@@ -477,7 +477,7 @@ Users can change the difficulty of the game by setting a maximum word length on 
                                     <action selector="speak:" destination="P1v-aV-hmM" eventType="touchUpInside" id="8p7-Ar-fVn"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cU9-T9-ovx">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cU9-T9-ovx">
                                 <rect key="frame" x="321" y="178" width="48" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="hT1-dc-gme"/>

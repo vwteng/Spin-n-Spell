@@ -10,6 +10,9 @@ import UIKit
 import AudioToolbox
 import AVFoundation
 
+private var numCorrect: Int = 0
+private var numCorrectConsecutive: Int = 0
+
 class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, AVSpeechSynthesizerDelegate {
     private let letters: String = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     private var words: [String] = [String]()
@@ -24,8 +27,10 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     private var correctSound: SystemSoundID = 0
     private var incorrectSound: SystemSoundID = 0
     
+    /*
     private var numCorrect: Int = 0
     private var numCorrectConsecutive: Int = 0
+*/
     
     var topic : NSDictionary = NSDictionary()
     var topics = [NSDictionary]()
@@ -370,7 +375,7 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         
         // Check if a badge has been earned for a certain number of words correct
         func secondAlertCorrect() -> Bool {
-            return numCorrect == 3 || numCorrect == 7 || numCorrect == 10 || numCorrect == 20
+            return numCorrect == 3 || numCorrect == 7 || numCorrect == 12 || numCorrect == 20
         }
         
         // Check if a badge has been earned for a certain number of words consecutively correct

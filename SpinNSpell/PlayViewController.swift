@@ -256,15 +256,15 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             var alertDismiss = ""
             
             if speltWord == currentWord {
+                numCorrect++
+                numCorrectConsecutive++
+                
                 alertTitle = "Nice Job!"
                 alertMsg = "You spelled the word right!"
                 alertDismiss = "Next Word"
                 
                 words.removeAtIndex(lastValue)
                 images.removeAtIndex(lastValue)
-                
-                numCorrect++
-                numCorrectConsecutive++
                 
                 if sound {
                     let soundURL = NSBundle.mainBundle().URLForResource("correct", withExtension: "wav")! as CFURLRef
@@ -281,7 +281,6 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                     } else if showSecondAlertCorrect {
                         alertTitle = "New Badge!"
                         alertMsg = "You spelled \(numCorrect) words correct"
-                        
                     } else if showSecondAlertConsecutive {
                         alertTitle = "New Badge!"
                         alertMsg = "You spelled \(numCorrectConsecutive) words correct in a row"
@@ -313,18 +312,17 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                     self.presentViewController(showAlertOnCompletion(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
                 }
             } else {
+                numCorrectConsecutive = 0
+                
                 alertTitle = "Uh Oh..."
                 alertMsg = "Thats not how you spell the word!"
                 alertDismiss = "Try Again"
-                
-                numCorrectConsecutive = 0
 
                 if sound {
                     let soundURL = NSBundle.mainBundle().URLForResource("incorrect", withExtension: "wav")! as CFURLRef
                     AudioServicesCreateSystemSoundID(soundURL, &incorrectSound)
                     AudioServicesPlaySystemSound(incorrectSound)
                 }
-                
                 self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
             }
         }

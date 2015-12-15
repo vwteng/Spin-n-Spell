@@ -64,9 +64,9 @@ class BadgesViewController: UIViewController, UITableViewDataSource, UITableView
         let cell = tableView.dequeueReusableCellWithIdentifier(cellTableIdentifier, forIndexPath: indexPath) as! BadgeCell
         cell.textLabel?.text = badges[indexPath.row]
         cell.backgroundColor = UIColor.clearColor()
-        
+        /*
         let image : UIImage = UIImage(named: "star")!
-        cell.imageView!.image = image
+        cell.imageView!.image = image*/
         
         return cell
     }

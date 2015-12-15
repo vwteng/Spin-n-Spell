@@ -354,13 +354,15 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         // Display a badge alert and then segue to the finished screen
         func showAlertOnCompletion(alertTitle: String, alertMsg: String, alertDismiss: String) -> UIAlertController {
             let alert = UIAlertController(title: alertTitle, message: alertMsg, preferredStyle: UIAlertControllerStyle.Alert)
+            
+            if !badges.contains(alertMsg) {
+                let image = UIImage(named: "star")
+                let imageView = UIImageView(frame: CGRectMake(220, 10, 40, 40))
+                imageView.image = image
+                alert.view.addSubview(imageView)
+            }
             alert.addAction(UIAlertAction(title: alertDismiss, style: UIAlertActionStyle.Default, handler: { action in self.performSegueWithIdentifier("GoToFinishedSegue", sender: self) }))
-            
-            let image = UIImage(named: "star")
-            let imageView = UIImageView(frame: CGRectMake(220, 10, 40, 40))
-            imageView.image = image
-            alert.view.addSubview(imageView)
-            
+
             return alert
         }
         

@@ -19,6 +19,11 @@ protocol BadgesViewControllerDelegate {
 class BadgesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var topics = [NSDictionary]()
+    var currentTopic = NSDictionary()
+    
+    var maxLength = Int()
+    var sound = Bool()
+    
     let cellTableIdentifier = "CellTableIdentifier"
     
     @IBOutlet weak var tableView: UITableView! {
@@ -64,9 +69,9 @@ class BadgesViewController: UIViewController, UITableViewDataSource, UITableView
         let cell = tableView.dequeueReusableCellWithIdentifier(cellTableIdentifier, forIndexPath: indexPath) as! BadgeCell
         cell.textLabel?.text = badges[indexPath.row]
         cell.backgroundColor = UIColor.clearColor()
-        
+        /*
         let image : UIImage = UIImage(named: "star")!
-        cell.imageView!.image = image
+        cell.imageView!.image = image*/
         
         return cell
     }

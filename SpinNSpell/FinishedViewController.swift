@@ -53,6 +53,14 @@ class FinishedViewController: UIViewController {
                 vc.topics = self.topics
             }
         }
+        if segue.identifier == "GoToBadgesSegue" {
+            if let vc = segue.destinationViewController as? BadgesViewController {
+                vc.currentTopic = self.topic
+                vc.maxLength = self.maxLength
+                vc.sound = self.sound
+                vc.topics = self.topics
+            }
+        }
     }
     
 }

@@ -306,7 +306,7 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                         badges.insert(alertMsg, atIndex: badgeIndexCount)
                         badgeIndexCount++
                         
-                        self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
+                        self.presentViewController(showBadgeAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
                     }
                 } else if showSecondAlertConsecutive {
                     alertTitle = "New Badge!"
@@ -321,7 +321,7 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                         badges.insert(alertMsg, atIndex: badgeIndexCount)
                         badgeIndexCount++
                         
-                        self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
+                        self.presentViewController(showBadgeAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
                     }
                 }
             } else {
@@ -355,7 +355,7 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         }
     }
     
-    // Display an alert
+    // Display a generic right/wrong alert
     func showAlert(alertTitle: String, alertMsg: String, alertDismiss: String) -> UIAlertController {
         let alert = UIAlertController(title: alertTitle, message: alertMsg, preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: alertDismiss, style: UIAlertActionStyle.Default, handler: {(alert: UIAlertAction!) in self.spin(self)
@@ -363,10 +363,29 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         return alert
     }
     
+    // Display an alert with a star when a badge is earned
+    func showBadgeAlert(alertTitle: String, alertMsg: String, alertDismiss: String) -> UIAlertController {
+        let alert = showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss)
+        
+        let image = UIImage(named: "star")
+        let imageView = UIImageView(frame: CGRectMake(220, 10, 40, 40))
+        imageView.image = image
+        
+        alert.view.addSubview(imageView)
+        
+        return alert
+    }
+    
     // Display a badge alert and then segue to the finished screen
     func showAlertOnCompletion(alertTitle: String, alertMsg: String, alertDismiss: String) -> UIAlertController {
         let alert = UIAlertController(title: alertTitle, message: alertMsg, preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: alertDismiss, style: UIAlertActionStyle.Default, handler: { action in self.performSegueWithIdentifier("GoToFinishedSegue", sender: self) }))
+        
+        let image = UIImage(named: "star")
+        let imageView = UIImageView(frame: CGRectMake(220, 10, 40, 40))
+        imageView.image = image
+        alert.view.addSubview(imageView)
+        
         return alert
     }
     

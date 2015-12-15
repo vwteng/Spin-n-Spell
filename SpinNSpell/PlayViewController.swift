@@ -285,7 +285,7 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                         alertTitle = "New Badge!"
                         alertMsg = "You spelled \(numCorrectConsecutive) words correct in a row"
                     }
-                    if badges.contains(alertMsg) {
+                    if badges.contains(alertMsg) || (!showSecondAlertCorrect && !showSecondAlertConsecutive) {
                         alertTitle = "Nice Job!"
                         alertMsg = "You spelled the word right!"
                         
@@ -305,7 +305,7 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                         alertMsg = "You spelled \(numCorrectConsecutive) words correct in a row"
                     }
                     
-                    if !badges.contains(alertMsg) {
+                    if !badges.contains(alertMsg) && (showSecondAlertCorrect || showSecondAlertConsecutive) {
                         badges.insert(alertMsg, atIndex: badgeIndexCount)
                         badgeIndexCount++
                     }

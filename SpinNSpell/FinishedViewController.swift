@@ -44,6 +44,10 @@ class FinishedViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func GoToInfoSegue() {
+        self.performSegueWithIdentifier("GoToInfo", sender: nil)
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "GoToHomeSegue" {
             if let vc = segue.destinationViewController as? ViewController {

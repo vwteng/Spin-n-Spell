@@ -32,8 +32,8 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     var maxLength = Int()
     var sound = Bool()
     
+    @IBOutlet weak var undoButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var arrowUIView: UIImageView!
     @IBOutlet weak var spinUIButton: UIButton!
     @IBOutlet weak var picker: UIPickerView!
     @IBOutlet weak var wordHSLayout: UIStackView!
@@ -45,9 +45,10 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         activityIndicator.startAnimating()
         
         // Start: UI Setup
-        arrowUIView.image = UIImage(named: "arrow")
         spinUIButton.backgroundColor = UIColor(red:0.69, green:0.09, blue:0.00, alpha:1.0)
         spinUIButton.layer.cornerRadius = 15
+        undoButton.backgroundColor = UIColor(red:0.69, green:0.09, blue:0.00, alpha:1.0)
+        undoButton.layer.cornerRadius = 15
         bottomKeyStack.frame.size = topKeyStack.frame.size
         
         // *** Load Topics ***
@@ -114,6 +115,12 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         picker.selectRow(lastValue, inComponent: 0, animated: false)
         setUpWord(lastValue)
         setUpKeyBoard()
+    }
+    
+    @IBAction func undo(sender: AnyObject) {
+        if currentWord.characters.count > 0 {
+            currentWord.removeAtIndex(currentWord.endIndex)
+        }
     }
     
     @IBAction func spin(sender: AnyObject) {

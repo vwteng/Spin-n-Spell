@@ -126,7 +126,6 @@
 				3C71853E1C16B5E200E23A1E /* crunch.wav */,
 				3C30831B1C1D214D00E6379A /* incorrect.wav */,
 				3C30831C1C1D214D00E6379A /* correct.wav */,
-				20CA21FB1C1F8C2D004F8786 /* logo.png */,
 				3CB126811C0D0D51008540DE /* AppDelegate.swift */,
 				3CB126831C0D0D51008540DE /* ViewController.swift */,
 				CEE6CEF81C11259C00B6DE7B /* TopicCell.swift */,
@@ -140,6 +139,7 @@
 				CEBB6BF11C1931C80013CF4C /* FinishedViewController.swift */,
 				CE0E6F521C0FC95C0031D7AD /* JSONViewController.swift */,
 				3CB126881C0D0D51008540DE /* Assets.xcassets */,
+				20CA21FB1C1F8C2D004F8786 /* logo.png */,
 				3CB1268A1C0D0D51008540DE /* LaunchScreen.storyboard */,
 				3CB1268D1C0D0D51008540DE /* Info.plist */,
 			);

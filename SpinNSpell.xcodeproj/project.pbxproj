@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0318923A1C1240BA008F443F /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031892391C1240BA008F443F /* PlayViewController.swift */; };
-		20CA21FC1C1F8C2D004F8786 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 20CA21FB1C1F8C2D004F8786 /* logo.png */; };
 		3C30831D1C1D214D00E6379A /* incorrect.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3C30831B1C1D214D00E6379A /* incorrect.wav */; };
 		3C30831E1C1D214D00E6379A /* correct.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3C30831C1C1D214D00E6379A /* correct.wav */; };
 		3C7185401C16B5E200E23A1E /* crunch.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3C71853E1C16B5E200E23A1E /* crunch.wav */; };
@@ -48,7 +47,6 @@
 
 /* Begin PBXFileReference section */
 		031892391C1240BA008F443F /* PlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
-		20CA21FB1C1F8C2D004F8786 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = "../../Spin 'n' Spell/logo.png"; sourceTree = "<group>"; };
 		3C30831B1C1D214D00E6379A /* incorrect.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = incorrect.wav; sourceTree = "<group>"; };
 		3C30831C1C1D214D00E6379A /* correct.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = correct.wav; sourceTree = "<group>"; };
 		3C71853E1C16B5E200E23A1E /* crunch.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = crunch.wav; sourceTree = "<group>"; };
@@ -126,7 +124,6 @@
 				3C71853E1C16B5E200E23A1E /* crunch.wav */,
 				3C30831B1C1D214D00E6379A /* incorrect.wav */,
 				3C30831C1C1D214D00E6379A /* correct.wav */,
-				20CA21FB1C1F8C2D004F8786 /* logo.png */,
 				3CB126811C0D0D51008540DE /* AppDelegate.swift */,
 				3CB126831C0D0D51008540DE /* ViewController.swift */,
 				CEE6CEF81C11259C00B6DE7B /* TopicCell.swift */,
@@ -275,7 +272,6 @@
 				3C30831D1C1D214D00E6379A /* incorrect.wav in Resources */,
 				3CB1268C1C0D0D51008540DE /* LaunchScreen.storyboard in Resources */,
 				3CB126891C0D0D51008540DE /* Assets.xcassets in Resources */,
-				20CA21FC1C1F8C2D004F8786 /* logo.png in Resources */,
 				3CB126871C0D0D51008540DE /* Main.storyboard in Resources */,
 				3C30831E1C1D214D00E6379A /* correct.wav in Resources */,
 			);

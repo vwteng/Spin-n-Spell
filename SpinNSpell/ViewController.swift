@@ -66,7 +66,8 @@ class ViewController: UIViewController {
             "words": [
                 "Iguana": "http://www.xromm.org/files/images/projects/iguana-breathing/Figure1-GreenIguana-2.jpg",
                 "Turtle": "http://assets.worldwildlife.org/photos/167/images/original/MID_225023-circle-hawksbill-turtle.jpg?1345565600",
-                "Snake": "https://doowansnewsandevents.files.wordpress.com/2013/10/snake-medicine.jpg"
+                "Snake": "https://doowansnewsandevents.files.wordpress.com/2013/10/snake-medicine.jpg",
+                "Boa": "http://i.telegraph.co.uk/multimedia/archive/01934/boa_1934033c.jpg"
             ]
         ]
     ]

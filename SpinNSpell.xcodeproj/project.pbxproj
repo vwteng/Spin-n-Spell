@@ -229,7 +229,7 @@
 				TargetAttributes = {
 					3CB1267D1C0D0D51008540DE = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = KDUVVJAN84;
+						DevelopmentTeam = 467N2H9KC9;
 					};
 					3CB126911C0D0D51008540DE = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -452,7 +452,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SpinNSpell/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.uw.vwteng.SpinNSpell;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.uw.maltersj.SpinNSpell;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -467,7 +467,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SpinNSpell/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.uw.vwteng.SpinNSpell;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.uw.maltersj.SpinNSpell;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;

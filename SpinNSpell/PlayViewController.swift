@@ -259,6 +259,9 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                 numCorrect++
                 numCorrectConsecutive++
                 
+                print("\(numCorrect)")
+                print("\(numCorrectConsecutive)")
+                
                 alertTitle = "Nice Job!"
                 alertMsg = "You spelled the word right!"
                 alertDismiss = "Next Word"
@@ -353,7 +356,7 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         func showAlertOnCompletion(alertTitle: String, alertMsg: String, alertDismiss: String) -> UIAlertController {
             let alert = UIAlertController(title: alertTitle, message: alertMsg, preferredStyle: UIAlertControllerStyle.Alert)
             
-            if !badges.contains(alertMsg) {
+            if !badges.contains(alertMsg) && (secondAlertCorrect() || secondAlertConsecutive()) {
                 let image = UIImage(named: "star")
                 let imageView = UIImageView(frame: CGRectMake(220, 10, 40, 40))
                 imageView.image = image

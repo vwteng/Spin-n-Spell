@@ -163,7 +163,7 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             let label = UILabel()
             label.text = String(char)
             label.textAlignment = .Center
-            label.textColor = UIColor.greenColor()
+            label.textColor = UIColor.clearColor()
             wordHSLayout.addArrangedSubview(label)
         }
     }
@@ -226,7 +226,7 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         if speltWord.characters.count > 0 {
             let label = wordHSLayout.subviews[speltWord.characters.count - 1] as! UILabel
             label.text = String(currentWord[speltWord.endIndex.predecessor()])
-            label.textColor = UIColor.greenColor()
+            label.textColor = UIColor.clearColor()
             speltWord.removeAtIndex(speltWord.endIndex.predecessor())
             let button = lastButton[lastButton.count - 1]
             lastButton.removeAtIndex(lastButton.endIndex.predecessor())
@@ -289,8 +289,6 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             let showSecondAlertCorrect = secondAlertCorrect()
             let showSecondAlertConsecutive = secondAlertConsecutive()
             
-            print("word count: \(words.count)")
-            
             if words.count > 0 {
                 if !showSecondAlertCorrect && !showSecondAlertConsecutive {
                     self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
@@ -327,17 +325,14 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                 }
             } else {
                 if showSecondAlertCorrect {
-                    print("in else showSecondAlert")
                     alertTitle = "New Badge!"
                     alertMsg = "You spelled \(numCorrect) words correct"
                 } else if showSecondAlertConsecutive {
-                    print("in else if showSecondAlertConsecutive")
                     alertTitle = "New Badge!"
                     alertMsg = "You spelled \(numCorrectConsecutive) words correct in a row"
                 }
                 
                 if !badges.contains(alertMsg) {
-                    print("In badges does not contain")
                     badges.insert(alertMsg, atIndex: badgeIndexCount)
                     badgeIndexCount++
                 }

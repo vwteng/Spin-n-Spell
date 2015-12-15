@@ -173,6 +173,7 @@ class ViewController: UIViewController {
                 vc.topic = self.currentTopic
                 vc.maxLength = self.maxLength
                 vc.sound = self.sound
+                vc.topics = self.topics
             }
         }
         if segue.identifier == "GoToChangeSegue" {

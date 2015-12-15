@@ -27,6 +27,7 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     private var numCorrectConsecutive: Int = 0
     
     var topic : NSDictionary = NSDictionary()
+    var topics = [NSDictionary]()
     
     var maxLength = Int()
     var sound = Bool()
@@ -412,6 +413,7 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                 vc.topic = self.topic
                 vc.maxLength = self.maxLength
                 vc.sound = self.sound
+                vc.topics = self.topics
             }
         }
     }

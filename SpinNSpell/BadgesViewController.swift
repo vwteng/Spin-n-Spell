@@ -19,6 +19,11 @@ protocol BadgesViewControllerDelegate {
 class BadgesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var topics = [NSDictionary]()
+    var currentTopic = NSDictionary()
+    
+    var maxLength = Int()
+    var sound = Bool()
+    
     let cellTableIdentifier = "CellTableIdentifier"
     
     @IBOutlet weak var tableView: UITableView! {

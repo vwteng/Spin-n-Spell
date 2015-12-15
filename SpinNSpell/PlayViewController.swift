@@ -272,174 +272,175 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                     AudioServicesPlaySystemSound(correctSound)
                 }
                 
+                let showSecondAlertCorrect = secondAlertCorrect()
+                let showSecondAlertConsecutive = secondAlertConsecutive()
+                
+                if words.count > 0 {
+                    if !showSecondAlertCorrect && !showSecondAlertConsecutive {
+                        self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
+                    } else if showSecondAlertCorrect {
+                        alertTitle = "New Badge!"
+                        alertMsg = "You spelled \(numCorrect) words correct"
+                        
+                        if badges.contains(alertMsg) {
+                            alertTitle = "Nice Job!"
+                            alertMsg = "You spelled the word right!"
+                            
+                            self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
+                        } else {
+                            badges.insert(alertMsg, atIndex: badgeIndexCount)
+                            badgeIndexCount++
+                            
+                            self.presentViewController(showBadgeAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
+                        }
+                    } else if showSecondAlertConsecutive {
+                        alertTitle = "New Badge!"
+                        alertMsg = "You spelled \(numCorrectConsecutive) words correct in a row"
+                        
+                        if badges.contains(alertMsg) {
+                            alertTitle = "Nice Job!"
+                            alertMsg = "You spelled the word right!"
+                            
+                            self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
+                        } else {
+                            badges.insert(alertMsg, atIndex: badgeIndexCount)
+                            badgeIndexCount++
+                            
+                            self.presentViewController(showBadgeAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
+                        }
+                    }
+                } else {
+                    if showSecondAlertCorrect {
+                        alertTitle = "New Badge!"
+                        alertMsg = "You spelled \(numCorrect) words correct"
+                    } else if showSecondAlertConsecutive {
+                        alertTitle = "New Badge!"
+                        alertMsg = "You spelled \(numCorrectConsecutive) words correct in a row"
+                    }
+                    
+                    if !badges.contains(alertMsg) {
+                        badges.insert(alertMsg, atIndex: badgeIndexCount)
+                        badgeIndexCount++
+                    }
+                    self.presentViewController(showAlertOnCompletion(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
+                }
             } else {
                 alertTitle = "Uh Oh..."
                 alertMsg = "Thats not how you spell the word!"
                 alertDismiss = "Try Again"
                 
                 numCorrectConsecutive = 0
-                
+
                 if sound {
                     let soundURL = NSBundle.mainBundle().URLForResource("incorrect", withExtension: "wav")! as CFURLRef
                     AudioServicesCreateSystemSoundID(soundURL, &incorrectSound)
                     AudioServicesPlaySystemSound(incorrectSound)
                 }
-            }
-            
-            let showSecondAlertCorrect = secondAlertCorrect()
-            let showSecondAlertConsecutive = secondAlertConsecutive()
-            
-            if words.count > 0 {
-                if !showSecondAlertCorrect && !showSecondAlertConsecutive {
-                    self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
-                } else if showSecondAlertCorrect {
-                    alertTitle = "New Badge!"
-                    alertMsg = "You spelled \(numCorrect) words correct"
-                    
-                    if badges.contains(alertMsg) {
-                        alertTitle = "Nice Job!"
-                        alertMsg = "You spelled the word right!"
-                        
-                        self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
-                    } else {
-                        badges.insert(alertMsg, atIndex: badgeIndexCount)
-                        badgeIndexCount++
-                        
-                        self.presentViewController(showBadgeAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
-                    }
-                } else if showSecondAlertConsecutive {
-                    alertTitle = "New Badge!"
-                    alertMsg = "You spelled \(numCorrectConsecutive) words correct in a row"
-                    
-                    if badges.contains(alertMsg) {
-                        alertTitle = "Nice Job!"
-                        alertMsg = "You spelled the word right!"
-                        
-                        self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
-                    } else {
-                        badges.insert(alertMsg, atIndex: badgeIndexCount)
-                        badgeIndexCount++
-                        
-                        self.presentViewController(showBadgeAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
-                    }
-                }
-            } else {
-                if showSecondAlertCorrect {
-                    alertTitle = "New Badge!"
-                    alertMsg = "You spelled \(numCorrect) words correct"
-                } else if showSecondAlertConsecutive {
-                    alertTitle = "New Badge!"
-                    alertMsg = "You spelled \(numCorrectConsecutive) words correct in a row"
-                }
                 
-                if !badges.contains(alertMsg) {
-                    badges.insert(alertMsg, atIndex: badgeIndexCount)
-                    badgeIndexCount++
-                }
-                self.presentViewController(showAlertOnCompletion(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
+                self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
             }
         }
     }
     
-    // Display a generic right/wrong alert
-    func showAlert(alertTitle: String, alertMsg: String, alertDismiss: String) -> UIAlertController {
-        let alert = UIAlertController(title: alertTitle, message: alertMsg, preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: alertDismiss, style: UIAlertActionStyle.Default, handler: {(alert: UIAlertAction!) in self.spin(self)
-        }))
-        return alert
-    }
-    
-    // Display an alert with a star when a badge is earned
-    func showBadgeAlert(alertTitle: String, alertMsg: String, alertDismiss: String) -> UIAlertController {
-        let alert = showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss)
+        // Display a generic right/wrong alert
+        func showAlert(alertTitle: String, alertMsg: String, alertDismiss: String) -> UIAlertController {
+            let alert = UIAlertController(title: alertTitle, message: alertMsg, preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: alertDismiss, style: UIAlertActionStyle.Default, handler: {(alert: UIAlertAction!) in self.spin(self)
+            }))
+            return alert
+        }
         
-        let image = UIImage(named: "star")
-        let imageView = UIImageView(frame: CGRectMake(220, 10, 40, 40))
-        imageView.image = image
+        // Display an alert with a star when a badge is earned
+        func showBadgeAlert(alertTitle: String, alertMsg: String, alertDismiss: String) -> UIAlertController {
+            let alert = showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss)
+            
+            let image = UIImage(named: "star")
+            let imageView = UIImageView(frame: CGRectMake(220, 10, 40, 40))
+            imageView.image = image
+            
+            alert.view.addSubview(imageView)
+            
+            return alert
+        }
         
-        alert.view.addSubview(imageView)
+        // Display a badge alert and then segue to the finished screen
+        func showAlertOnCompletion(alertTitle: String, alertMsg: String, alertDismiss: String) -> UIAlertController {
+            let alert = UIAlertController(title: alertTitle, message: alertMsg, preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: alertDismiss, style: UIAlertActionStyle.Default, handler: { action in self.performSegueWithIdentifier("GoToFinishedSegue", sender: self) }))
+            
+            let image = UIImage(named: "star")
+            let imageView = UIImageView(frame: CGRectMake(220, 10, 40, 40))
+            imageView.image = image
+            alert.view.addSubview(imageView)
+            
+            return alert
+        }
         
-        return alert
-    }
-    
-    // Display a badge alert and then segue to the finished screen
-    func showAlertOnCompletion(alertTitle: String, alertMsg: String, alertDismiss: String) -> UIAlertController {
-        let alert = UIAlertController(title: alertTitle, message: alertMsg, preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: alertDismiss, style: UIAlertActionStyle.Default, handler: { action in self.performSegueWithIdentifier("GoToFinishedSegue", sender: self) }))
         
-        let image = UIImage(named: "star")
-        let imageView = UIImageView(frame: CGRectMake(220, 10, 40, 40))
-        imageView.image = image
-        alert.view.addSubview(imageView)
+        // Check if a badge has been earned for a certain number of words correct
+        func secondAlertCorrect() -> Bool {
+            return numCorrect == 3 || numCorrect == 6 || numCorrect == 10 || numCorrect == 20
+        }
         
-        return alert
-    }
-    
-    
-    // Check if a badge has been earned for a certain number of words correct
-    func secondAlertCorrect() -> Bool {
-        return numCorrect == 3 || numCorrect == 6 || numCorrect == 10 || numCorrect == 20
-    }
-    
-    // Check if a badge has been earned for a certain number of words consecutively correct
-    func secondAlertConsecutive() -> Bool {
-        return numCorrectConsecutive == 5 || numCorrectConsecutive == 10 || numCorrectConsecutive == 15
-    }
-    
-    // How many selectors we want
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    // How many options we need
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        // return topic["words"]!.count
-        return words.count
-    }
-    
-    // What each row will show
-    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
-        // something in here is wrong... it is loading the wrong word with the wrong image
-        var imageView = UIImageView()
-        if self.images.count != 0 {
-            let image = images[row]
-            imageView = UIImageView(image: image)
-            imageView.frame = CGRect(x: 0, y: 0, width: picker.frame.width, height: picker.frame.height)
-            imageView.contentMode = .ScaleAspectFit
+        // Check if a badge has been earned for a certain number of words consecutively correct
+        func secondAlertConsecutive() -> Bool {
+            return numCorrectConsecutive == 5 || numCorrectConsecutive == 10 || numCorrectConsecutive == 15
+        }
+        
+        // How many selectors we want
+        func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+            return 1
+        }
+        
+        // How many options we need
+        func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+            // return topic["words"]!.count
+            return words.count
+        }
+        
+        // What each row will show
+        func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
+            // something in here is wrong... it is loading the wrong word with the wrong image
+            var imageView = UIImageView()
+            if self.images.count != 0 {
+                let image = images[row]
+                imageView = UIImageView(image: image)
+                imageView.frame = CGRect(x: 0, y: 0, width: picker.frame.width, height: picker.frame.height)
+                imageView.contentMode = .ScaleAspectFit
+                return imageView
+            }
             return imageView
         }
-        return imageView
-    }
-    
-    // Size of each Row
-    func pickerView(pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
-        return picker.frame.height
-    }
-    
-    // Text to speech function //
-    @IBAction func speak(sender: AnyObject) {
-        if sound {
-            let string = currentWord
-            let utterance = AVSpeechUtterance(string: string)
-            utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
-            
-            let synthesizer = AVSpeechSynthesizer()
-            synthesizer.delegate = self
-            synthesizer.speakUtterance(utterance)
-        } else {
-            self.presentViewController(showAlert("Sound Disabled", alertMsg: "Please enable sound in Settings", alertDismiss: "OK"),animated: true,completion: nil)
+        
+        // Size of each Row
+        func pickerView(pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+            return picker.frame.height
         }
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "GoToFinishedSegue" {
-            if let vc = segue.destinationViewController as? FinishedViewController {
-                vc.topic = self.topic
-                vc.maxLength = self.maxLength
-                vc.sound = self.sound
-                vc.topics = self.topics
+        
+        // Text to speech function //
+        @IBAction func speak(sender: AnyObject) {
+            if sound {
+                let string = currentWord
+                let utterance = AVSpeechUtterance(string: string)
+                utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+                
+                let synthesizer = AVSpeechSynthesizer()
+                synthesizer.delegate = self
+                synthesizer.speakUtterance(utterance)
+            } else {
+                self.presentViewController(showAlert("Sound Disabled", alertMsg: "Please enable sound in Settings", alertDismiss: "OK"),animated: true,completion: nil)
             }
         }
-    }
+        
+        override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+            if segue.identifier == "GoToFinishedSegue" {
+                if let vc = segue.destinationViewController as? FinishedViewController {
+                    vc.topic = self.topic
+                    vc.maxLength = self.maxLength
+                    vc.sound = self.sound
+                    vc.topics = self.topics
+                }
+            }
+        }
 }
 

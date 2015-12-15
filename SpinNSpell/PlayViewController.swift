@@ -18,6 +18,7 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     private var images: [UIImage] = [UIImage]()
     private var lastValue: Int = 0
     private var wordCount : Int = 0
+    private var lastButton: [UIButton] = [UIButton]()
     
     private var spinSound: SystemSoundID = 0
     private var correctSound: SystemSoundID = 0
@@ -115,12 +116,6 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         picker.selectRow(lastValue, inComponent: 0, animated: false)
         setUpWord(lastValue)
         setUpKeyBoard()
-    }
-    
-    @IBAction func undo(sender: AnyObject) {
-        if currentWord.characters.count > 0 {
-            currentWord.removeAtIndex(currentWord.endIndex)
-        }
     }
     
     @IBAction func spin(sender: AnyObject) {
@@ -228,9 +223,22 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         return button
     }
     
+    @IBAction func undo(sender: AnyObject) {
+        if speltWord.characters.count > 0 {
+            let label = wordHSLayout.subviews[speltWord.characters.count - 1] as! UILabel
+            label.text = String(currentWord[speltWord.endIndex.predecessor()])
+            label.textColor = UIColor.greenColor()
+            speltWord.removeAtIndex(speltWord.endIndex.predecessor())
+            let button = lastButton[lastButton.count - 1]
+            lastButton.removeAtIndex(lastButton.endIndex.predecessor())
+            button.enabled = true
+        }
+    }
+    
     // Button pressed handler
     func pressed(sender: UIButton!) {
         sender.enabled = false
+        lastButton.append(sender)
         let letter = sender.titleLabel?.text!
         
         for view in wordHSLayout.subviews {

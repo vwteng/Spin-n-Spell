@@ -603,7 +603,7 @@ Users can change the difficulty of the game by setting a maximum word length on 
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ykc-vW-M9l">
-                                <rect key="frame" x="29" y="64" width="541" height="516"/>
+                                <rect key="frame" x="20" y="64" width="560" height="516"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.81960784310000001" green="0.9579084967" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.81960784310000001" green="0.9579084967" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -616,12 +616,20 @@ Users can change the difficulty of the game by setting a maximum word length on 
                         <animations/>
                         <color key="backgroundColor" red="0.81960784310000001" green="0.9579084967" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="ykc-vW-M9l" firstAttribute="trailing" secondItem="Jc5-Dg-qUj" secondAttribute="trailingMargin" id="4Uq-sE-e9R"/>
+                            <constraint firstItem="ykc-vW-M9l" firstAttribute="leading" secondItem="Jc5-Dg-qUj" secondAttribute="leadingMargin" id="5By-EZ-QKW"/>
                             <constraint firstItem="ykc-vW-M9l" firstAttribute="centerX" secondItem="Jc5-Dg-qUj" secondAttribute="centerX" id="6GS-MA-Lef"/>
                             <constraint firstItem="ykc-vW-M9l" firstAttribute="leading" secondItem="Jc5-Dg-qUj" secondAttribute="leadingMargin" constant="10" id="MQB-dP-A37"/>
                             <constraint firstItem="ykc-vW-M9l" firstAttribute="centerY" secondItem="Jc5-Dg-qUj" secondAttribute="centerY" id="RQs-aX-cKe"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ykc-vW-M9l" secondAttribute="trailing" constant="9" id="l9M-J4-oLs"/>
                             <constraint firstItem="Ie9-6Q-i2a" firstAttribute="top" secondItem="ykc-vW-M9l" secondAttribute="bottom" constant="20" id="s7H-Pg-Cwr"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="MQB-dP-A37"/>
+                                <exclude reference="l9M-J4-oLs"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="ykc-vW-M9l" id="vPe-T1-011"/>
@@ -694,8 +702,8 @@ Users can change the difficulty of the game by setting a maximum word length on 
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="0R7-eg-cP3"/>
         <segue reference="kSS-fO-J7e"/>
         <segue reference="fkx-dh-k1U"/>
+        <segue reference="Hvj-d0-5eu"/>
     </inferredMetricsTieBreakers>
 </document>

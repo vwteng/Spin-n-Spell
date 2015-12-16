@@ -27,11 +27,6 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     private var correctSound: SystemSoundID = 0
     private var incorrectSound: SystemSoundID = 0
     
-    /*
-    private var numCorrect: Int = 0
-    private var numCorrectConsecutive: Int = 0
-*/
-    
     var topic : NSDictionary = NSDictionary()
     var topics = [NSDictionary]()
     
@@ -263,10 +258,7 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             if speltWord == currentWord {
                 numCorrect++
                 numCorrectConsecutive++
-                
-                print("\(numCorrect)")
-                print("\(numCorrectConsecutive)")
-                
+
                 alertTitle = "Nice Job!"
                 alertMsg = "You spelled the word right!"
                 alertDismiss = "Next Word"
@@ -288,10 +280,10 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                         self.presentViewController(showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss), animated: true, completion: nil)
                     } else if showSecondAlertCorrect {
                         alertTitle = "New Badge!"
-                        alertMsg = "You spelled \(numCorrect) words correct"
+                        alertMsg = "⭐️ You spelled \(numCorrect) words correct"
                     } else if showSecondAlertConsecutive {
                         alertTitle = "New Badge!"
-                        alertMsg = "You spelled \(numCorrectConsecutive) words correct in a row"
+                        alertMsg = "⭐️ You spelled \(numCorrectConsecutive) words correct in a row"
                     }
                     if badges.contains(alertMsg) || (!showSecondAlertCorrect && !showSecondAlertConsecutive) {
                         alertTitle = "Nice Job!"
@@ -307,10 +299,10 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                 } else {
                     if showSecondAlertCorrect {
                         alertTitle = "New Badge!"
-                        alertMsg = "You spelled \(numCorrect) words correct"
+                        alertMsg = "⭐️ You spelled \(numCorrect) words correct"
                     } else if showSecondAlertConsecutive {
                         alertTitle = "New Badge!"
-                        alertMsg = "You spelled \(numCorrectConsecutive) words correct in a row"
+                        alertMsg = "⭐️ You spelled \(numCorrectConsecutive) words correct in a row"
                     }
                     
                     if !badges.contains(alertMsg) && (showSecondAlertCorrect || showSecondAlertConsecutive) {
@@ -344,16 +336,9 @@ class PlayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             return alert
         }
         
-        // Display an alert with a star when a badge is earned
+        // Display an alert when a badge is earned
         func showBadgeAlert(alertTitle: String, alertMsg: String, alertDismiss: String) -> UIAlertController {
             let alert = showAlert(alertTitle, alertMsg: alertMsg, alertDismiss: alertDismiss)
-            
-            let image = UIImage(named: "star")
-            let imageView = UIImageView(frame: CGRectMake(220, 10, 40, 40))
-            imageView.image = image
-            
-            alert.view.addSubview(imageView)
-            
             return alert
         }
         

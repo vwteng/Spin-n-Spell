@@ -49,7 +49,6 @@ class BadgesViewController: UIViewController, UITableViewDataSource, UITableView
     
     override func viewDidAppear(animated: Bool) {
         self.delegate?.updateData(self.topics)
-        print("\(badges)")
     }
 
     override func didReceiveMemoryWarning() {
@@ -69,10 +68,6 @@ class BadgesViewController: UIViewController, UITableViewDataSource, UITableView
         let cell = tableView.dequeueReusableCellWithIdentifier(cellTableIdentifier, forIndexPath: indexPath) as! BadgeCell
         cell.textLabel?.text = badges[indexPath.row]
         cell.backgroundColor = UIColor.clearColor()
-        /*
-        let image : UIImage = UIImage(named: "star")!
-        cell.imageView!.image = image*/
-        
         return cell
     }
     
